@@ -1,10 +1,10 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
-// Copyright (c) 2009-2020 The Bitcoin Core developers
+// Copyright (c) 2009-2019 The TrustNetworkGlobalCoin Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BITCOIN_SCRIPT_INTERPRETER_H
-#define BITCOIN_SCRIPT_INTERPRETER_H
+#ifndef TRUSTNETWORKGLOBALCOIN_SCRIPT_INTERPRETER_H
+#define TRUSTNETWORKGLOBALCOIN_SCRIPT_INTERPRETER_H
 
 #include <script/script_error.h>
 #include <span.h>
@@ -146,7 +146,7 @@ bool CheckSignatureEncoding(const std::vector<unsigned char> &vchSig, unsigned i
 struct PrecomputedTransactionData
 {
     // BIP341 precomputed data.
-    // These are single-SHA256, see https://github.com/bitcoin/bips/blob/master/bip-0341.mediawiki#cite_note-15.
+    // These are single-SHA256, see https://github.com/trustnetworkglobalcoin/bips/blob/master/bip-0341.mediawiki#cite_note-15.
     uint256 m_prevouts_single_hash;
     uint256 m_sequences_single_hash;
     uint256 m_outputs_single_hash;
@@ -247,21 +247,11 @@ public:
     virtual ~BaseSignatureChecker() {}
 };
 
-/** Enum to specify what *TransactionSignatureChecker's behavior should be
- *  when dealing with missing transaction data.
- */
-enum class MissingDataBehavior
-{
-    ASSERT_FAIL,  //!< Abort execution through assertion failure (for consensus code)
-    FAIL,         //!< Just act as if the signature was invalid
-};
-
 template <class T>
 class GenericTransactionSignatureChecker : public BaseSignatureChecker
 {
 private:
     const T* txTo;
-    const MissingDataBehavior m_mdb;
     unsigned int nIn;
     const CAmount amount;
     const PrecomputedTransactionData* txdata;
@@ -271,8 +261,8 @@ protected:
     virtual bool VerifySchnorrSignature(Span<const unsigned char> sig, const XOnlyPubKey& pubkey, const uint256& sighash) const;
 
 public:
-    GenericTransactionSignatureChecker(const T* txToIn, unsigned int nInIn, const CAmount& amountIn, MissingDataBehavior mdb) : txTo(txToIn), m_mdb(mdb), nIn(nInIn), amount(amountIn), txdata(nullptr) {}
-    GenericTransactionSignatureChecker(const T* txToIn, unsigned int nInIn, const CAmount& amountIn, const PrecomputedTransactionData& txdataIn, MissingDataBehavior mdb) : txTo(txToIn), m_mdb(mdb), nIn(nInIn), amount(amountIn), txdata(&txdataIn) {}
+    GenericTransactionSignatureChecker(const T* txToIn, unsigned int nInIn, const CAmount& amountIn) : txTo(txToIn), nIn(nInIn), amount(amountIn), txdata(nullptr) {}
+    GenericTransactionSignatureChecker(const T* txToIn, unsigned int nInIn, const CAmount& amountIn, const PrecomputedTransactionData& txdataIn) : txTo(txToIn), nIn(nInIn), amount(amountIn), txdata(&txdataIn) {}
     bool CheckECDSASignature(const std::vector<unsigned char>& scriptSig, const std::vector<unsigned char>& vchPubKey, const CScript& scriptCode, SigVersion sigversion) const override;
     bool CheckSchnorrSignature(Span<const unsigned char> sig, Span<const unsigned char> pubkey, SigVersion sigversion, const ScriptExecutionData& execdata, ScriptError* serror = nullptr) const override;
     bool CheckLockTime(const CScriptNum& nLockTime) const override;
@@ -316,8 +306,6 @@ bool VerifyScript(const CScript& scriptSig, const CScript& scriptPubKey, const C
 
 size_t CountWitnessSigOps(const CScript& scriptSig, const CScript& scriptPubKey, const CScriptWitness* witness, unsigned int flags);
 
-bool CheckMinimalPush(const std::vector<unsigned char>& data, opcodetype opcode);
-
 int FindAndDelete(CScript& script, const CScript& b);
 
-#endif // BITCOIN_SCRIPT_INTERPRETER_H
+#endif // TRUSTNETWORKGLOBALCOIN_SCRIPT_INTERPRETER_H
