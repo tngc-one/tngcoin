@@ -1,11 +1,11 @@
-// Copyright (c) 2011-2020 The Bitcoin Core developers
+// Copyright (c) 2011-2019 The TrustNetworkGlobalCoin Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #include <qt/overviewpage.h>
 #include <qt/forms/ui_overviewpage.h>
 
-#include <qt/bitcoinunits.h>
+#include <qt/trustnetworkglobalcoinunits.h>
 #include <qt/clientmodel.h>
 #include <qt/guiconstants.h>
 #include <qt/guiutil.h>
@@ -18,7 +18,6 @@
 
 #include <QAbstractItemDelegate>
 #include <QApplication>
-#include <QDateTime>
 #include <QPainter>
 #include <QStatusTipEvent>
 
@@ -35,7 +34,7 @@ class TxViewDelegate : public QAbstractItemDelegate
     Q_OBJECT
 public:
     explicit TxViewDelegate(const PlatformStyle *_platformStyle, QObject *parent=nullptr):
-        QAbstractItemDelegate(parent), unit(BitcoinUnits::BTC),
+        QAbstractItemDelegate(parent), unit(TrustNetworkGlobalCoinUnits::TNGC),
         platformStyle(_platformStyle)
     {
         connect(this, &TxViewDelegate::width_changed, this, &TxViewDelegate::sizeHintChanged);
@@ -95,7 +94,7 @@ public:
             foreground = option.palette.color(QPalette::Text);
         }
         painter->setPen(foreground);
-        QString amountText = BitcoinUnits::formatWithUnit(unit, amount, true, BitcoinUnits::SeparatorStyle::ALWAYS);
+        QString amountText = TrustNetworkGlobalCoinUnits::formatWithUnit(unit, amount, true, TrustNetworkGlobalCoinUnits::SeparatorStyle::ALWAYS);
         if(!confirmed)
         {
             amountText = QString("[") + amountText + QString("]");
@@ -151,6 +150,7 @@ OverviewPage::OverviewPage(const PlatformStyle *platformStyle, QWidget *parent) 
 
     // use a SingleColorIcon for the "out of sync warning" icon
     QIcon icon = platformStyle->SingleColorIcon(":/icons/warning");
+    icon.addPixmap(icon.pixmap(QSize(64,64), QIcon::Normal), QIcon::Disabled); // also set the disabled icon because we are using a disabled QPushButton to work around missing HiDPI support of QLabel (https://bugreports.qt.io/browse/QTBUG-42503)
     ui->labelTransactionsStatus->setIcon(icon);
     ui->labelWalletStatus->setIcon(icon);
 
@@ -205,25 +205,25 @@ void OverviewPage::setBalance(const interfaces::WalletBalances& balances)
     m_balances = balances;
     if (walletModel->wallet().isLegacy()) {
         if (walletModel->wallet().privateKeysDisabled()) {
-            ui->labelBalance->setText(BitcoinUnits::formatWithPrivacy(unit, balances.watch_only_balance, BitcoinUnits::SeparatorStyle::ALWAYS, m_privacy));
-            ui->labelUnconfirmed->setText(BitcoinUnits::formatWithPrivacy(unit, balances.unconfirmed_watch_only_balance, BitcoinUnits::SeparatorStyle::ALWAYS, m_privacy));
-            ui->labelImmature->setText(BitcoinUnits::formatWithPrivacy(unit, balances.immature_watch_only_balance, BitcoinUnits::SeparatorStyle::ALWAYS, m_privacy));
-            ui->labelTotal->setText(BitcoinUnits::formatWithPrivacy(unit, balances.watch_only_balance + balances.unconfirmed_watch_only_balance + balances.immature_watch_only_balance, BitcoinUnits::SeparatorStyle::ALWAYS, m_privacy));
+            ui->labelBalance->setText(TrustNetworkGlobalCoinUnits::formatWithPrivacy(unit, balances.watch_only_balance, TrustNetworkGlobalCoinUnits::SeparatorStyle::ALWAYS, m_privacy));
+            ui->labelUnconfirmed->setText(TrustNetworkGlobalCoinUnits::formatWithPrivacy(unit, balances.unconfirmed_watch_only_balance, TrustNetworkGlobalCoinUnits::SeparatorStyle::ALWAYS, m_privacy));
+            ui->labelImmature->setText(TrustNetworkGlobalCoinUnits::formatWithPrivacy(unit, balances.immature_watch_only_balance, TrustNetworkGlobalCoinUnits::SeparatorStyle::ALWAYS, m_privacy));
+            ui->labelTotal->setText(TrustNetworkGlobalCoinUnits::formatWithPrivacy(unit, balances.watch_only_balance + balances.unconfirmed_watch_only_balance + balances.immature_watch_only_balance, TrustNetworkGlobalCoinUnits::SeparatorStyle::ALWAYS, m_privacy));
         } else {
-            ui->labelBalance->setText(BitcoinUnits::formatWithPrivacy(unit, balances.balance, BitcoinUnits::SeparatorStyle::ALWAYS, m_privacy));
-            ui->labelUnconfirmed->setText(BitcoinUnits::formatWithPrivacy(unit, balances.unconfirmed_balance, BitcoinUnits::SeparatorStyle::ALWAYS, m_privacy));
-            ui->labelImmature->setText(BitcoinUnits::formatWithPrivacy(unit, balances.immature_balance, BitcoinUnits::SeparatorStyle::ALWAYS, m_privacy));
-            ui->labelTotal->setText(BitcoinUnits::formatWithPrivacy(unit, balances.balance + balances.unconfirmed_balance + balances.immature_balance, BitcoinUnits::SeparatorStyle::ALWAYS, m_privacy));
-            ui->labelWatchAvailable->setText(BitcoinUnits::formatWithPrivacy(unit, balances.watch_only_balance, BitcoinUnits::SeparatorStyle::ALWAYS, m_privacy));
-            ui->labelWatchPending->setText(BitcoinUnits::formatWithPrivacy(unit, balances.unconfirmed_watch_only_balance, BitcoinUnits::SeparatorStyle::ALWAYS, m_privacy));
-            ui->labelWatchImmature->setText(BitcoinUnits::formatWithPrivacy(unit, balances.immature_watch_only_balance, BitcoinUnits::SeparatorStyle::ALWAYS, m_privacy));
-            ui->labelWatchTotal->setText(BitcoinUnits::formatWithPrivacy(unit, balances.watch_only_balance + balances.unconfirmed_watch_only_balance + balances.immature_watch_only_balance, BitcoinUnits::SeparatorStyle::ALWAYS, m_privacy));
+            ui->labelBalance->setText(TrustNetworkGlobalCoinUnits::formatWithPrivacy(unit, balances.balance, TrustNetworkGlobalCoinUnits::SeparatorStyle::ALWAYS, m_privacy));
+            ui->labelUnconfirmed->setText(TrustNetworkGlobalCoinUnits::formatWithPrivacy(unit, balances.unconfirmed_balance, TrustNetworkGlobalCoinUnits::SeparatorStyle::ALWAYS, m_privacy));
+            ui->labelImmature->setText(TrustNetworkGlobalCoinUnits::formatWithPrivacy(unit, balances.immature_balance, TrustNetworkGlobalCoinUnits::SeparatorStyle::ALWAYS, m_privacy));
+            ui->labelTotal->setText(TrustNetworkGlobalCoinUnits::formatWithPrivacy(unit, balances.balance + balances.unconfirmed_balance + balances.immature_balance, TrustNetworkGlobalCoinUnits::SeparatorStyle::ALWAYS, m_privacy));
+            ui->labelWatchAvailable->setText(TrustNetworkGlobalCoinUnits::formatWithPrivacy(unit, balances.watch_only_balance, TrustNetworkGlobalCoinUnits::SeparatorStyle::ALWAYS, m_privacy));
+            ui->labelWatchPending->setText(TrustNetworkGlobalCoinUnits::formatWithPrivacy(unit, balances.unconfirmed_watch_only_balance, TrustNetworkGlobalCoinUnits::SeparatorStyle::ALWAYS, m_privacy));
+            ui->labelWatchImmature->setText(TrustNetworkGlobalCoinUnits::formatWithPrivacy(unit, balances.immature_watch_only_balance, TrustNetworkGlobalCoinUnits::SeparatorStyle::ALWAYS, m_privacy));
+            ui->labelWatchTotal->setText(TrustNetworkGlobalCoinUnits::formatWithPrivacy(unit, balances.watch_only_balance + balances.unconfirmed_watch_only_balance + balances.immature_watch_only_balance, TrustNetworkGlobalCoinUnits::SeparatorStyle::ALWAYS, m_privacy));
         }
     } else {
-        ui->labelBalance->setText(BitcoinUnits::formatWithPrivacy(unit, balances.balance, BitcoinUnits::SeparatorStyle::ALWAYS, m_privacy));
-        ui->labelUnconfirmed->setText(BitcoinUnits::formatWithPrivacy(unit, balances.unconfirmed_balance, BitcoinUnits::SeparatorStyle::ALWAYS, m_privacy));
-        ui->labelImmature->setText(BitcoinUnits::formatWithPrivacy(unit, balances.immature_balance, BitcoinUnits::SeparatorStyle::ALWAYS, m_privacy));
-        ui->labelTotal->setText(BitcoinUnits::formatWithPrivacy(unit, balances.balance + balances.unconfirmed_balance + balances.immature_balance, BitcoinUnits::SeparatorStyle::ALWAYS, m_privacy));
+        ui->labelBalance->setText(TrustNetworkGlobalCoinUnits::formatWithPrivacy(unit, balances.balance, TrustNetworkGlobalCoinUnits::SeparatorStyle::ALWAYS, m_privacy));
+        ui->labelUnconfirmed->setText(TrustNetworkGlobalCoinUnits::formatWithPrivacy(unit, balances.unconfirmed_balance, TrustNetworkGlobalCoinUnits::SeparatorStyle::ALWAYS, m_privacy));
+        ui->labelImmature->setText(TrustNetworkGlobalCoinUnits::formatWithPrivacy(unit, balances.immature_balance, TrustNetworkGlobalCoinUnits::SeparatorStyle::ALWAYS, m_privacy));
+        ui->labelTotal->setText(TrustNetworkGlobalCoinUnits::formatWithPrivacy(unit, balances.balance + balances.unconfirmed_balance + balances.immature_balance, TrustNetworkGlobalCoinUnits::SeparatorStyle::ALWAYS, m_privacy));
     }
     // only show immature (newly mined) balance if it's non-zero, so as not to complicate things
     // for the non-mining users
@@ -257,9 +257,6 @@ void OverviewPage::setClientModel(ClientModel *model)
         // Show warning, for example if this is a prerelease version
         connect(model, &ClientModel::alertsChanged, this, &OverviewPage::updateAlerts);
         updateAlerts(model->getStatusBarWarnings());
-
-        connect(model->getOptionsModel(), &OptionsModel::useEmbeddedMonospacedFontChanged, this, &OverviewPage::setMonospacedFont);
-        setMonospacedFont(model->getOptionsModel()->getUseEmbeddedMonospacedFont());
     }
 }
 
@@ -294,7 +291,7 @@ void OverviewPage::setWalletModel(WalletModel *model)
         });
     }
 
-    // update the display unit, to not use the default ("BTC")
+    // update the display unit, to not use the default ("TNGC")
     updateDisplayUnit();
 }
 
@@ -323,18 +320,4 @@ void OverviewPage::showOutOfSyncWarning(bool fShow)
 {
     ui->labelWalletStatus->setVisible(fShow);
     ui->labelTransactionsStatus->setVisible(fShow);
-}
-
-void OverviewPage::setMonospacedFont(bool use_embedded_font)
-{
-    QFont f = GUIUtil::fixedPitchFont(use_embedded_font);
-    f.setWeight(QFont::Bold);
-    ui->labelBalance->setFont(f);
-    ui->labelUnconfirmed->setFont(f);
-    ui->labelImmature->setFont(f);
-    ui->labelTotal->setFont(f);
-    ui->labelWatchAvailable->setFont(f);
-    ui->labelWatchPending->setFont(f);
-    ui->labelWatchImmature->setFont(f);
-    ui->labelWatchTotal->setFont(f);
 }

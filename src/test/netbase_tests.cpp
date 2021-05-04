@@ -1,9 +1,8 @@
-// Copyright (c) 2012-2020 The Bitcoin Core developers
+// Copyright (c) 2012-2020 The TrustNetworkGlobalCoin Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #include <net_permissions.h>
-#include <netaddress.h>
 #include <netbase.h>
 #include <protocol.h>
 #include <serialize.h>
@@ -16,8 +15,6 @@
 #include <string>
 
 #include <boost/test/unit_test.hpp>
-
-using namespace std::literals;
 
 BOOST_FIXTURE_TEST_SUITE(netbase_tests, BasicTestingSetup)
 
@@ -84,31 +81,31 @@ BOOST_AUTO_TEST_CASE(netbase_properties)
 
 }
 
-bool static TestSplitHost(const std::string& test, const std::string& host, uint16_t port)
+bool static TestSplitHost(std::string test, std::string host, int port)
 {
     std::string hostOut;
-    uint16_t portOut{0};
+    int portOut = -1;
     SplitHostPort(test, portOut, hostOut);
     return hostOut == host && port == portOut;
 }
 
 BOOST_AUTO_TEST_CASE(netbase_splithost)
 {
-    BOOST_CHECK(TestSplitHost("www.bitcoincore.org", "www.bitcoincore.org", 0));
-    BOOST_CHECK(TestSplitHost("[www.bitcoincore.org]", "www.bitcoincore.org", 0));
-    BOOST_CHECK(TestSplitHost("www.bitcoincore.org:80", "www.bitcoincore.org", 80));
-    BOOST_CHECK(TestSplitHost("[www.bitcoincore.org]:80", "www.bitcoincore.org", 80));
-    BOOST_CHECK(TestSplitHost("127.0.0.1", "127.0.0.1", 0));
+    BOOST_CHECK(TestSplitHost("www.trustnetworkglobalcoincore.org", "www.trustnetworkglobalcoincore.org", -1));
+    BOOST_CHECK(TestSplitHost("[www.trustnetworkglobalcoincore.org]", "www.trustnetworkglobalcoincore.org", -1));
+    BOOST_CHECK(TestSplitHost("www.trustnetworkglobalcoincore.org:80", "www.trustnetworkglobalcoincore.org", 80));
+    BOOST_CHECK(TestSplitHost("[www.trustnetworkglobalcoincore.org]:80", "www.trustnetworkglobalcoincore.org", 80));
+    BOOST_CHECK(TestSplitHost("127.0.0.1", "127.0.0.1", -1));
     BOOST_CHECK(TestSplitHost("127.0.0.1:8333", "127.0.0.1", 8333));
-    BOOST_CHECK(TestSplitHost("[127.0.0.1]", "127.0.0.1", 0));
+    BOOST_CHECK(TestSplitHost("[127.0.0.1]", "127.0.0.1", -1));
     BOOST_CHECK(TestSplitHost("[127.0.0.1]:8333", "127.0.0.1", 8333));
-    BOOST_CHECK(TestSplitHost("::ffff:127.0.0.1", "::ffff:127.0.0.1", 0));
+    BOOST_CHECK(TestSplitHost("::ffff:127.0.0.1", "::ffff:127.0.0.1", -1));
     BOOST_CHECK(TestSplitHost("[::ffff:127.0.0.1]:8333", "::ffff:127.0.0.1", 8333));
     BOOST_CHECK(TestSplitHost("[::]:8333", "::", 8333));
-    BOOST_CHECK(TestSplitHost("::8333", "::8333", 0));
+    BOOST_CHECK(TestSplitHost("::8333", "::8333", -1));
     BOOST_CHECK(TestSplitHost(":8333", "", 8333));
     BOOST_CHECK(TestSplitHost("[]:8333", "", 8333));
-    BOOST_CHECK(TestSplitHost("", "", 0));
+    BOOST_CHECK(TestSplitHost("", "", -1));
 }
 
 bool static TestParse(std::string src, std::string canon)
@@ -448,19 +445,19 @@ BOOST_AUTO_TEST_CASE(netpermissions_test)
 BOOST_AUTO_TEST_CASE(netbase_dont_resolve_strings_with_embedded_nul_characters)
 {
     CNetAddr addr;
-    BOOST_CHECK(LookupHost("127.0.0.1"s, addr, false));
-    BOOST_CHECK(!LookupHost("127.0.0.1\0"s, addr, false));
-    BOOST_CHECK(!LookupHost("127.0.0.1\0example.com"s, addr, false));
-    BOOST_CHECK(!LookupHost("127.0.0.1\0example.com\0"s, addr, false));
+    BOOST_CHECK(LookupHost(std::string("127.0.0.1", 9), addr, false));
+    BOOST_CHECK(!LookupHost(std::string("127.0.0.1\0", 10), addr, false));
+    BOOST_CHECK(!LookupHost(std::string("127.0.0.1\0example.com", 21), addr, false));
+    BOOST_CHECK(!LookupHost(std::string("127.0.0.1\0example.com\0", 22), addr, false));
     CSubNet ret;
-    BOOST_CHECK(LookupSubNet("1.2.3.0/24"s, ret));
-    BOOST_CHECK(!LookupSubNet("1.2.3.0/24\0"s, ret));
-    BOOST_CHECK(!LookupSubNet("1.2.3.0/24\0example.com"s, ret));
-    BOOST_CHECK(!LookupSubNet("1.2.3.0/24\0example.com\0"s, ret));
-    BOOST_CHECK(LookupSubNet("5wyqrzbvrdsumnok.onion"s, ret));
-    BOOST_CHECK(!LookupSubNet("5wyqrzbvrdsumnok.onion\0"s, ret));
-    BOOST_CHECK(!LookupSubNet("5wyqrzbvrdsumnok.onion\0example.com"s, ret));
-    BOOST_CHECK(!LookupSubNet("5wyqrzbvrdsumnok.onion\0example.com\0"s, ret));
+    BOOST_CHECK(LookupSubNet(std::string("1.2.3.0/24", 10), ret));
+    BOOST_CHECK(!LookupSubNet(std::string("1.2.3.0/24\0", 11), ret));
+    BOOST_CHECK(!LookupSubNet(std::string("1.2.3.0/24\0example.com", 22), ret));
+    BOOST_CHECK(!LookupSubNet(std::string("1.2.3.0/24\0example.com\0", 23), ret));
+    BOOST_CHECK(LookupSubNet(std::string("5wyqrzbvrdsumnok.onion", 22), ret));
+    BOOST_CHECK(!LookupSubNet(std::string("5wyqrzbvrdsumnok.onion\0", 23), ret));
+    BOOST_CHECK(!LookupSubNet(std::string("5wyqrzbvrdsumnok.onion\0example.com", 34), ret));
+    BOOST_CHECK(!LookupSubNet(std::string("5wyqrzbvrdsumnok.onion\0example.com\0", 35), ret));
 }
 
 // Since CNetAddr (un)ser is tested separately in net_tests.cpp here we only
