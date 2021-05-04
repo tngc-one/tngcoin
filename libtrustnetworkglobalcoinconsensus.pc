@@ -1,0 +1,10 @@
+prefix=/home/coins/AltcoinGenerator-tngc/trustnetworkglobalcoin/depends/x86_64-pc-linux-gnu
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: TrustNetworkGlobalCoin Core consensus library
+Description: Library for the TrustNetworkGlobalCoin consensus protocol.
+Version: 0.21.1rc1
+Libs: -L${libdir} -ltrustnetworkglobalcoinconsensus
+Cflags: -I${includedir}

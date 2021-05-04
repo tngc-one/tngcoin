@@ -1,0 +1,33 @@
+# /etc/conf.d/trustnetworkglobalcoind: config file for /etc/init.d/trustnetworkglobalcoind
+
+# Config file location
+#TRUSTNETWORKGLOBALCOIND_CONFIGFILE="/etc/trustnetworkglobalcoin/trustnetworkglobalcoin.conf"
+
+# What directory to write pidfile to?  (created and owned by $TRUSTNETWORKGLOBALCOIND_USER)
+#TRUSTNETWORKGLOBALCOIND_PIDDIR="/var/run/trustnetworkglobalcoind"
+
+# What filename to give the pidfile
+#TRUSTNETWORKGLOBALCOIND_PIDFILE="${TRUSTNETWORKGLOBALCOIND_PIDDIR}/trustnetworkglobalcoind.pid"
+
+# Where to write trustnetworkglobalcoind data (be mindful that the blockchain is large)
+#TRUSTNETWORKGLOBALCOIND_DATADIR="/var/lib/trustnetworkglobalcoind"
+
+# User and group to own trustnetworkglobalcoind process
+#TRUSTNETWORKGLOBALCOIND_USER="trustnetworkglobalcoin"
+#TRUSTNETWORKGLOBALCOIND_GROUP="trustnetworkglobalcoin"
+
+# Path to trustnetworkglobalcoind executable
+#TRUSTNETWORKGLOBALCOIND_BIN="/usr/bin/trustnetworkglobalcoind"
+
+# Nice value to run trustnetworkglobalcoind under
+#TRUSTNETWORKGLOBALCOIND_NICE=0
+
+# Additional options (avoid -conf and -datadir, use flags above)
+#TRUSTNETWORKGLOBALCOIND_OPTS=""
+
+# The timeout in seconds OpenRC will wait for trustnetworkglobalcoind to terminate
+# after a SIGTERM has been raised.
+# Note that this will be mapped as argument to start-stop-daemon's
+# '--retry' option, which means you can specify a retry schedule
+# here. For more information see man 8 start-stop-daemon.
+TRUSTNETWORKGLOBALCOIND_SIGTERM_TIMEOUT=600
