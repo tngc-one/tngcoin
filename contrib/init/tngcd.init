@@ -1,0 +1,67 @@
+#!/usr/bin/env bash
+#
+#  tngcd The tngc core server.
+#
+#
+# chkconfig: 345 80 20
+# description: tngcd
+# processname: tngcd
+#
+
+# Source function library.
+. /etc/init.d/functions
+
+# you can override defaults in /etc/sysconfig/tngcd, see below
+if [ -f /etc/sysconfig/tngcd ]; then
+        . /etc/sysconfig/tngcd
+fi
+
+RETVAL=0
+
+prog=tngcd
+# you can override the lockfile via TNGCD_LOCKFILE in /etc/sysconfig/tngcd
+lockfile=${TNGCD_LOCKFILE-/var/lock/subsys/tngcd}
+
+# tngcd defaults to /usr/bin/tngcd, override with TNGCD_BIN
+tngcd=${TNGCD_BIN-/usr/bin/tngcd}
+
+# tngcd opts default to -disablewallet, override with TNGCD_OPTS
+tngcd_opts=${TNGCD_OPTS--disablewallet}
+
+start() {
+    echo -n $"Starting $prog: "
+    daemon $DAEMONOPTS $tngcd $tngcd_opts
+    RETVAL=$?
+    echo
+    [ $RETVAL -eq 0 ] && touch $lockfile
+    return $RETVAL
+}
+
+stop() {
+    echo -n $"Stopping $prog: "
+    killproc $prog -t600
+    RETVAL=$?
+    echo
+    [ $RETVAL -eq 0 ] && rm -f $lockfile
+    return $RETVAL
+}
+
+case "$1" in
+    start)
+        start
+        ;;
+    stop)
+        stop
+        ;;
+    status)
+        status $prog
+        ;;
+    restart)
+        stop
+        start
+        ;;
+    *)
+        echo "Usage: service $prog {start|stop|status|restart}"
+        exit 1
+        ;;
+esac

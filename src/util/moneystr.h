@@ -1,13 +1,13 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
-// Copyright (c) 2009-2020 The TrustNetworkGlobalCoin Core developers
+// Copyright (c) 2009-2020 The TNGC Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 /**
  * Money parsing/formatting utilities.
  */
-#ifndef TRUSTNETWORKGLOBALCOIN_UTIL_MONEYSTR_H
-#define TRUSTNETWORKGLOBALCOIN_UTIL_MONEYSTR_H
+#ifndef TNGC_UTIL_MONEYSTR_H
+#define TNGC_UTIL_MONEYSTR_H
 
 #include <amount.h>
 #include <attributes.h>
@@ -21,4 +21,4 @@ std::string FormatMoney(const CAmount& n);
 /** Parse an amount denoted in full coins. E.g. "0.0034" supplied on the command line. **/
 NODISCARD bool ParseMoney(const std::string& str, CAmount& nRet);
 
-#endif // TRUSTNETWORKGLOBALCOIN_UTIL_MONEYSTR_H
+#endif // TNGC_UTIL_MONEYSTR_H

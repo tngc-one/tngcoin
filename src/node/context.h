@@ -1,9 +1,9 @@
-// Copyright (c) 2019-2020 The TrustNetworkGlobalCoin Core developers
+// Copyright (c) 2019-2020 The TNGC Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TRUSTNETWORKGLOBALCOIN_NODE_CONTEXT_H
-#define TRUSTNETWORKGLOBALCOIN_NODE_CONTEXT_H
+#ifndef TNGC_NODE_CONTEXT_H
+#define TNGC_NODE_CONTEXT_H
 
 #include <cassert>
 #include <functional>
@@ -56,4 +56,4 @@ struct NodeContext {
     ~NodeContext();
 };
 
-#endif // TRUSTNETWORKGLOBALCOIN_NODE_CONTEXT_H
+#endif // TNGC_NODE_CONTEXT_H

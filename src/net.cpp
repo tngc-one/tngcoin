@@ -1,10 +1,10 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
-// Copyright (c) 2009-2020 The TrustNetworkGlobalCoin Core developers
+// Copyright (c) 2009-2020 The TNGC Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #if defined(HAVE_CONFIG_H)
-#include <config/trustnetworkglobalcoin-config.h>
+#include <config/tngc-config.h>
 #endif
 
 #include <net.h>
@@ -620,7 +620,7 @@ void CNode::copyStats(CNodeStats &stats, const std::vector<bool> &m_asmap)
         ping_wait = GetTime<std::chrono::microseconds>() - m_ping_start.load();
     }
 
-    // Raw ping time is in microseconds, but show it to user as whole seconds (TrustNetworkGlobalCoin users should be well used to small numbers with many decimal places by now :)
+    // Raw ping time is in microseconds, but show it to user as whole seconds (TNGC users should be well used to small numbers with many decimal places by now :)
     stats.m_ping_usec = nPingUsecTime;
     stats.m_min_ping_usec  = nMinPingUsecTime;
     stats.m_ping_wait_usec = count_microseconds(ping_wait);

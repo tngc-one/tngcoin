@@ -1,9 +1,9 @@
-// Copyright (c) 2012-2018 The TrustNetworkGlobalCoin Core developers
+// Copyright (c) 2012-2018 The TNGC Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TRUSTNETWORKGLOBALCOIN_VERSION_H
-#define TRUSTNETWORKGLOBALCOIN_VERSION_H
+#ifndef TNGC_VERSION_H
+#define TNGC_VERSION_H
 
 /**
  * network protocol versioning
@@ -41,4 +41,4 @@ static const int WTXID_RELAY_VERSION = 70016;
 // Make sure that none of the values above collide with
 // `SERIALIZE_TRANSACTION_NO_WITNESS` or `ADDRV2_FORMAT`.
 
-#endif // TRUSTNETWORKGLOBALCOIN_VERSION_H
+#endif // TNGC_VERSION_H

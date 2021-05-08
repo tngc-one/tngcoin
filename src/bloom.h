@@ -1,9 +1,9 @@
-// Copyright (c) 2012-2019 The TrustNetworkGlobalCoin Core developers
+// Copyright (c) 2012-2019 The TNGC Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TRUSTNETWORKGLOBALCOIN_BLOOM_H
-#define TRUSTNETWORKGLOBALCOIN_BLOOM_H
+#ifndef TNGC_BLOOM_H
+#define TNGC_BLOOM_H
 
 #include <serialize.h>
 
@@ -117,4 +117,4 @@ private:
     int nHashFuncs;
 };
 
-#endif // TRUSTNETWORKGLOBALCOIN_BLOOM_H
+#endif // TNGC_BLOOM_H

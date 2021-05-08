@@ -1,9 +1,9 @@
-// Copyright (c) 2019 The TrustNetworkGlobalCoin Core developers
+// Copyright (c) 2019 The TNGC Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TRUSTNETWORKGLOBALCOIN_NET_TYPES_H
-#define TRUSTNETWORKGLOBALCOIN_NET_TYPES_H
+#ifndef TNGC_NET_TYPES_H
+#define TNGC_NET_TYPES_H
 
 #include <map>
 
@@ -12,4 +12,4 @@ class CSubNet;
 
 using banmap_t = std::map<CSubNet, CBanEntry>;
 
-#endif // TRUSTNETWORKGLOBALCOIN_NET_TYPES_H
+#endif // TNGC_NET_TYPES_H

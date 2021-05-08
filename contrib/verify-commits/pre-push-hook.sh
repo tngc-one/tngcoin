@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
-# Copyright (c) 2014-2020 The TrustNetworkGlobalCoin Core developers
+# Copyright (c) 2014-2020 The TNGC Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 export LC_ALL=C
-if ! [[ "$2" =~ ^(git@)?(www.)?github.com(:|/)trustnetworkglobalcoin/trustnetworkglobalcoin(.git)?$ ]]; then
+if ! [[ "$2" =~ ^(git@)?(www.)?github.com(:|/)tngc/tngc(.git)?$ ]]; then
     exit 0
 fi
 

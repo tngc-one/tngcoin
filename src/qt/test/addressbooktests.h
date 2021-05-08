@@ -1,9 +1,9 @@
-// Copyright (c) 2018-2019 The TrustNetworkGlobalCoin Core developers
+// Copyright (c) 2018-2019 The TNGC Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TRUSTNETWORKGLOBALCOIN_QT_TEST_ADDRESSBOOKTESTS_H
-#define TRUSTNETWORKGLOBALCOIN_QT_TEST_ADDRESSBOOKTESTS_H
+#ifndef TNGC_QT_TEST_ADDRESSBOOKTESTS_H
+#define TNGC_QT_TEST_ADDRESSBOOKTESTS_H
 
 #include <QObject>
 #include <QTest>
@@ -24,4 +24,4 @@ private Q_SLOTS:
     void addressBookTests();
 };
 
-#endif // TRUSTNETWORKGLOBALCOIN_QT_TEST_ADDRESSBOOKTESTS_H
+#endif // TNGC_QT_TEST_ADDRESSBOOKTESTS_H

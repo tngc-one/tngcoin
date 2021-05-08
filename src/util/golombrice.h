@@ -1,9 +1,9 @@
-// Copyright (c) 2018-2019 The TrustNetworkGlobalCoin Core developers
+// Copyright (c) 2018-2019 The TNGC Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TRUSTNETWORKGLOBALCOIN_UTIL_GOLOMBRICE_H
-#define TRUSTNETWORKGLOBALCOIN_UTIL_GOLOMBRICE_H
+#ifndef TNGC_UTIL_GOLOMBRICE_H
+#define TNGC_UTIL_GOLOMBRICE_H
 
 #include <streams.h>
 
@@ -40,4 +40,4 @@ uint64_t GolombRiceDecode(BitStreamReader<IStream>& bitreader, uint8_t P)
     return (q << P) + r;
 }
 
-#endif // TRUSTNETWORKGLOBALCOIN_UTIL_GOLOMBRICE_H
+#endif // TNGC_UTIL_GOLOMBRICE_H

@@ -1,0 +1,33 @@
+# /etc/conf.d/tngcd: config file for /etc/init.d/tngcd
+
+# Config file location
+#TNGCD_CONFIGFILE="/etc/tngc/tngc.conf"
+
+# What directory to write pidfile to?  (created and owned by $TNGCD_USER)
+#TNGCD_PIDDIR="/var/run/tngcd"
+
+# What filename to give the pidfile
+#TNGCD_PIDFILE="${TNGCD_PIDDIR}/tngcd.pid"
+
+# Where to write tngcd data (be mindful that the blockchain is large)
+#TNGCD_DATADIR="/var/lib/tngcd"
+
+# User and group to own tngcd process
+#TNGCD_USER="tngc"
+#TNGCD_GROUP="tngc"
+
+# Path to tngcd executable
+#TNGCD_BIN="/usr/bin/tngcd"
+
+# Nice value to run tngcd under
+#TNGCD_NICE=0
+
+# Additional options (avoid -conf and -datadir, use flags above)
+#TNGCD_OPTS=""
+
+# The timeout in seconds OpenRC will wait for tngcd to terminate
+# after a SIGTERM has been raised.
+# Note that this will be mapped as argument to start-stop-daemon's
+# '--retry' option, which means you can specify a retry schedule
+# here. For more information see man 8 start-stop-daemon.
+TNGCD_SIGTERM_TIMEOUT=600

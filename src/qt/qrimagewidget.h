@@ -1,9 +1,9 @@
-// Copyright (c) 2011-2019 The TrustNetworkGlobalCoin Core developers
+// Copyright (c) 2011-2019 The TNGC Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TRUSTNETWORKGLOBALCOIN_QT_QRIMAGEWIDGET_H
-#define TRUSTNETWORKGLOBALCOIN_QT_QRIMAGEWIDGET_H
+#ifndef TNGC_QT_QRIMAGEWIDGET_H
+#define TNGC_QT_QRIMAGEWIDGET_H
 
 #include <QImage>
 #include <QLabel>
@@ -44,4 +44,4 @@ private:
     QMenu *contextMenu;
 };
 
-#endif // TRUSTNETWORKGLOBALCOIN_QT_QRIMAGEWIDGET_H
+#endif // TNGC_QT_QRIMAGEWIDGET_H

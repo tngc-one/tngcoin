@@ -1,10 +1,10 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
-// Copyright (c) 2009-2018 The TrustNetworkGlobalCoin Core developers
+// Copyright (c) 2009-2018 The TNGC Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TRUSTNETWORKGLOBALCOIN_ATTRIBUTES_H
-#define TRUSTNETWORKGLOBALCOIN_ATTRIBUTES_H
+#ifndef TNGC_ATTRIBUTES_H
+#define TNGC_ATTRIBUTES_H
 
 #if defined(__has_cpp_attribute)
 #  if __has_cpp_attribute(nodiscard)
@@ -19,4 +19,4 @@
 #  endif
 #endif
 
-#endif // TRUSTNETWORKGLOBALCOIN_ATTRIBUTES_H
+#endif // TNGC_ATTRIBUTES_H

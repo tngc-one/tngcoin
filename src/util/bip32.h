@@ -1,9 +1,9 @@
-// Copyright (c) 2019-2020 The TrustNetworkGlobalCoin Core developers
+// Copyright (c) 2019-2020 The TNGC Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TRUSTNETWORKGLOBALCOIN_UTIL_BIP32_H
-#define TRUSTNETWORKGLOBALCOIN_UTIL_BIP32_H
+#ifndef TNGC_UTIL_BIP32_H
+#define TNGC_UTIL_BIP32_H
 
 #include <attributes.h>
 #include <string>
@@ -16,4 +16,4 @@ NODISCARD bool ParseHDKeypath(const std::string& keypath_str, std::vector<uint32
 std::string WriteHDKeypath(const std::vector<uint32_t>& keypath);
 std::string FormatHDKeypath(const std::vector<uint32_t>& path);
 
-#endif // TRUSTNETWORKGLOBALCOIN_UTIL_BIP32_H
+#endif // TNGC_UTIL_BIP32_H

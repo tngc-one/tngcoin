@@ -5,8 +5,8 @@ Release Process
 
 ### Before every release candidate
 
-* Update translations (ping wumpus on IRC) see [translation_process.md](https://github.com/trustnetworkglobalcoin/trustnetworkglobalcoin/blob/master/doc/translation_process.md#synchronising-translations).
-* Update manpages, see [gen-manpages.sh](https://github.com/trustnetworkglobalcoin/trustnetworkglobalcoin/blob/master/contrib/devtools/README.md#gen-manpagessh).
+* Update translations (ping wumpus on IRC) see [translation_process.md](https://github.com/tngc/tngc/blob/master/doc/translation_process.md#synchronising-translations).
+* Update manpages, see [gen-manpages.sh](https://github.com/tngc/tngc/blob/master/contrib/devtools/README.md#gen-manpagessh).
 * Update release candidate version in `configure.ac` (`CLIENT_VERSION_RC`).
 
 ### Before every major and minor release
@@ -19,17 +19,17 @@ Release Process
 
 * On both the master branch and the new release branch:
   - update `CLIENT_VERSION_MINOR` in [`configure.ac`](../configure.ac)
-  - update `CLIENT_VERSION_MINOR`, `PACKAGE_VERSION`, and `PACKAGE_STRING` in [`build_msvc/trustnetworkglobalcoin_config.h`](/build_msvc/trustnetworkglobalcoin_config.h)
-* On the new release branch in [`configure.ac`](../configure.ac) and [`build_msvc/trustnetworkglobalcoin_config.h`](/build_msvc/trustnetworkglobalcoin_config.h) (see [this commit](https://github.com/trustnetworkglobalcoin/trustnetworkglobalcoin/commit/742f7dd)):
+  - update `CLIENT_VERSION_MINOR`, `PACKAGE_VERSION`, and `PACKAGE_STRING` in [`build_msvc/tngc_config.h`](/build_msvc/tngc_config.h)
+* On the new release branch in [`configure.ac`](../configure.ac) and [`build_msvc/tngc_config.h`](/build_msvc/tngc_config.h) (see [this commit](https://github.com/tngc/tngc/commit/742f7dd)):
   - set `CLIENT_VERSION_REVISION` to `0`
   - set `CLIENT_VERSION_IS_RELEASE` to `true`
 
 #### Before branch-off
 
-* Update hardcoded [seeds](/contrib/seeds/README.md), see [this pull request](https://github.com/trustnetworkglobalcoin/trustnetworkglobalcoin/pull/7415) for an example.
+* Update hardcoded [seeds](/contrib/seeds/README.md), see [this pull request](https://github.com/tngc/tngc/pull/7415) for an example.
 * Update [`src/chainparams.cpp`](/src/chainparams.cpp) m_assumed_blockchain_size and m_assumed_chain_state_size with the current size plus some overhead (see [this](#how-to-calculate-assumed-blockchain-and-chain-state-size) for information on how to calculate them).
 * Update [`src/chainparams.cpp`](/src/chainparams.cpp) chainTxData with statistics about the transaction count and rate. Use the output of the `getchaintxstats` RPC, see
-  [this pull request](https://github.com/trustnetworkglobalcoin/trustnetworkglobalcoin/pull/20263) for an example. Reviewers can verify the results by running `getchaintxstats <window_block_count> <window_final_block_hash>` with the `window_block_count` and `window_final_block_hash` from your output.
+  [this pull request](https://github.com/tngc/tngc/pull/20263) for an example. Reviewers can verify the results by running `getchaintxstats <window_block_count> <window_final_block_hash>` with the `window_block_count` and `window_final_block_hash` from your output.
 * Update `src/chainparams.cpp` nMinimumChainWork and defaultAssumeValid (and the block height comment) with information from the `getblockheader` (and `getblockhash`) RPCs.
   - The selected value must not be orphaned so it may be useful to set the value two blocks back from the tip.
   - Testnet should be set some tens of thousands back from the tip due to reorgs there.
@@ -44,7 +44,7 @@ Release Process
 #### After branch-off (on the major release branch)
 
 - Update the versions.
-- Create a pinned meta-issue for testing the release candidate (see [this issue](https://github.com/trustnetworkglobalcoin/trustnetworkglobalcoin/issues/17079) for an example) and provide a link to it in the release announcements where useful.
+- Create a pinned meta-issue for testing the release candidate (see [this issue](https://github.com/tngc/tngc/issues/17079) for an example) and provide a link to it in the release announcements where useful.
 
 #### Before final release
 
@@ -61,14 +61,14 @@ If you're using the automated script (found in [contrib/gitian-build.py](/contri
 Check out the source code in the following directory hierarchy.
 
     cd /path/to/your/toplevel/build
-    git clone https://github.com/trustnetworkglobalcoin-core/gitian.sigs.git
-    git clone https://github.com/trustnetworkglobalcoin-core/trustnetworkglobalcoin-detached-sigs.git
+    git clone https://github.com/tngc-core/gitian.sigs.git
+    git clone https://github.com/tngc-core/tngc-detached-sigs.git
     git clone https://github.com/devrandom/gitian-builder.git
-    git clone https://github.com/trustnetworkglobalcoin/trustnetworkglobalcoin.git
+    git clone https://github.com/tngc/tngc.git
 
 ### Write the release notes
 
-Open a draft of the release notes for collaborative editing at https://github.com/trustnetworkglobalcoin-core/trustnetworkglobalcoin-devwiki/wiki.
+Open a draft of the release notes for collaborative editing at https://github.com/tngc-core/tngc-devwiki/wiki.
 
 For the period during which the notes are being edited on the wiki, the version on the branch should be wiped and replaced with a link to the wiki which should be used for all announcements until `-final`.
 
@@ -93,7 +93,7 @@ If you're using the automated script (found in [contrib/gitian-build.py](/contri
 
 Setup Gitian descriptors:
 
-    pushd ./trustnetworkglobalcoin
+    pushd ./tngc
     export SIGNER="(your Gitian key, ie bluematt, sipa, etc)"
     export VERSION=(new version, e.g. 0.20.0)
     git fetch
@@ -126,10 +126,10 @@ Create the macOS SDK tarball, see the [macdeploy instructions](/contrib/macdeplo
 
 NOTE: Gitian is sometimes unable to download files. If you have errors, try the step below.
 
-By default, Gitian will fetch source files as needed. To cache them ahead of time, make sure you have checked out the tag you want to build in trustnetworkglobalcoin, then:
+By default, Gitian will fetch source files as needed. To cache them ahead of time, make sure you have checked out the tag you want to build in tngc, then:
 
     pushd ./gitian-builder
-    make -C ../trustnetworkglobalcoin/depends download SOURCES_PATH=`pwd`/cache/common
+    make -C ../tngc/depends download SOURCES_PATH=`pwd`/cache/common
     popd
 
 Only missing files will be fetched, so this is safe to re-run for each build.
@@ -137,47 +137,47 @@ Only missing files will be fetched, so this is safe to re-run for each build.
 NOTE: Offline builds must use the --url flag to ensure Gitian fetches only from local URLs. For example:
 
     pushd ./gitian-builder
-    ./bin/gbuild --url trustnetworkglobalcoin=/path/to/trustnetworkglobalcoin,signature=/path/to/sigs {rest of arguments}
+    ./bin/gbuild --url tngc=/path/to/tngc,signature=/path/to/sigs {rest of arguments}
     popd
 
 The gbuild invocations below <b>DO NOT DO THIS</b> by default.
 
-### Build and sign TrustNetworkGlobalCoin Core for Linux, Windows, and macOS:
+### Build and sign TNGC Core for Linux, Windows, and macOS:
 
     pushd ./gitian-builder
-    ./bin/gbuild --num-make 2 --memory 3000 --commit trustnetworkglobalcoin=v${VERSION} ../trustnetworkglobalcoin/contrib/gitian-descriptors/gitian-linux.yml
-    ./bin/gsign --signer "$SIGNER" --release ${VERSION}-linux --destination ../gitian.sigs/ ../trustnetworkglobalcoin/contrib/gitian-descriptors/gitian-linux.yml
-    mv build/out/trustnetworkglobalcoin-*.tar.gz build/out/src/trustnetworkglobalcoin-*.tar.gz ../
+    ./bin/gbuild --num-make 2 --memory 3000 --commit tngc=v${VERSION} ../tngc/contrib/gitian-descriptors/gitian-linux.yml
+    ./bin/gsign --signer "$SIGNER" --release ${VERSION}-linux --destination ../gitian.sigs/ ../tngc/contrib/gitian-descriptors/gitian-linux.yml
+    mv build/out/tngc-*.tar.gz build/out/src/tngc-*.tar.gz ../
 
-    ./bin/gbuild --num-make 2 --memory 3000 --commit trustnetworkglobalcoin=v${VERSION} ../trustnetworkglobalcoin/contrib/gitian-descriptors/gitian-win.yml
-    ./bin/gsign --signer "$SIGNER" --release ${VERSION}-win-unsigned --destination ../gitian.sigs/ ../trustnetworkglobalcoin/contrib/gitian-descriptors/gitian-win.yml
-    mv build/out/trustnetworkglobalcoin-*-win-unsigned.tar.gz inputs/trustnetworkglobalcoin-win-unsigned.tar.gz
-    mv build/out/trustnetworkglobalcoin-*.zip build/out/trustnetworkglobalcoin-*.exe ../
+    ./bin/gbuild --num-make 2 --memory 3000 --commit tngc=v${VERSION} ../tngc/contrib/gitian-descriptors/gitian-win.yml
+    ./bin/gsign --signer "$SIGNER" --release ${VERSION}-win-unsigned --destination ../gitian.sigs/ ../tngc/contrib/gitian-descriptors/gitian-win.yml
+    mv build/out/tngc-*-win-unsigned.tar.gz inputs/tngc-win-unsigned.tar.gz
+    mv build/out/tngc-*.zip build/out/tngc-*.exe ../
 
-    ./bin/gbuild --num-make 2 --memory 3000 --commit trustnetworkglobalcoin=v${VERSION} ../trustnetworkglobalcoin/contrib/gitian-descriptors/gitian-osx.yml
-    ./bin/gsign --signer "$SIGNER" --release ${VERSION}-osx-unsigned --destination ../gitian.sigs/ ../trustnetworkglobalcoin/contrib/gitian-descriptors/gitian-osx.yml
-    mv build/out/trustnetworkglobalcoin-*-osx-unsigned.tar.gz inputs/trustnetworkglobalcoin-osx-unsigned.tar.gz
-    mv build/out/trustnetworkglobalcoin-*.tar.gz build/out/trustnetworkglobalcoin-*.dmg ../
+    ./bin/gbuild --num-make 2 --memory 3000 --commit tngc=v${VERSION} ../tngc/contrib/gitian-descriptors/gitian-osx.yml
+    ./bin/gsign --signer "$SIGNER" --release ${VERSION}-osx-unsigned --destination ../gitian.sigs/ ../tngc/contrib/gitian-descriptors/gitian-osx.yml
+    mv build/out/tngc-*-osx-unsigned.tar.gz inputs/tngc-osx-unsigned.tar.gz
+    mv build/out/tngc-*.tar.gz build/out/tngc-*.dmg ../
     popd
 
 Build output expected:
 
-  1. source tarball (`trustnetworkglobalcoin-${VERSION}.tar.gz`)
-  2. linux 32-bit and 64-bit dist tarballs (`trustnetworkglobalcoin-${VERSION}-linux[32|64].tar.gz`)
-  3. windows 32-bit and 64-bit unsigned installers and dist zips (`trustnetworkglobalcoin-${VERSION}-win[32|64]-setup-unsigned.exe`, `trustnetworkglobalcoin-${VERSION}-win[32|64].zip`)
-  4. macOS unsigned installer and dist tarball (`trustnetworkglobalcoin-${VERSION}-osx-unsigned.dmg`, `trustnetworkglobalcoin-${VERSION}-osx64.tar.gz`)
+  1. source tarball (`tngc-${VERSION}.tar.gz`)
+  2. linux 32-bit and 64-bit dist tarballs (`tngc-${VERSION}-linux[32|64].tar.gz`)
+  3. windows 32-bit and 64-bit unsigned installers and dist zips (`tngc-${VERSION}-win[32|64]-setup-unsigned.exe`, `tngc-${VERSION}-win[32|64].zip`)
+  4. macOS unsigned installer and dist tarball (`tngc-${VERSION}-osx-unsigned.dmg`, `tngc-${VERSION}-osx64.tar.gz`)
   5. Gitian signatures (in `gitian.sigs/${VERSION}-<linux|{win,osx}-unsigned>/(your Gitian key)/`)
 
 ### Verify other gitian builders signatures to your own. (Optional)
 
-Add other gitian builders keys to your gpg keyring, and/or refresh keys: See `../trustnetworkglobalcoin/contrib/gitian-keys/README.md`.
+Add other gitian builders keys to your gpg keyring, and/or refresh keys: See `../tngc/contrib/gitian-keys/README.md`.
 
 Verify the signatures
 
     pushd ./gitian-builder
-    ./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-linux ../trustnetworkglobalcoin/contrib/gitian-descriptors/gitian-linux.yml
-    ./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-win-unsigned ../trustnetworkglobalcoin/contrib/gitian-descriptors/gitian-win.yml
-    ./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-osx-unsigned ../trustnetworkglobalcoin/contrib/gitian-descriptors/gitian-osx.yml
+    ./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-linux ../tngc/contrib/gitian-descriptors/gitian-linux.yml
+    ./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-win-unsigned ../tngc/contrib/gitian-descriptors/gitian-win.yml
+    ./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-osx-unsigned ../tngc/contrib/gitian-descriptors/gitian-osx.yml
     popd
 
 ### Next steps:
@@ -198,22 +198,22 @@ Codesigner only: Create Windows/macOS detached signatures:
 
 Codesigner only: Sign the macOS binary:
 
-    transfer trustnetworkglobalcoin-osx-unsigned.tar.gz to macOS for signing
-    tar xf trustnetworkglobalcoin-osx-unsigned.tar.gz
+    transfer tngc-osx-unsigned.tar.gz to macOS for signing
+    tar xf tngc-osx-unsigned.tar.gz
     ./detached-sig-create.sh -s "Key ID"
     Enter the keychain password and authorize the signature
     Move signature-osx.tar.gz back to the gitian host
 
 Codesigner only: Sign the windows binaries:
 
-    tar xf trustnetworkglobalcoin-win-unsigned.tar.gz
+    tar xf tngc-win-unsigned.tar.gz
     ./detached-sig-create.sh -key /path/to/codesign.key
     Enter the passphrase for the key when prompted
     signature-win.tar.gz will be created
 
 Codesigner only: Commit the detached codesign payloads:
 
-    cd ~/trustnetworkglobalcoin-detached-sigs
+    cd ~/tngc-detached-sigs
     checkout the appropriate branch for this release series
     rm -rf *
     tar xf signature-osx.tar.gz
@@ -226,24 +226,24 @@ Codesigner only: Commit the detached codesign payloads:
 Non-codesigners: wait for Windows/macOS detached signatures:
 
 - Once the Windows/macOS builds each have 3 matching signatures, they will be signed with their respective release keys.
-- Detached signatures will then be committed to the [trustnetworkglobalcoin-detached-sigs](https://github.com/trustnetworkglobalcoin-core/trustnetworkglobalcoin-detached-sigs) repository, which can be combined with the unsigned apps to create signed binaries.
+- Detached signatures will then be committed to the [tngc-detached-sigs](https://github.com/tngc-core/tngc-detached-sigs) repository, which can be combined with the unsigned apps to create signed binaries.
 
 Create (and optionally verify) the signed macOS binary:
 
     pushd ./gitian-builder
-    ./bin/gbuild -i --commit signature=v${VERSION} ../trustnetworkglobalcoin/contrib/gitian-descriptors/gitian-osx-signer.yml
-    ./bin/gsign --signer "$SIGNER" --release ${VERSION}-osx-signed --destination ../gitian.sigs/ ../trustnetworkglobalcoin/contrib/gitian-descriptors/gitian-osx-signer.yml
-    ./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-osx-signed ../trustnetworkglobalcoin/contrib/gitian-descriptors/gitian-osx-signer.yml
-    mv build/out/trustnetworkglobalcoin-osx-signed.dmg ../trustnetworkglobalcoin-${VERSION}-osx.dmg
+    ./bin/gbuild -i --commit signature=v${VERSION} ../tngc/contrib/gitian-descriptors/gitian-osx-signer.yml
+    ./bin/gsign --signer "$SIGNER" --release ${VERSION}-osx-signed --destination ../gitian.sigs/ ../tngc/contrib/gitian-descriptors/gitian-osx-signer.yml
+    ./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-osx-signed ../tngc/contrib/gitian-descriptors/gitian-osx-signer.yml
+    mv build/out/tngc-osx-signed.dmg ../tngc-${VERSION}-osx.dmg
     popd
 
 Create (and optionally verify) the signed Windows binaries:
 
     pushd ./gitian-builder
-    ./bin/gbuild -i --commit signature=v${VERSION} ../trustnetworkglobalcoin/contrib/gitian-descriptors/gitian-win-signer.yml
-    ./bin/gsign --signer "$SIGNER" --release ${VERSION}-win-signed --destination ../gitian.sigs/ ../trustnetworkglobalcoin/contrib/gitian-descriptors/gitian-win-signer.yml
-    ./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-win-signed ../trustnetworkglobalcoin/contrib/gitian-descriptors/gitian-win-signer.yml
-    mv build/out/trustnetworkglobalcoin-*win64-setup.exe ../trustnetworkglobalcoin-${VERSION}-win64-setup.exe
+    ./bin/gbuild -i --commit signature=v${VERSION} ../tngc/contrib/gitian-descriptors/gitian-win-signer.yml
+    ./bin/gsign --signer "$SIGNER" --release ${VERSION}-win-signed --destination ../gitian.sigs/ ../tngc/contrib/gitian-descriptors/gitian-win-signer.yml
+    ./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-win-signed ../tngc/contrib/gitian-descriptors/gitian-win-signer.yml
+    mv build/out/tngc-*win64-setup.exe ../tngc-${VERSION}-win64-setup.exe
     popd
 
 Commit your signature for the signed macOS/Windows binaries:
@@ -265,21 +265,21 @@ sha256sum * > SHA256SUMS
 
 The list of files should be:
 ```
-trustnetworkglobalcoin-${VERSION}-aarch64-linux-gnu.tar.gz
-trustnetworkglobalcoin-${VERSION}-arm-linux-gnueabihf.tar.gz
-trustnetworkglobalcoin-${VERSION}-riscv64-linux-gnu.tar.gz
-trustnetworkglobalcoin-${VERSION}-x86_64-linux-gnu.tar.gz
-trustnetworkglobalcoin-${VERSION}-osx64.tar.gz
-trustnetworkglobalcoin-${VERSION}-osx.dmg
-trustnetworkglobalcoin-${VERSION}.tar.gz
-trustnetworkglobalcoin-${VERSION}-win64-setup.exe
-trustnetworkglobalcoin-${VERSION}-win64.zip
+tngc-${VERSION}-aarch64-linux-gnu.tar.gz
+tngc-${VERSION}-arm-linux-gnueabihf.tar.gz
+tngc-${VERSION}-riscv64-linux-gnu.tar.gz
+tngc-${VERSION}-x86_64-linux-gnu.tar.gz
+tngc-${VERSION}-osx64.tar.gz
+tngc-${VERSION}-osx.dmg
+tngc-${VERSION}.tar.gz
+tngc-${VERSION}-win64-setup.exe
+tngc-${VERSION}-win64.zip
 ```
 The `*-debug*` files generated by the gitian build contain debug symbols
 for troubleshooting by developers. It is assumed that anyone that is interested
 in debugging can run gitian to generate the files for themselves. To avoid
 end-user confusion about which file to pick, as well as save storage
-space *do not upload these to the trustnetworkglobalcoin.org server, nor put them in the torrent*.
+space *do not upload these to the tngc.org server, nor put them in the torrent*.
 
 - GPG-sign it, delete the unsigned file:
 ```
@@ -289,82 +289,82 @@ rm SHA256SUMS
 (the digest algorithm is forced to sha256 to avoid confusion of the `Hash:` header that GPG adds with the SHA256 used for the files)
 Note: check that SHA256SUMS itself doesn't end up in SHA256SUMS, which is a spurious/nonsensical entry.
 
-- Upload zips and installers, as well as `SHA256SUMS.asc` from last step, to the trustnetworkglobalcoin.org server
-  into `/var/www/bin/trustnetworkglobalcoin-core-${VERSION}`
+- Upload zips and installers, as well as `SHA256SUMS.asc` from last step, to the tngc.org server
+  into `/var/www/bin/tngc-core-${VERSION}`
 
 - A `.torrent` will appear in the directory after a few minutes. Optionally help seed this torrent. To get the `magnet:` URI use:
 ```bash
 transmission-show -m <torrent file>
 ```
 Insert the magnet URI into the announcement sent to mailing lists. This permits
-people without access to `trustnetworkglobalcoin.org` to download the binary distribution.
+people without access to `tngc.org` to download the binary distribution.
 Also put it into the `optional_magnetlink:` slot in the YAML file for
-trustnetworkglobalcoin.org (see below for trustnetworkglobalcoin.org update instructions).
+tngc.org (see below for tngc.org update instructions).
 
-- Update trustnetworkglobalcoin.org version
+- Update tngc.org version
 
-  - First, check to see if the TrustNetworkGlobalCoin.org maintainers have prepared a
-    release: https://github.com/trustnetworkglobalcoin-dot-org/trustnetworkglobalcoin.org/labels/Core
+  - First, check to see if the TNGC.org maintainers have prepared a
+    release: https://github.com/tngc-dot-org/tngc.org/labels/Core
 
       - If they have, it will have previously failed their Travis CI
         checks because the final release files weren't uploaded.
         Trigger a Travis CI rebuild---if it passes, merge.
 
-  - If they have not prepared a release, follow the TrustNetworkGlobalCoin.org release
-    instructions: https://github.com/trustnetworkglobalcoin-dot-org/trustnetworkglobalcoin.org/blob/master/docs/adding-events-release-notes-and-alerts.md#release-notes
+  - If they have not prepared a release, follow the TNGC.org release
+    instructions: https://github.com/tngc-dot-org/tngc.org/blob/master/docs/adding-events-release-notes-and-alerts.md#release-notes
 
   - After the pull request is merged, the website will automatically show the newest version within 15 minutes, as well
     as update the OS download links.
 
 - Update other repositories and websites for new version
 
-  - trustnetworkglobalcoincore.org blog post
+  - tngccore.org blog post
 
-  - trustnetworkglobalcoincore.org maintained versions update:
-    [table](https://github.com/trustnetworkglobalcoin-core/trustnetworkglobalcoincore.org/commits/master/_includes/posts/maintenance-table.md)
+  - tngccore.org maintained versions update:
+    [table](https://github.com/tngc-core/tngccore.org/commits/master/_includes/posts/maintenance-table.md)
 
-  - trustnetworkglobalcoincore.org RPC documentation update
+  - tngccore.org RPC documentation update
 
   - Update packaging repo
 
-      - Push the flatpak to flathub, e.g. https://github.com/flathub/org.trustnetworkglobalcoincore.trustnetworkglobalcoin-qt/pull/2
+      - Push the flatpak to flathub, e.g. https://github.com/flathub/org.tngccore.tngc-qt/pull/2
 
-      - Push the latest version to master (if applicable), e.g. https://github.com/trustnetworkglobalcoin-core/packaging/pull/32
+      - Push the latest version to master (if applicable), e.g. https://github.com/tngc-core/packaging/pull/32
 
       - Create a new branch for the major release "0.xx" from master (used to build the snap package) and request the
-        track (if applicable), e.g. https://forum.snapcraft.io/t/track-request-for-trustnetworkglobalcoin-core-snap/10112/7
+        track (if applicable), e.g. https://forum.snapcraft.io/t/track-request-for-tngc-core-snap/10112/7
 
       - Notify MarcoFalke so that he can start building the snap package
 
-        - https://code.launchpad.net/~trustnetworkglobalcoin-core/trustnetworkglobalcoin-core-snap/+git/packaging (Click "Import Now" to fetch the branch)
-        - https://code.launchpad.net/~trustnetworkglobalcoin-core/trustnetworkglobalcoin-core-snap/+git/packaging/+ref/0.xx (Click "Create snap package")
-        - Name it "trustnetworkglobalcoin-core-snap-0.xx"
+        - https://code.launchpad.net/~tngc-core/tngc-core-snap/+git/packaging (Click "Import Now" to fetch the branch)
+        - https://code.launchpad.net/~tngc-core/tngc-core-snap/+git/packaging/+ref/0.xx (Click "Create snap package")
+        - Name it "tngc-core-snap-0.xx"
         - Leave owner and series as-is
         - Select architectures that are compiled via gitian
         - Leave "automatically build when branch changes" unticked
         - Tick "automatically upload to store"
-        - Put "trustnetworkglobalcoin-core" in the registered store package name field
+        - Put "tngc-core" in the registered store package name field
         - Tick the "edge" box
         - Put "0.xx" in the track field
         - Click "create snap package"
         - Click "Request builds" for every new release on this branch (after updating the snapcraft.yml in the branch to reflect the latest gitian results)
-        - Promote release on https://snapcraft.io/trustnetworkglobalcoin-core/releases if it passes sanity checks
+        - Promote release on https://snapcraft.io/tngc-core/releases if it passes sanity checks
 
   - This repo
 
       - Archive the release notes for the new version to `doc/release-notes/` (branch `master` and branch of the release)
 
-      - Create a [new GitHub release](https://github.com/trustnetworkglobalcoin/trustnetworkglobalcoin/releases/new) with a link to the archived release notes
+      - Create a [new GitHub release](https://github.com/tngc/tngc/releases/new) with a link to the archived release notes
 
 - Announce the release:
 
-  - trustnetworkglobalcoin-dev and trustnetworkglobalcoin-core-dev mailing list
+  - tngc-dev and tngc-core-dev mailing list
 
-  - TrustNetworkGlobalCoin Core announcements list https://trustnetworkglobalcoincore.org/en/list/announcements/join/
+  - TNGC Core announcements list https://tngccore.org/en/list/announcements/join/
 
-  - Update title of #trustnetworkglobalcoin on Freenode IRC
+  - Update title of #tngc on Freenode IRC
 
-  - Optionally twitter, reddit /r/TrustNetworkGlobalCoin, ... but this will usually sort out itself
+  - Optionally twitter, reddit /r/TNGC, ... but this will usually sort out itself
 
   - Celebrate
 

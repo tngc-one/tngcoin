@@ -1,9 +1,9 @@
-// Copyright (c) 2016-2020 The TrustNetworkGlobalCoin Core developers
+// Copyright (c) 2016-2020 The TNGC Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TRUSTNETWORKGLOBALCOIN_WALLET_RPCWALLET_H
-#define TRUSTNETWORKGLOBALCOIN_WALLET_RPCWALLET_H
+#ifndef TNGC_WALLET_RPCWALLET_H
+#define TNGC_WALLET_RPCWALLET_H
 
 #include <span.h>
 
@@ -36,4 +36,4 @@ LegacyScriptPubKeyMan& EnsureLegacyScriptPubKeyMan(CWallet& wallet, bool also_cr
 
 RPCHelpMan getaddressinfo();
 RPCHelpMan signrawtransactionwithwallet();
-#endif //TRUSTNETWORKGLOBALCOIN_WALLET_RPCWALLET_H
+#endif //TNGC_WALLET_RPCWALLET_H

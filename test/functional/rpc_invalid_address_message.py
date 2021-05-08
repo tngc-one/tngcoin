@@ -1,18 +1,10 @@
 #!/usr/bin/env python3
-<<<<<<< HEAD
-# Copyright (c) 2020 The TrustNetworkGlobalCoin Core developers
-=======
-# Copyright (c) 2020 The Bitcoin Core developers
->>>>>>> 194b9b8792d9b0798fdb570b79fa51f1d1f5ebaf
+# Copyright (c) 2020 The TNGC Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 """Test error messages for 'getaddressinfo' and 'validateaddress' RPC commands."""
 
-<<<<<<< HEAD
-from test_framework.test_framework import TrustNetworkGlobalCoinTestFramework
-=======
-from test_framework.test_framework import BitcoinTestFramework
->>>>>>> 194b9b8792d9b0798fdb570b79fa51f1d1f5ebaf
+from test_framework.test_framework import TNGCTestFramework
 
 from test_framework.util import assert_raises_rpc_error
 
@@ -29,11 +21,7 @@ BASE58_INVALID_PREFIX = '17VZNX1SN5NtKa8UQFxwQbFeFc3iqRYhem'
 
 INVALID_ADDRESS = 'asfah14i8fajz0123f'
 
-<<<<<<< HEAD
-class InvalidAddressErrorMessageTest(TrustNetworkGlobalCoinTestFramework):
-=======
-class InvalidAddressErrorMessageTest(BitcoinTestFramework):
->>>>>>> 194b9b8792d9b0798fdb570b79fa51f1d1f5ebaf
+class InvalidAddressErrorMessageTest(TNGCTestFramework):
     def set_test_params(self):
         self.setup_clean_chain = True
         self.num_nodes = 1

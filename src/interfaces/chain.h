@@ -1,9 +1,9 @@
-// Copyright (c) 2018-2020 The TrustNetworkGlobalCoin Core developers
+// Copyright (c) 2018-2020 The TNGC Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TRUSTNETWORKGLOBALCOIN_INTERFACES_CHAIN_H
-#define TRUSTNETWORKGLOBALCOIN_INTERFACES_CHAIN_H
+#ifndef TNGC_INTERFACES_CHAIN_H
+#define TNGC_INTERFACES_CHAIN_H
 
 #include <optional.h>               // For Optional and nullopt
 #include <primitives/transaction.h> // For CTransactionRef
@@ -61,13 +61,13 @@ public:
 //! estimate fees, and submit transactions.
 //!
 //! TODO: Current chain methods are too low level, exposing too much of the
-//! internal workings of the trustnetworkglobalcoin node, and not being very convenient to use.
+//! internal workings of the tngc node, and not being very convenient to use.
 //! Chain methods should be cleaned up and simplified over time. Examples:
 //!
 //! * The initMessages() and showProgress() methods which the wallet uses to send
 //!   notifications to the GUI should go away when GUI and wallet can directly
 //!   communicate with each other without going through the node
-//!   (https://github.com/trustnetworkglobalcoin/trustnetworkglobalcoin/pull/15288#discussion_r253321096).
+//!   (https://github.com/tngc/tngc/pull/15288#discussion_r253321096).
 //!
 //! * The handleRpc, registerRpcs, rpcEnableDeprecated methods and other RPC
 //!   methods can go away if wallets listen for HTTP requests on their own
@@ -321,4 +321,4 @@ std::unique_ptr<Chain> MakeChain(NodeContext& node);
 
 } // namespace interfaces
 
-#endif // TRUSTNETWORKGLOBALCOIN_INTERFACES_CHAIN_H
+#endif // TNGC_INTERFACES_CHAIN_H

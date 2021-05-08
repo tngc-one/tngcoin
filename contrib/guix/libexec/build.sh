@@ -27,7 +27,7 @@ BASEPREFIX="${PWD}/depends"
 OUTDIR="${OUTDIR:-${PWD}/output}"
 [ -e "$OUTDIR" ] || mkdir -p "$OUTDIR"
 
-# Setup the directory where our TrustNetworkGlobalCoin Core build for HOST will occur
+# Setup the directory where our TNGC Core build for HOST will occur
 DISTSRC="${DISTSRC:-${PWD}/distsrc-${HOST}}"
 if [ -e "$DISTSRC" ]; then
     echo "DISTSRC directory '${DISTSRC}' exists, probably because of previous builds... Aborting..."
@@ -142,7 +142,7 @@ make -C depends --jobs="$MAX_JOBS" HOST="$HOST" \
                                    x86_64_linux_RANLIB=x86_64-linux-gnu-ranlib \
                                    x86_64_linux_NM=x86_64-linux-gnu-nm \
                                    x86_64_linux_STRIP=x86_64-linux-gnu-strip \
-                                   qt_config_opts_i686_linux='-platform linux-g++ -xplatform trustnetworkglobalcoin-linux-g++'
+                                   qt_config_opts_i686_linux='-platform linux-g++ -xplatform tngc-linux-g++'
 
 
 ###########################
@@ -211,7 +211,7 @@ export PATH="${BASEPREFIX}/${HOST}/native/bin:${PATH}"
 
     sed -i.old 's/-lstdc++ //g' config.status libtool src/univalue/config.status src/univalue/libtool
 
-    # Build TrustNetworkGlobalCoin Core
+    # Build TNGC Core
     make --jobs="$MAX_JOBS" ${V:+V=1}
 
     # Perform basic ELF security checks on a series of executables.
@@ -228,16 +228,16 @@ export PATH="${BASEPREFIX}/${HOST}/native/bin:${PATH}"
     # Make the os-specific installers
     case "$HOST" in
         *mingw*)
-            make deploy ${V:+V=1} TRUSTNETWORKGLOBALCOIN_WIN_INSTALLER="${OUTDIR}/${DISTNAME}-win64-setup-unsigned.exe"
+            make deploy ${V:+V=1} TNGC_WIN_INSTALLER="${OUTDIR}/${DISTNAME}-win64-setup-unsigned.exe"
             ;;
     esac
 
-    # Setup the directory where our TrustNetworkGlobalCoin Core build for HOST will be
+    # Setup the directory where our TNGC Core build for HOST will be
     # installed. This directory will also later serve as the input for our
     # binary tarballs.
     INSTALLPATH="${PWD}/installed/${DISTNAME}"
     mkdir -p "${INSTALLPATH}"
-    # Install built TrustNetworkGlobalCoin Core to $INSTALLPATH
+    # Install built TNGC Core to $INSTALLPATH
     make install DESTDIR="${INSTALLPATH}" ${V:+V=1}
 
     (

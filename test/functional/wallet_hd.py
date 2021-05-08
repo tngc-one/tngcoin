@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# Copyright (c) 2016-2020 The TrustNetworkGlobalCoin Core developers
+# Copyright (c) 2016-2020 The TNGC Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 """Test Hierarchical Deterministic wallet function."""
@@ -7,14 +7,14 @@
 import os
 import shutil
 
-from test_framework.test_framework import TrustNetworkGlobalCoinTestFramework
+from test_framework.test_framework import TNGCTestFramework
 from test_framework.util import (
     assert_equal,
     assert_raises_rpc_error,
 )
 
 
-class WalletHDTest(TrustNetworkGlobalCoinTestFramework):
+class WalletHDTest(TNGCTestFramework):
     def set_test_params(self):
         self.setup_clean_chain = True
         self.num_nodes = 2

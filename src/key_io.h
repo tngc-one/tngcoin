@@ -1,10 +1,10 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
-// Copyright (c) 2009-2018 The TrustNetworkGlobalCoin Core developers
+// Copyright (c) 2009-2018 The TNGC Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TRUSTNETWORKGLOBALCOIN_KEY_IO_H
-#define TRUSTNETWORKGLOBALCOIN_KEY_IO_H
+#ifndef TNGC_KEY_IO_H
+#define TNGC_KEY_IO_H
 
 #include <chainparams.h>
 #include <key.h>
@@ -26,4 +26,4 @@ CTxDestination DecodeDestination(const std::string& str);
 bool IsValidDestinationString(const std::string& str);
 bool IsValidDestinationString(const std::string& str, const CChainParams& params);
 
-#endif // TRUSTNETWORKGLOBALCOIN_KEY_IO_H
+#endif // TNGC_KEY_IO_H

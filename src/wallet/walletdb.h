@@ -1,10 +1,10 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
-// Copyright (c) 2009-2020 The TrustNetworkGlobalCoin Core developers
+// Copyright (c) 2009-2020 The TNGC Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TRUSTNETWORKGLOBALCOIN_WALLET_WALLETDB_H
-#define TRUSTNETWORKGLOBALCOIN_WALLET_WALLETDB_H
+#ifndef TNGC_WALLET_WALLETDB_H
+#define TNGC_WALLET_WALLETDB_H
 
 #include <amount.h>
 #include <script/sign.h>
@@ -291,4 +291,4 @@ std::unique_ptr<WalletDatabase> CreateDummyWalletDatabase();
 /** Return object for accessing temporary in-memory database. */
 std::unique_ptr<WalletDatabase> CreateMockWalletDatabase();
 
-#endif // TRUSTNETWORKGLOBALCOIN_WALLET_WALLETDB_H
+#endif // TNGC_WALLET_WALLETDB_H

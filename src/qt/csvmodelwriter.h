@@ -1,9 +1,9 @@
-// Copyright (c) 2011-2020 The TrustNetworkGlobalCoin Core developers
+// Copyright (c) 2011-2020 The TNGC Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TRUSTNETWORKGLOBALCOIN_QT_CSVMODELWRITER_H
-#define TRUSTNETWORKGLOBALCOIN_QT_CSVMODELWRITER_H
+#ifndef TNGC_QT_CSVMODELWRITER_H
+#define TNGC_QT_CSVMODELWRITER_H
 
 #include <QList>
 #include <QObject>
@@ -43,4 +43,4 @@ private:
     QList<Column> columns;
 };
 
-#endif // TRUSTNETWORKGLOBALCOIN_QT_CSVMODELWRITER_H
+#endif // TNGC_QT_CSVMODELWRITER_H

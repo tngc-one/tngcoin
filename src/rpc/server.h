@@ -1,10 +1,10 @@
 // Copyright (c) 2010 Satoshi Nakamoto
-// Copyright (c) 2009-2019 The TrustNetworkGlobalCoin Core developers
+// Copyright (c) 2009-2019 The TNGC Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TRUSTNETWORKGLOBALCOIN_RPC_SERVER_H
-#define TRUSTNETWORKGLOBALCOIN_RPC_SERVER_H
+#ifndef TNGC_RPC_SERVER_H
+#define TNGC_RPC_SERVER_H
 
 #include <amount.h>
 #include <rpc/request.h>
@@ -185,4 +185,4 @@ std::string JSONRPCExecBatch(const JSONRPCRequest& jreq, const UniValue& vReq);
 // Retrieves any serialization flags requested in command line argument
 int RPCSerializationFlags();
 
-#endif // TRUSTNETWORKGLOBALCOIN_RPC_SERVER_H
+#endif // TNGC_RPC_SERVER_H

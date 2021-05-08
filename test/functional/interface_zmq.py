@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# Copyright (c) 2015-2019 The TrustNetworkGlobalCoin Core developers
+# Copyright (c) 2015-2019 The TNGC Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 """Test the ZMQ notification interface."""
@@ -7,7 +7,7 @@ import struct
 
 from test_framework.address import ADDRESS_BCRT1_UNSPENDABLE, ADDRESS_BCRT1_P2WSH_OP_TRUE
 from test_framework.blocktools import create_block, create_coinbase, add_witness_commitment
-from test_framework.test_framework import TrustNetworkGlobalCoinTestFramework
+from test_framework.test_framework import TNGCTestFramework
 from test_framework.messages import CTransaction, hash256, FromHex
 from test_framework.util import (
     assert_equal,
@@ -59,13 +59,13 @@ class ZMQSubscriber:
         return (hash, label, mempool_sequence)
 
 
-class ZMQTest (TrustNetworkGlobalCoinTestFramework):
+class ZMQTest (TNGCTestFramework):
     def set_test_params(self):
         self.num_nodes = 2
 
     def skip_test_if_missing_module(self):
         self.skip_if_no_py3_zmq()
-        self.skip_if_no_trustnetworkglobalcoind_zmq()
+        self.skip_if_no_tngcd_zmq()
 
     def run_test(self):
         self.ctx = zmq.Context()

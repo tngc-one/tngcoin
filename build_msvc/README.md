@@ -1,25 +1,25 @@
-Building TrustNetworkGlobalCoin Core with Visual Studio
+Building TNGC Core with Visual Studio
 ========================================
 
 Introduction
 ---------------------
-Solution and project files to build the TrustNetworkGlobalCoin Core applications `msbuild` or Visual Studio can be found in the `build_msvc` directory. The build has been tested with Visual Studio 2017 and 2019.
+Solution and project files to build the TNGC Core applications `msbuild` or Visual Studio can be found in the `build_msvc` directory. The build has been tested with Visual Studio 2017 and 2019.
 
-Building with Visual Studio is an alternative to the Linux based [cross-compiler build](https://github.com/trustnetworkglobalcoin/trustnetworkglobalcoin/blob/master/doc/build-windows.md).
+Building with Visual Studio is an alternative to the Linux based [cross-compiler build](https://github.com/tngc/tngc/blob/master/doc/build-windows.md).
 
 Quick Start
 ---------------------
-The minimal steps required to build TrustNetworkGlobalCoin Core with the msbuild toolchain are below. More detailed instructions are contained in the following sections.
+The minimal steps required to build TNGC Core with the msbuild toolchain are below. More detailed instructions are contained in the following sections.
 
 ```
 cd build_msvc
 py -3 msvc-autogen.py
-msbuild /m trustnetworkglobalcoin.sln /p:Platform=x64 /p:Configuration=Release /t:build
+msbuild /m tngc.sln /p:Platform=x64 /p:Configuration=Release /t:build
 ```
 
 Dependencies
 ---------------------
-A number of [open source libraries](https://github.com/trustnetworkglobalcoin/trustnetworkglobalcoin/blob/master/doc/dependencies.md) are required in order to be able to build TrustNetworkGlobalCoin Core.
+A number of [open source libraries](https://github.com/tngc/tngc/blob/master/doc/dependencies.md) are required in order to be able to build TNGC Core.
 
 Options for installing the dependencies in a Visual Studio compatible manner are:
 
@@ -27,17 +27,17 @@ Options for installing the dependencies in a Visual Studio compatible manner are
 - Download the source code, build each dependency, add the required include paths, link libraries and binary tools to the Visual Studio project files.
 - Use [nuget](https://www.nuget.org/) packages with the understanding that any binary files have been compiled by an untrusted third party.
 
-The [external dependencies](https://github.com/trustnetworkglobalcoin/trustnetworkglobalcoin/blob/master/doc/dependencies.md) required for building are listed in the `build_msvc/vcpkg.json` file. The `msbuild` project files are configured to automatically install the `vcpkg` dependencies.
+The [external dependencies](https://github.com/tngc/tngc/blob/master/doc/dependencies.md) required for building are listed in the `build_msvc/vcpkg.json` file. The `msbuild` project files are configured to automatically install the `vcpkg` dependencies.
 
 Qt
 ---------------------
-In order to build the TrustNetworkGlobalCoin Core a static build of Qt is required. The runtime library version (e.g. v141, v142) and platform type (x86 or x64) must also match.
+In order to build the TNGC Core a static build of Qt is required. The runtime library version (e.g. v141, v142) and platform type (x86 or x64) must also match.
 
-Some prebuilt x64 versions of Qt can be downloaded from [here](https://github.com/sipsorcery/qt_win_binary/releases). Please be aware these downloads are NOT officially sanctioned by TrustNetworkGlobalCoin Core and are provided for developer convenience only. They should NOT be used for builds that will be used in a production environment or with real funds.
+Some prebuilt x64 versions of Qt can be downloaded from [here](https://github.com/sipsorcery/qt_win_binary/releases). Please be aware these downloads are NOT officially sanctioned by TNGC Core and are provided for developer convenience only. They should NOT be used for builds that will be used in a production environment or with real funds.
 
 To determine which Qt prebuilt version to download open the `.appveyor.yml` file and note the `QT_DOWNLOAD_URL`. When extracting the zip file the destination path must be set to `C:\`. This is due to the way that Qt includes, libraries and tools use internal paths.
 
-To build TrustNetworkGlobalCoin Core without Qt unload or disable the `trustnetworkglobalcoin-qt`, `libtrustnetworkglobalcoin_qt` and `test_trustnetworkglobalcoin-qt` projects.
+To build TNGC Core without Qt unload or disable the `tngc-qt`, `libtngc_qt` and `test_tngc-qt` projects.
 
 Building
 ---------------------
@@ -56,24 +56,24 @@ PS >py -3 msvc-autogen.py
 - To build from the command line with the Visual Studio 2017 toolchain use:
 
 ```
-msbuild /m trustnetworkglobalcoin.sln /p:Platform=x64 /p:Configuration=Release /p:PlatformToolset=v141 /t:build
+msbuild /m tngc.sln /p:Platform=x64 /p:Configuration=Release /p:PlatformToolset=v141 /t:build
 ```
 
 - To build from the command line with the Visual Studio 2019 toolchain use:
 
 ```
-msbuild /m trustnetworkglobalcoin.sln /p:Platform=x64 /p:Configuration=Release /t:build
+msbuild /m tngc.sln /p:Platform=x64 /p:Configuration=Release /t:build
 ```
 
-- Alternatively open the `build_msvc/trustnetworkglobalcoin.sln` file in Visual Studio.
+- Alternatively open the `build_msvc/tngc.sln` file in Visual Studio.
 
 AppVeyor
 ---------------------
-The .appveyor.yml in the root directory is suitable to perform builds on [AppVeyor](https://www.appveyor.com/) Continuous Integration servers. The simplest way to perform an AppVeyor build is to fork TrustNetworkGlobalCoin Core and then configure a new AppVeyor Project pointing to the forked repository.
+The .appveyor.yml in the root directory is suitable to perform builds on [AppVeyor](https://www.appveyor.com/) Continuous Integration servers. The simplest way to perform an AppVeyor build is to fork TNGC Core and then configure a new AppVeyor Project pointing to the forked repository.
 
-For safety reasons the TrustNetworkGlobalCoin Core .appveyor.yml file has the artifact options disabled. The build will be performed but no executable files will be available. To enable artifacts on a forked repository uncomment the lines shown below:
+For safety reasons the TNGC Core .appveyor.yml file has the artifact options disabled. The build will be performed but no executable files will be available. To enable artifacts on a forked repository uncomment the lines shown below:
 
 ```
-    #- 7z a trustnetworkglobalcoin-%APPVEYOR_BUILD_VERSION%.zip %APPVEYOR_BUILD_FOLDER%\build_msvc\%platform%\%configuration%\*.exe
-    #- path: trustnetworkglobalcoin-%APPVEYOR_BUILD_VERSION%.zip
+    #- 7z a tngc-%APPVEYOR_BUILD_VERSION%.zip %APPVEYOR_BUILD_FOLDER%\build_msvc\%platform%\%configuration%\*.exe
+    #- path: tngc-%APPVEYOR_BUILD_VERSION%.zip
 ```

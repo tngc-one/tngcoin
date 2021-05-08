@@ -1,9 +1,9 @@
-// Copyright (c) 2011-2020 The TrustNetworkGlobalCoin Core developers
+// Copyright (c) 2011-2020 The TNGC Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TRUSTNETWORKGLOBALCOIN_QT_OPTIONSMODEL_H
-#define TRUSTNETWORKGLOBALCOIN_QT_OPTIONSMODEL_H
+#ifndef TNGC_QT_OPTIONSMODEL_H
+#define TNGC_QT_OPTIONSMODEL_H
 
 #include <amount.h>
 #include <cstdint>
@@ -30,7 +30,7 @@ static inline int PruneMiBtoGB(int64_t mib) { return (mib * 1024 * 1024 + GB_BYT
  */
 static inline int64_t PruneGBtoMiB(int gb) { return gb * GB_BYTES / 1024 / 1024; }
 
-/** Interface from Qt to configuration data structure for TrustNetworkGlobalCoin client.
+/** Interface from Qt to configuration data structure for TNGC client.
    To Qt, the options are presented as a list with the different options
    laid out vertically.
    This can be changed to a tree once the settings become sufficiently
@@ -55,7 +55,7 @@ public:
         ProxyUseTor,            // bool
         ProxyIPTor,             // QString
         ProxyPortTor,           // int
-        DisplayUnit,            // TrustNetworkGlobalCoinUnits::Unit
+        DisplayUnit,            // TNGCUnits::Unit
         ThirdPartyTxUrls,       // QString
         Language,               // QString
         CoinControlFeatures,    // bool
@@ -121,4 +121,4 @@ Q_SIGNALS:
     void hideTrayIconChanged(bool);
 };
 
-#endif // TRUSTNETWORKGLOBALCOIN_QT_OPTIONSMODEL_H
+#endif // TNGC_QT_OPTIONSMODEL_H

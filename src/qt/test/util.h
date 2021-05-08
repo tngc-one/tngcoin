@@ -1,9 +1,9 @@
-// Copyright (c) 2018-2019 The TrustNetworkGlobalCoin Core developers
+// Copyright (c) 2018-2019 The TNGC Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TRUSTNETWORKGLOBALCOIN_QT_TEST_UTIL_H
-#define TRUSTNETWORKGLOBALCOIN_QT_TEST_UTIL_H
+#ifndef TNGC_QT_TEST_UTIL_H
+#define TNGC_QT_TEST_UTIL_H
 
 #include <QString>
 
@@ -15,4 +15,4 @@
  */
 void ConfirmMessage(QString* text = nullptr, int msec = 0);
 
-#endif // TRUSTNETWORKGLOBALCOIN_QT_TEST_UTIL_H
+#endif // TNGC_QT_TEST_UTIL_H

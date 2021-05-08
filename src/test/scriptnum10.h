@@ -1,10 +1,10 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
-// Copyright (c) 2009-2020 The TrustNetworkGlobalCoin Core developers
+// Copyright (c) 2009-2020 The TNGC Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TRUSTNETWORKGLOBALCOIN_TEST_SCRIPTNUM10_H
-#define TRUSTNETWORKGLOBALCOIN_TEST_SCRIPTNUM10_H
+#ifndef TNGC_TEST_SCRIPTNUM10_H
+#define TNGC_TEST_SCRIPTNUM10_H
 
 #include <assert.h>
 #include <limits>
@@ -22,7 +22,7 @@ public:
 class CScriptNum10
 {
 /**
- * The ScriptNum implementation from TrustNetworkGlobalCoin Core 0.10.0, for cross-comparison.
+ * The ScriptNum implementation from TNGC Core 0.10.0, for cross-comparison.
  */
 public:
 
@@ -179,4 +179,4 @@ private:
 };
 
 
-#endif // TRUSTNETWORKGLOBALCOIN_TEST_BIGNUM_H
+#endif // TNGC_TEST_BIGNUM_H

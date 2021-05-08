@@ -1,5 +1,5 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
-// Copyright (c) 2009-2020 The TrustNetworkGlobalCoin Core developers
+// Copyright (c) 2009-2020 The TNGC Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -71,8 +71,8 @@
 // Application startup time (used for uptime calculation)
 const int64_t nStartupTime = GetTime();
 
-const char * const TRUSTNETWORKGLOBALCOIN_CONF_FILENAME = "trustnetworkglobalcoin.conf";
-const char * const TRUSTNETWORKGLOBALCOIN_SETTINGS_FILENAME = "settings.json";
+const char * const TNGC_CONF_FILENAME = "tngc.conf";
+const char * const TNGC_SETTINGS_FILENAME = "settings.json";
 
 ArgsManager gArgs;
 
@@ -222,7 +222,7 @@ static util::SettingsValue InterpretOption(std::string& section, std::string& ke
  *
  * TODO: Add more meaningful error checks here in the future
  * See "here's how the flags are meant to behave" in
- * https://github.com/trustnetworkglobalcoin/trustnetworkglobalcoin/pull/16097#issuecomment-514627823
+ * https://github.com/tngc/tngc/pull/16097#issuecomment-514627823
  */
 static bool CheckValid(const std::string& key, const util::SettingsValue& val, unsigned int flags, std::string& error)
 {
@@ -297,7 +297,7 @@ bool ArgsManager::ParseParameters(int argc, const char* const argv[], std::strin
         if (key.substr(0, 5) == "-psn_") continue;
 #endif
 
-        if (key == "-") break; //trustnetworkglobalcoin-tx using stdin
+        if (key == "-") break; //tngc-tx using stdin
         std::string val;
         size_t is_index = key.find('=');
         if (is_index != std::string::npos) {
@@ -397,7 +397,7 @@ bool ArgsManager::GetSettingsPath(fs::path* filepath, bool temp) const
         return false;
     }
     if (filepath) {
-        std::string settings = GetArg("-settings", TRUSTNETWORKGLOBALCOIN_SETTINGS_FILENAME);
+        std::string settings = GetArg("-settings", TNGC_SETTINGS_FILENAME);
         *filepath = fs::absolute(temp ? settings + ".tmp" : settings, GetDataDir(/* net_specific= */ true));
     }
     return true;
@@ -631,7 +631,7 @@ static std::string FormatException(const std::exception* pex, const char* pszThr
     char pszModule[MAX_PATH] = "";
     GetModuleFileNameA(nullptr, pszModule, sizeof(pszModule));
 #else
-    const char* pszModule = "trustnetworkglobalcoin";
+    const char* pszModule = "tngc";
 #endif
     if (pex)
         return strprintf(
@@ -650,12 +650,12 @@ void PrintExceptionContinue(const std::exception* pex, const char* pszThread)
 
 fs::path GetDefaultDataDir()
 {
-    // Windows: C:\Users\Username\AppData\Roaming\TrustNetworkGlobalCoin
-    // macOS: ~/Library/Application Support/TrustNetworkGlobalCoin
-    // Unix-like: ~/.trustnetworkglobalcoin
+    // Windows: C:\Users\Username\AppData\Roaming\TNGC
+    // macOS: ~/Library/Application Support/TNGC
+    // Unix-like: ~/.tngc
 #ifdef WIN32
     // Windows
-    return GetSpecialFolderPath(CSIDL_APPDATA) / "TrustNetworkGlobalCoin";
+    return GetSpecialFolderPath(CSIDL_APPDATA) / "TNGC";
 #else
     fs::path pathRet;
     char* pszHome = getenv("HOME");
@@ -665,10 +665,10 @@ fs::path GetDefaultDataDir()
         pathRet = fs::path(pszHome);
 #ifdef MAC_OSX
     // macOS
-    return pathRet / "Library/Application Support/TrustNetworkGlobalCoin";
+    return pathRet / "Library/Application Support/TNGC";
 #else
     // Unix-like
-    return pathRet / ".trustnetworkglobalcoin";
+    return pathRet / ".tngc";
 #endif
 #endif
 }
@@ -850,7 +850,7 @@ bool ArgsManager::ReadConfigFiles(std::string& error, bool ignore_invalid_keys)
         m_config_sections.clear();
     }
 
-    const std::string confPath = GetArg("-conf", TRUSTNETWORKGLOBALCOIN_CONF_FILENAME);
+    const std::string confPath = GetArg("-conf", TNGC_CONF_FILENAME);
     fsbridge::ifstream stream(GetConfigFile(confPath));
 
     // ok to not have a config file
@@ -1284,9 +1284,9 @@ std::string CopyrightHolders(const std::string& strPrefix)
     const auto copyright_devs = strprintf(_(COPYRIGHT_HOLDERS).translated, COPYRIGHT_HOLDERS_SUBSTITUTION);
     std::string strCopyrightHolders = strPrefix + copyright_devs;
 
-    // Make sure TrustNetworkGlobalCoin Core copyright is not removed by accident
-    if (copyright_devs.find("TrustNetworkGlobalCoin Core") == std::string::npos) {
-        strCopyrightHolders += "\n" + strPrefix + "The TrustNetworkGlobalCoin Core developers";
+    // Make sure TNGC Core copyright is not removed by accident
+    if (copyright_devs.find("TNGC Core") == std::string::npos) {
+        strCopyrightHolders += "\n" + strPrefix + "The TNGC Core developers";
     }
     return strCopyrightHolders;
 }

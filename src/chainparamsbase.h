@@ -1,9 +1,9 @@
-// Copyright (c) 2014-2019 The TrustNetworkGlobalCoin Core developers
+// Copyright (c) 2014-2019 The TNGC Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TRUSTNETWORKGLOBALCOIN_CHAINPARAMSBASE_H
-#define TRUSTNETWORKGLOBALCOIN_CHAINPARAMSBASE_H
+#ifndef TNGC_CHAINPARAMSBASE_H
+#define TNGC_CHAINPARAMSBASE_H
 
 #include <memory>
 #include <string>
@@ -11,8 +11,8 @@
 class ArgsManager;
 
 /**
- * CBaseChainParams defines the base parameters (shared between trustnetworkglobalcoin-cli and trustnetworkglobalcoind)
- * of a given instance of the TrustNetworkGlobalCoin system.
+ * CBaseChainParams defines the base parameters (shared between tngc-cli and tngcd)
+ * of a given instance of the TNGC system.
  */
 class CBaseChainParams
 {
@@ -60,4 +60,4 @@ const CBaseChainParams& BaseParams();
 /** Sets the params returned by Params() to those for the given network. */
 void SelectBaseParams(const std::string& chain);
 
-#endif // TRUSTNETWORKGLOBALCOIN_CHAINPARAMSBASE_H
+#endif // TNGC_CHAINPARAMSBASE_H

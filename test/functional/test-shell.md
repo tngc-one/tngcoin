@@ -4,43 +4,43 @@ Test Shell for Interactive Environments
 This document describes how to use the `TestShell` submodule in the functional
 test suite.
 
-The `TestShell` submodule extends the `TrustNetworkGlobalCoinTestFramework` functionality to
+The `TestShell` submodule extends the `TNGCTestFramework` functionality to
 external interactive environments for prototyping and educational purposes. Just
-like `TrustNetworkGlobalCoinTestFramework`, the `TestShell` allows the user to:
+like `TNGCTestFramework`, the `TestShell` allows the user to:
 
-* Manage regtest trustnetworkglobalcoind subprocesses.
-* Access RPC interfaces of the underlying trustnetworkglobalcoind instances.
+* Manage regtest tngcd subprocesses.
+* Access RPC interfaces of the underlying tngcd instances.
 * Log events to the functional test logging utility.
 
 The `TestShell` can be useful in interactive environments where it is necessary
-to extend the object lifetime of the underlying `TrustNetworkGlobalCoinTestFramework` between
+to extend the object lifetime of the underlying `TNGCTestFramework` between
 user inputs. Such environments include the Python3 command line interpreter or
 [Jupyter](https://jupyter.org/) notebooks running a Python3 kernel.
 
 ## 1. Requirements
 
 * Python3
-* `trustnetworkglobalcoind` built in the same repository as the `TestShell`.
+* `tngcd` built in the same repository as the `TestShell`.
 
-## 2. Importing `TestShell` from the TrustNetworkGlobalCoin Core repository
+## 2. Importing `TestShell` from the TNGC Core repository
 
-We can import the `TestShell` by adding the path of the TrustNetworkGlobalCoin Core
+We can import the `TestShell` by adding the path of the TNGC Core
 `test_framework` module to the beginning of the PATH variable, and then
 importing the `TestShell` class from the `test_shell` sub-package.
 
 ```
 >>> import sys
->>> sys.path.insert(0, "/path/to/trustnetworkglobalcoin/test/functional")
+>>> sys.path.insert(0, "/path/to/tngc/test/functional")
 >>> from test_framework.test_shell import TestShell
 ```
 
-The following `TestShell` methods manage the lifetime of the underlying trustnetworkglobalcoind
+The following `TestShell` methods manage the lifetime of the underlying tngcd
 processes and logging utilities.
 
 * `TestShell.setup()`
 * `TestShell.shutdown()`
 
-The `TestShell` inherits all `TrustNetworkGlobalCoinTestFramework` members and methods, such
+The `TestShell` inherits all `TNGCTestFramework` members and methods, such
 as:
 * `TestShell.nodes[index].rpc_method()`
 * `TestShell.log.info("Custom log message")`
@@ -52,16 +52,16 @@ The following sections demonstrate how to initialize, run, and shut down a
 
 ```
 >>> test = TestShell().setup(num_nodes=2, setup_clean_chain=True)
-20XX-XX-XXTXX:XX:XX.XXXXXXX TestFramework (INFO): Initializing test directory /path/to/trustnetworkglobalcoin_func_test_XXXXXXX
+20XX-XX-XXTXX:XX:XX.XXXXXXX TestFramework (INFO): Initializing test directory /path/to/tngc_func_test_XXXXXXX
 ```
 The `TestShell` forwards all functional test parameters of the parent
-`TrustNetworkGlobalCoinTestFramework` object. The full set of argument keywords which can be
+`TNGCTestFramework` object. The full set of argument keywords which can be
 used to initialize the `TestShell` can be found in [section
 #6](#custom-testshell-parameters) of this document.
 
 **Note: Running multiple instances of `TestShell` is not allowed.** Running a
 single process also ensures that logging remains consolidated in the same
-temporary folder. If you need more trustnetworkglobalcoind nodes than set by default (1),
+temporary folder. If you need more tngcd nodes than set by default (1),
 simply increase the `num_nodes` parameter during setup.
 
 ```
@@ -71,12 +71,12 @@ TestShell is already running!
 
 ## 4. Interacting with the `TestShell`
 
-Unlike the `TrustNetworkGlobalCoinTestFramework` class, the `TestShell` keeps the underlying
-TrustNetworkGlobalCoind subprocesses (nodes) and logging utilities running until the user
+Unlike the `TNGCTestFramework` class, the `TestShell` keeps the underlying
+TNGCd subprocesses (nodes) and logging utilities running until the user
 explicitly shuts down the `TestShell` object.
 
-During the time between the `setup` and `shutdown` calls, all `trustnetworkglobalcoind` node
-processes and `TrustNetworkGlobalCoinTestFramework` convenience methods can be accessed
+During the time between the `setup` and `shutdown` calls, all `tngcd` node
+processes and `TNGCTestFramework` convenience methods can be accessed
 interactively.
 
 **Example: Mining a regtest chain**
@@ -126,18 +126,18 @@ test-framework**. Modules such as
 [key.py](../test/functional/test_framework/key.py),
 [script.py](../test/functional/test_framework/script.py) and
 [messages.py](../test/functional/test_framework/messages.py) are particularly
-useful in constructing objects which can be passed to the trustnetworkglobalcoind nodes managed
+useful in constructing objects which can be passed to the tngcd nodes managed
 by a running `TestShell` object.
 
 ## 5. Shutting the `TestShell` down
 
-Shutting down the `TestShell` will safely tear down all running trustnetworkglobalcoind
+Shutting down the `TestShell` will safely tear down all running tngcd
 instances and remove all temporary data and logging directories.
 
 ```
 >>> test.shutdown()
 20XX-XX-XXTXX:XX:XX.XXXXXXX TestFramework (INFO): Stopping nodes
-20XX-XX-XXTXX:XX:XX.XXXXXXX TestFramework (INFO): Cleaning up /path/to/trustnetworkglobalcoin_func_test_XXXXXXX on exit
+20XX-XX-XXTXX:XX:XX.XXXXXXX TestFramework (INFO): Cleaning up /path/to/tngc_func_test_XXXXXXX on exit
 20XX-XX-XXTXX:XX:XX.XXXXXXX TestFramework (INFO): Tests successful
 ```
 To prevent the logs from being removed after a shutdown, simply set the
@@ -146,20 +146,20 @@ To prevent the logs from being removed after a shutdown, simply set the
 >>> test.options.nocleanup = True
 >>> test.shutdown()
 20XX-XX-XXTXX:XX:XX.XXXXXXX TestFramework (INFO): Stopping nodes
-20XX-XX-XXTXX:XX:XX.XXXXXXX TestFramework (INFO): Not cleaning up dir /path/to/trustnetworkglobalcoin_func_test_XXXXXXX on exit
+20XX-XX-XXTXX:XX:XX.XXXXXXX TestFramework (INFO): Not cleaning up dir /path/to/tngc_func_test_XXXXXXX on exit
 20XX-XX-XXTXX:XX:XX.XXXXXXX TestFramework (INFO): Tests successful
 ```
 
-The following utility consolidates logs from the trustnetworkglobalcoind nodes and the
-underlying `TrustNetworkGlobalCoinTestFramework`:
+The following utility consolidates logs from the tngcd nodes and the
+underlying `TNGCTestFramework`:
 
-* `/path/to/trustnetworkglobalcoin/test/functional/combine_logs.py
-  '/path/to/trustnetworkglobalcoin_func_test_XXXXXXX'`
+* `/path/to/tngc/test/functional/combine_logs.py
+  '/path/to/tngc_func_test_XXXXXXX'`
 
 ## 6. Custom `TestShell` parameters
 
 The `TestShell` object initializes with the default settings inherited from the
-`TrustNetworkGlobalCoinTestFramework` class. The user can override these in
+`TNGCTestFramework` class. The user can override these in
 `TestShell.setup(key=value)`.
 
 **Note:** `TestShell.reset()` will reset test parameters to default values and
@@ -167,20 +167,20 @@ can be called after the TestShell is shut down.
 
 | Test parameter key | Default Value | Description |
 |---|---|---|
-| `bind_to_localhost_only` | `True` | Binds trustnetworkglobalcoind RPC services to `127.0.0.1` if set to `True`.|
-| `cachedir` | `"/path/to/trustnetworkglobalcoin/test/cache"` | Sets the trustnetworkglobalcoind datadir directory. |
-| `chain`  | `"regtest"` | Sets the chain-type for the underlying test trustnetworkglobalcoind processes. |
-| `configfile` | `"/path/to/trustnetworkglobalcoin/test/config.ini"` | Sets the location of the test framework config file. |
-| `coveragedir` | `None` | Records trustnetworkglobalcoind RPC test coverage into this directory if set. |
+| `bind_to_localhost_only` | `True` | Binds tngcd RPC services to `127.0.0.1` if set to `True`.|
+| `cachedir` | `"/path/to/tngc/test/cache"` | Sets the tngcd datadir directory. |
+| `chain`  | `"regtest"` | Sets the chain-type for the underlying test tngcd processes. |
+| `configfile` | `"/path/to/tngc/test/config.ini"` | Sets the location of the test framework config file. |
+| `coveragedir` | `None` | Records tngcd RPC test coverage into this directory if set. |
 | `loglevel` | `INFO` | Logs events at this level and higher. Can be set to `DEBUG`, `INFO`, `WARNING`, `ERROR` or `CRITICAL`. |
 | `nocleanup` | `False` | Cleans up temporary test directory if set to `True` during `shutdown`. |
-| `noshutdown` | `False` | Does not stop trustnetworkglobalcoind instances after `shutdown` if set to `True`. |
-| `num_nodes` | `1` | Sets the number of initialized trustnetworkglobalcoind processes. |
+| `noshutdown` | `False` | Does not stop tngcd instances after `shutdown` if set to `True`. |
+| `num_nodes` | `1` | Sets the number of initialized tngcd processes. |
 | `perf` | False | Profiles running nodes with `perf` for the duration of the test if set to `True`. |
-| `rpc_timeout` | `60` | Sets the RPC server timeout for the underlying trustnetworkglobalcoind processes. |
+| `rpc_timeout` | `60` | Sets the RPC server timeout for the underlying tngcd processes. |
 | `setup_clean_chain` | `False` | Initializes an empty blockchain by default. A 199-block-long chain is initialized if set to `True`. |
 | `randomseed` | Random Integer | `TestShell.options.randomseed` is a member of `TestShell` which can be accessed during a test to seed a random generator. User can override default with a constant value for reproducible test runs. |
-| `supports_cli` | `False` | Whether the trustnetworkglobalcoin-cli utility is compiled and available for the test. |
+| `supports_cli` | `False` | Whether the tngc-cli utility is compiled and available for the test. |
 | `tmpdir` | `"/var/folders/.../"` | Sets directory for test logs. Will be deleted upon a successful test run unless `nocleanup` is set to `True` |
 | `trace_rpc` | `False` | Logs all RPC calls if set to `True`. |
-| `usecli` | `False` | Uses the trustnetworkglobalcoin-cli interface for all trustnetworkglobalcoind commands instead of directly calling the RPC server. Requires `supports_cli`. |
+| `usecli` | `False` | Uses the tngc-cli interface for all tngcd commands instead of directly calling the RPC server. Requires `supports_cli`. |

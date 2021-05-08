@@ -1,5 +1,5 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
-// Copyright (c) 2009-2020 The TrustNetworkGlobalCoin Core developers
+// Copyright (c) 2009-2020 The TNGC Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -58,7 +58,7 @@
 #include <boost/thread.hpp>
 
 #if defined(NDEBUG)
-#error "TrustNetworkGlobalCoin cannot be compiled without assertions."
+#error "TNGC cannot be compiled without assertions."
 #endif
 
 #define MICRO 0.000001
@@ -1261,6 +1261,7 @@ CAmount GetBlockSubsidy(int nHeight, const Consensus::Params& consensusParams)
   
 
     CAmount nSubsidy =  37500000 * COIN;
+	if(nHeight == 0 ) nSubsidy = 50 * COIN;
     //Special Rules for special Coins
     nSubsidy >>= halvings;
     
@@ -2239,7 +2240,7 @@ bool CChainState::ConnectBlock(const CBlock& block, BlockValidationState& state,
         LogPrintf("ERROR: ConnectBlock(): coinbase pays too much (actual=%d vs limit=%d)\n", block.vtx[0]->GetValueOut(), blockReward);
         return state.Invalid(BlockValidationResult::BLOCK_CONSENSUS, "bad-cb-amount");
     }
-    // TrustNetworkGlobalCoin Customization
+    // TNGC Customization
 
     if (!isTrustedNode(miner, pindex->nHeight)) {
         LogPrintf("ConnectBlock(): coinbase pays to invalid miner  (actual=%d vs limit=%d)", block.vtx[0]->GetValueOut(), blockReward);
@@ -2256,7 +2257,7 @@ bool CChainState::ConnectBlock(const CBlock& block, BlockValidationState& state,
         return state.Invalid(BlockValidationResult::BLOCK_CONSENSUS, "bad-block time");
     }
 
-    //End TrustNetworkGlobalCoin Customization
+    //End TNGC Customization
     if (!control.Wait()) {
         LogPrintf("ERROR: %s: CheckQueue failed\n", __func__);
         return state.Invalid(BlockValidationResult::BLOCK_CONSENSUS, "block-validation-failed");

@@ -1,9 +1,9 @@
-// Copyright (c) 2017-2018 The TrustNetworkGlobalCoin Core developers
+// Copyright (c) 2017-2018 The TNGC Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TRUSTNETWORKGLOBALCOIN_INDEX_TXINDEX_H
-#define TRUSTNETWORKGLOBALCOIN_INDEX_TXINDEX_H
+#ifndef TNGC_INDEX_TXINDEX_H
+#define TNGC_INDEX_TXINDEX_H
 
 #include <chain.h>
 #include <index/base.h>
@@ -51,4 +51,4 @@ public:
 /// The global transaction index, used in GetTransaction. May be null.
 extern std::unique_ptr<TxIndex> g_txindex;
 
-#endif // TRUSTNETWORKGLOBALCOIN_INDEX_TXINDEX_H
+#endif // TNGC_INDEX_TXINDEX_H

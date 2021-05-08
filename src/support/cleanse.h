@@ -1,10 +1,10 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
-// Copyright (c) 2009-2019 The TrustNetworkGlobalCoin Core developers
+// Copyright (c) 2009-2019 The TNGC Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TRUSTNETWORKGLOBALCOIN_SUPPORT_CLEANSE_H
-#define TRUSTNETWORKGLOBALCOIN_SUPPORT_CLEANSE_H
+#ifndef TNGC_SUPPORT_CLEANSE_H
+#define TNGC_SUPPORT_CLEANSE_H
 
 #include <stdlib.h>
 
@@ -12,4 +12,4 @@
  * operation will not be optimized out by the compiler. */
 void memory_cleanse(void *ptr, size_t len);
 
-#endif // TRUSTNETWORKGLOBALCOIN_SUPPORT_CLEANSE_H
+#endif // TNGC_SUPPORT_CLEANSE_H

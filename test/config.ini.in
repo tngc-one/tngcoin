@@ -1,9 +1,9 @@
-# Copyright (c) 2013-2016 The TrustNetworkGlobalCoin Core developers
+# Copyright (c) 2013-2016 The TNGC Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 # These environment variables are set by the build process and read by
-# test/functional/test_runner.py and test/util/trustnetworkglobalcoin-util-test.py
+# test/functional/test_runner.py and test/util/tngc-util-test.py
 
 [environment]
 PACKAGE_NAME=@PACKAGE_NAME@
@@ -17,8 +17,8 @@ RPCAUTH=@abs_top_srcdir@/share/rpcauth/rpcauth.py
 # Which components are enabled. These are commented out by `configure` if they were disabled when running config.
 @ENABLE_WALLET_TRUE@ENABLE_WALLET=true
 @USE_SQLITE_TRUE@USE_SQLITE=true
-@BUILD_TRUSTNETWORKGLOBALCOIN_CLI_TRUE@ENABLE_CLI=true
-@BUILD_TRUSTNETWORKGLOBALCOIN_WALLET_TRUE@ENABLE_WALLET_TOOL=true
-@BUILD_TRUSTNETWORKGLOBALCOIND_TRUE@ENABLE_TRUSTNETWORKGLOBALCOIND=true
+@BUILD_TNGC_CLI_TRUE@ENABLE_CLI=true
+@BUILD_TNGC_WALLET_TRUE@ENABLE_WALLET_TOOL=true
+@BUILD_TNGCD_TRUE@ENABLE_TNGCD=true
 @ENABLE_FUZZ_TRUE@ENABLE_FUZZ=true
 @ENABLE_ZMQ_TRUE@ENABLE_ZMQ=true

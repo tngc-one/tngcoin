@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 #
-# Copyright (c) 2018-2020 The TrustNetworkGlobalCoin Core developers
+# Copyright (c) 2018-2020 The TNGC Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 export LC_ALL=C.UTF-8
 
-TRUSTNETWORKGLOBALCOIN_CONFIG_ALL="--disable-dependency-tracking --prefix=$DEPENDS_DIR/$HOST --bindir=$BASE_OUTDIR/bin --libdir=$BASE_OUTDIR/lib"
+TNGC_CONFIG_ALL="--disable-dependency-tracking --prefix=$DEPENDS_DIR/$HOST --bindir=$BASE_OUTDIR/bin --libdir=$BASE_OUTDIR/lib"
 DOCKER_EXEC "ccache --zero-stats --max-size=$CCACHE_SIZE"
 
 BEGIN_FOLD autogen
@@ -21,17 +21,17 @@ DOCKER_EXEC mkdir -p "${BASE_BUILD_DIR}"
 export P_CI_DIR="${BASE_BUILD_DIR}"
 
 BEGIN_FOLD configure
-DOCKER_EXEC "${BASE_ROOT_DIR}/configure" --cache-file=config.cache $TRUSTNETWORKGLOBALCOIN_CONFIG_ALL $TRUSTNETWORKGLOBALCOIN_CONFIG || ( (DOCKER_EXEC cat config.log) && false)
+DOCKER_EXEC "${BASE_ROOT_DIR}/configure" --cache-file=config.cache $TNGC_CONFIG_ALL $TNGC_CONFIG || ( (DOCKER_EXEC cat config.log) && false)
 END_FOLD
 
 BEGIN_FOLD distdir
 DOCKER_EXEC make distdir VERSION=$HOST
 END_FOLD
 
-export P_CI_DIR="${BASE_BUILD_DIR}/trustnetworkglobalcoin-$HOST"
+export P_CI_DIR="${BASE_BUILD_DIR}/tngc-$HOST"
 
 BEGIN_FOLD configure
-DOCKER_EXEC ./configure --cache-file=../config.cache $TRUSTNETWORKGLOBALCOIN_CONFIG_ALL $TRUSTNETWORKGLOBALCOIN_CONFIG || ( (DOCKER_EXEC cat config.log) && false)
+DOCKER_EXEC ./configure --cache-file=../config.cache $TNGC_CONFIG_ALL $TNGC_CONFIG || ( (DOCKER_EXEC cat config.log) && false)
 END_FOLD
 
 set -o errtrace
@@ -42,7 +42,7 @@ if [[ ${USE_MEMORY_SANITIZER} == "true" ]]; then
   # using the Linux getrandom syscall. Avoid using getrandom by undefining
   # HAVE_SYS_GETRANDOM. See https://github.com/google/sanitizers/issues/852 for
   # details.
-  DOCKER_EXEC 'grep -v HAVE_SYS_GETRANDOM src/config/trustnetworkglobalcoin-config.h > src/config/trustnetworkglobalcoin-config.h.tmp && mv src/config/trustnetworkglobalcoin-config.h.tmp src/config/trustnetworkglobalcoin-config.h'
+  DOCKER_EXEC 'grep -v HAVE_SYS_GETRANDOM src/config/tngc-config.h > src/config/tngc-config.h.tmp && mv src/config/tngc-config.h.tmp src/config/tngc-config.h'
 fi
 
 BEGIN_FOLD build

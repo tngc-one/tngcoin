@@ -1,9 +1,9 @@
-// Copyright (c) 2018-2019 The TrustNetworkGlobalCoin Core developers
+// Copyright (c) 2018-2019 The TNGC Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TRUSTNETWORKGLOBALCOIN_UTIL_THREADNAMES_H
-#define TRUSTNETWORKGLOBALCOIN_UTIL_THREADNAMES_H
+#ifndef TNGC_UTIL_THREADNAMES_H
+#define TNGC_UTIL_THREADNAMES_H
 
 #include <string>
 
@@ -23,4 +23,4 @@ const std::string& ThreadGetInternalName();
 
 } // namespace util
 
-#endif // TRUSTNETWORKGLOBALCOIN_UTIL_THREADNAMES_H
+#endif // TNGC_UTIL_THREADNAMES_H

@@ -1,9 +1,9 @@
-// Copyright (c) 2015-2019 The TrustNetworkGlobalCoin Core developers
+// Copyright (c) 2015-2019 The TNGC Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TRUSTNETWORKGLOBALCOIN_ZMQ_ZMQNOTIFICATIONINTERFACE_H
-#define TRUSTNETWORKGLOBALCOIN_ZMQ_ZMQNOTIFICATIONINTERFACE_H
+#ifndef TNGC_ZMQ_ZMQNOTIFICATIONINTERFACE_H
+#define TNGC_ZMQ_ZMQNOTIFICATIONINTERFACE_H
 
 #include <validationinterface.h>
 #include <list>
@@ -41,4 +41,4 @@ private:
 
 extern CZMQNotificationInterface* g_zmq_notification_interface;
 
-#endif // TRUSTNETWORKGLOBALCOIN_ZMQ_ZMQNOTIFICATIONINTERFACE_H
+#endif // TNGC_ZMQ_ZMQNOTIFICATIONINTERFACE_H

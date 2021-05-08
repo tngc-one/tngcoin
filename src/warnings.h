@@ -1,10 +1,10 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
-// Copyright (c) 2009-2019 The TrustNetworkGlobalCoin Core developers
+// Copyright (c) 2009-2019 The TNGC Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TRUSTNETWORKGLOBALCOIN_WARNINGS_H
-#define TRUSTNETWORKGLOBALCOIN_WARNINGS_H
+#ifndef TNGC_WARNINGS_H
+#define TNGC_WARNINGS_H
 
 #include <string>
 
@@ -22,4 +22,4 @@ void SetfLargeWorkInvalidChainFound(bool flag);
  */
 bilingual_str GetWarnings(bool verbose);
 
-#endif //  TRUSTNETWORKGLOBALCOIN_WARNINGS_H
+#endif //  TNGC_WARNINGS_H
