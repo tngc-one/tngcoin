@@ -1,7 +1,7 @@
 Translation Strings Policy
 ===========================
 
-This document provides guidelines for internationalization of the TrustNetworkGlobalCoin Core software.
+This document provides guidelines for internationalization of the TNGC Core software.
 
 How to translate?
 ------------------
@@ -76,10 +76,10 @@ In Qt code, use tr's third argument for optional plurality. For example:
 This adds `<numerusform>`s to the respective `.ts` file, which can be translated separately depending on the language. In English, this is simply:
 
     <message numerus="yes">
-        <source>%n active connection(s) to TrustNetworkGlobalCoin network</source>
+        <source>%n active connection(s) to TNGC network</source>
         <translation>
-            <numerusform>%n active connection to TrustNetworkGlobalCoin network</numerusform>
-            <numerusform>%n active connections to TrustNetworkGlobalCoin network</numerusform>
+            <numerusform>%n active connection to TNGC network</numerusform>
+            <numerusform>%n active connections to TNGC network</numerusform>
         </translation>
     </message>
 
@@ -97,4 +97,4 @@ The second example reduces the number of pluralized words that translators have 
 
 During a string freeze (often before a major release), no translation strings are to be added, modified or removed.
 
-This can be checked by executing `make translate` in the `src` directory, then verifying that `trustnetworkglobalcoin_en.ts` remains unchanged.
+This can be checked by executing `make translate` in the `src` directory, then verifying that `tngc_en.ts` remains unchanged.

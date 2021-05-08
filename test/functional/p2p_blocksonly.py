@@ -1,16 +1,16 @@
 #!/usr/bin/env python3
-# Copyright (c) 2019 The TrustNetworkGlobalCoin Core developers
+# Copyright (c) 2019 The TNGC Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 """Test p2p blocksonly"""
 
 from test_framework.messages import msg_tx, CTransaction, FromHex
 from test_framework.p2p import P2PInterface
-from test_framework.test_framework import TrustNetworkGlobalCoinTestFramework
+from test_framework.test_framework import TNGCTestFramework
 from test_framework.util import assert_equal
 
 
-class P2PBlocksOnly(TrustNetworkGlobalCoinTestFramework):
+class P2PBlocksOnly(TNGCTestFramework):
     def set_test_params(self):
         self.setup_clean_chain = False
         self.num_nodes = 1
@@ -74,10 +74,10 @@ class P2PBlocksOnly(TrustNetworkGlobalCoinTestFramework):
         with self.nodes[0].assert_debug_log(["received getdata"]):
             # Note that normally, first_peer would never send us transactions since we're a blocksonly node.
             # By activating blocksonly, we explicitly tell our peers that they should not send us transactions,
-            # and TrustNetworkGlobalCoin Core respects that choice and will not send transactions.
+            # and TNGC Core respects that choice and will not send transactions.
             # But if, for some reason, first_peer decides to relay transactions to us anyway, we should relay them to
             # second_peer since we gave relay permission to first_peer.
-            # See https://github.com/trustnetworkglobalcoin/trustnetworkglobalcoin/issues/19943 for details.
+            # See https://github.com/tngc/tngc/issues/19943 for details.
             first_peer.send_message(msg_tx(FromHex(CTransaction(), sigtx)))
             self.log.info('Check that the peer with relay-permission is still connected after sending the transaction')
             assert_equal(first_peer.is_connected, True)

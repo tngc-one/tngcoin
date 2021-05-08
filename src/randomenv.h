@@ -1,10 +1,10 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
-// Copyright (c) 2009-2019 The TrustNetworkGlobalCoin Core developers
+// Copyright (c) 2009-2019 The TNGC Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TRUSTNETWORKGLOBALCOIN_RANDOMENV_H
-#define TRUSTNETWORKGLOBALCOIN_RANDOMENV_H
+#ifndef TNGC_RANDOMENV_H
+#define TNGC_RANDOMENV_H
 
 #include <crypto/sha512.h>
 

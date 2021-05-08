@@ -1,10 +1,10 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
-// Copyright (c) 2009-2020 The TrustNetworkGlobalCoin Core developers
+// Copyright (c) 2009-2020 The TNGC Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TRUSTNETWORKGLOBALCOIN_WALLET_BDB_H
-#define TRUSTNETWORKGLOBALCOIN_WALLET_BDB_H
+#ifndef TNGC_WALLET_BDB_H
+#define TNGC_WALLET_BDB_H
 
 #include <clientversion.h>
 #include <fs.h>
@@ -232,4 +232,4 @@ bool ExistsBerkeleyDatabase(const fs::path& path);
 //! Return object giving access to Berkeley database at specified path.
 std::unique_ptr<BerkeleyDatabase> MakeBerkeleyDatabase(const fs::path& path, const DatabaseOptions& options, DatabaseStatus& status, bilingual_str& error);
 
-#endif // TRUSTNETWORKGLOBALCOIN_WALLET_BDB_H
+#endif // TNGC_WALLET_BDB_H

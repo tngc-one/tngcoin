@@ -1,79 +1,80 @@
-Building TrustNetworkGlobalCoin Core with Visual Studio
-========================================
+TNGC Core integration/staging tree
+=====================================
 
-Introduction
----------------------
-Solution and project files to build the TrustNetworkGlobalCoin Core applications `msbuild` or Visual Studio can be found in the `build_msvc` directory. The build has been tested with Visual Studio 2017 and 2019.
+https://tngccore.org
 
-Building with Visual Studio is an alternative to the Linux based [cross-compiler build](https://github.com/trustnetworkglobalcoin/trustnetworkglobalcoin/blob/master/doc/build-windows.md).
+What is TNGC?
+----------------
 
-Quick Start
----------------------
-The minimal steps required to build TrustNetworkGlobalCoin Core with the msbuild toolchain are below. More detailed instructions are contained in the following sections.
+TNGC is an experimental digital currency that enables instant payments to
+anyone, anywhere in the world. TNGC uses peer-to-peer technology to operate
+with no central authority: managing transactions and issuing money are carried
+out collectively by the network. TNGC Core is the name of open source
+software which enables the use of this currency.
 
-```
-cd build_msvc
-py -3 msvc-autogen.py
-msbuild /m trustnetworkglobalcoin.sln /p:Platform=x64 /p:Configuration=Release /t:build
-```
+For more information, as well as an immediately usable, binary version of
+the TNGC Core software, see https://tngccore.org/en/download/, or read the
+[original whitepaper](https://tngccore.org/tngc.pdf).
 
-Dependencies
----------------------
-A number of [open source libraries](https://github.com/trustnetworkglobalcoin/trustnetworkglobalcoin/blob/master/doc/dependencies.md) are required in order to be able to build TrustNetworkGlobalCoin Core.
+License
+-------
 
-Options for installing the dependencies in a Visual Studio compatible manner are:
+TNGC Core is released under the terms of the MIT license. See [COPYING](COPYING) for more
+information or see https://opensource.org/licenses/MIT.
 
-- Use Microsoft's [vcpkg](https://docs.microsoft.com/en-us/cpp/vcpkg) to download the source packages and build locally. This is the recommended approach.
-- Download the source code, build each dependency, add the required include paths, link libraries and binary tools to the Visual Studio project files.
-- Use [nuget](https://www.nuget.org/) packages with the understanding that any binary files have been compiled by an untrusted third party.
+Development Process
+-------------------
 
-The [external dependencies](https://github.com/trustnetworkglobalcoin/trustnetworkglobalcoin/blob/master/doc/dependencies.md) required for building are listed in the `build_msvc/vcpkg.json` file. The `msbuild` project files are configured to automatically install the `vcpkg` dependencies.
+The `master` branch is regularly built (see `doc/build-*.md` for instructions) and tested, but it is not guaranteed to be
+completely stable. [Tags](https://github.com/tngc/tngc/tags) are created
+regularly from release branches to indicate new official, stable release versions of TNGC Core.
 
-Qt
----------------------
-In order to build the TrustNetworkGlobalCoin Core a static build of Qt is required. The runtime library version (e.g. v141, v142) and platform type (x86 or x64) must also match.
+The https://github.com/tngc-core/gui repository is used exclusively for the
+development of the GUI. Its master branch is identical in all monotree
+repositories. Release branches and tags do not exist, so please do not fork
+that repository unless it is for development reasons.
 
-Some prebuilt x64 versions of Qt can be downloaded from [here](https://github.com/sipsorcery/qt_win_binary/releases). Please be aware these downloads are NOT officially sanctioned by TrustNetworkGlobalCoin Core and are provided for developer convenience only. They should NOT be used for builds that will be used in a production environment or with real funds.
+The contribution workflow is described in [CONTRIBUTING.md](CONTRIBUTING.md)
+and useful hints for developers can be found in [doc/developer-notes.md](doc/developer-notes.md).
 
-To determine which Qt prebuilt version to download open the `.appveyor.yml` file and note the `QT_DOWNLOAD_URL`. When extracting the zip file the destination path must be set to `C:\`. This is due to the way that Qt includes, libraries and tools use internal paths.
+Testing
+-------
 
-To build TrustNetworkGlobalCoin Core without Qt unload or disable the `trustnetworkglobalcoin-qt`, `libtrustnetworkglobalcoin_qt` and `test_trustnetworkglobalcoin-qt` projects.
+Testing and code review is the bottleneck for development; we get more pull
+requests than we can review and test on short notice. Please be patient and help out by testing
+other people's pull requests, and remember this is a security-critical project where any mistake might cost people
+lots of money.
 
-Building
----------------------
-The instructions below use `vcpkg` to install the dependencies.
+### Automated Testing
 
-- Install [`vcpkg`](https://github.com/Microsoft/vcpkg).
+Developers are strongly encouraged to write [unit tests](src/test/README.md) for new code, and to
+submit new unit tests for old code. Unit tests can be compiled and run
+(assuming they weren't disabled in configure) with: `make check`. Further details on running
+and extending unit tests can be found in [/src/test/README.md](/src/test/README.md).
 
-- Use Python to generate `*.vcxproj` from Makefile
+There are also [regression and integration tests](/test), written
+in Python, that are run automatically on the build server.
+These tests can be run (if the [test dependencies](/test) are installed) with: `test/functional/test_runner.py`
 
-```
-PS >py -3 msvc-autogen.py
-```
+The Travis CI system makes sure that every pull request is built for Windows, Linux, and macOS, and that unit/sanity tests are run automatically.
 
-- An optional step is to adjust the settings in the `build_msvc` directory and the `common.init.vcxproj` file. This project file contains settings that are common to all projects such as the runtime library version and target Windows SDK version. The Qt directories can also be set.
+### Manual Quality Assurance (QA) Testing
 
-- To build from the command line with the Visual Studio 2017 toolchain use:
+Changes should be tested by somebody other than the developer who wrote the
+code. This is especially important for large or high-risk changes. It is useful
+to add a test plan to the pull request description if testing the changes is
+not straightforward.
 
-```
-msbuild /m trustnetworkglobalcoin.sln /p:Platform=x64 /p:Configuration=Release /p:PlatformToolset=v141 /t:build
-```
+Translations
+------------
 
-- To build from the command line with the Visual Studio 2019 toolchain use:
+Changes to translations as well as new translations can be submitted to
+[TNGC Core's Transifex page](https://www.transifex.com/tngc/tngc/).
 
-```
-msbuild /m trustnetworkglobalcoin.sln /p:Platform=x64 /p:Configuration=Release /t:build
-```
+Translations are periodically pulled from Transifex and merged into the git repository. See the
+[translation process](doc/translation_process.md) for details on how this works.
 
-- Alternatively open the `build_msvc/trustnetworkglobalcoin.sln` file in Visual Studio.
+**Important**: We do not accept translation changes as GitHub pull requests because the next
+pull from Transifex would automatically overwrite them again.
 
-AppVeyor
----------------------
-The .appveyor.yml in the root directory is suitable to perform builds on [AppVeyor](https://www.appveyor.com/) Continuous Integration servers. The simplest way to perform an AppVeyor build is to fork TrustNetworkGlobalCoin Core and then configure a new AppVeyor Project pointing to the forked repository.
-
-For safety reasons the TrustNetworkGlobalCoin Core .appveyor.yml file has the artifact options disabled. The build will be performed but no executable files will be available. To enable artifacts on a forked repository uncomment the lines shown below:
-
-```
-    #- 7z a trustnetworkglobalcoin-%APPVEYOR_BUILD_VERSION%.zip %APPVEYOR_BUILD_FOLDER%\build_msvc\%platform%\%configuration%\*.exe
-    #- path: trustnetworkglobalcoin-%APPVEYOR_BUILD_VERSION%.zip
-```
+Translators should also subscribe to the [mailing list](https://groups.google.com/forum/#!forum/tngc-translators).

@@ -1,28 +1,28 @@
-// Copyright (c) 2018-2020 The TrustNetworkGlobalCoin Core developers
+// Copyright (c) 2018-2020 The TNGC Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TRUSTNETWORKGLOBALCOIN_QT_TEST_APPTESTS_H
-#define TRUSTNETWORKGLOBALCOIN_QT_TEST_APPTESTS_H
+#ifndef TNGC_QT_TEST_APPTESTS_H
+#define TNGC_QT_TEST_APPTESTS_H
 
 #include <QObject>
 #include <set>
 #include <string>
 #include <utility>
 
-class TrustNetworkGlobalCoinApplication;
-class TrustNetworkGlobalCoinGUI;
+class TNGCApplication;
+class TNGCGUI;
 class RPCConsole;
 
 class AppTests : public QObject
 {
     Q_OBJECT
 public:
-    explicit AppTests(TrustNetworkGlobalCoinApplication& app) : m_app(app) {}
+    explicit AppTests(TNGCApplication& app) : m_app(app) {}
 
 private Q_SLOTS:
     void appTests();
-    void guiTests(TrustNetworkGlobalCoinGUI* window);
+    void guiTests(TNGCGUI* window);
     void consoleTests(RPCConsole* console);
 
 private:
@@ -37,8 +37,8 @@ private:
         ~HandleCallback();
     };
 
-    //! TrustNetworkGlobalCoin application.
-    TrustNetworkGlobalCoinApplication& m_app;
+    //! TNGC application.
+    TNGCApplication& m_app;
 
     //! Set of pending callback names. Used to track expected callbacks and shut
     //! down the app after the last callback has been handled and all tests have
@@ -47,4 +47,4 @@ private:
     std::multiset<std::string> m_callbacks;
 };
 
-#endif // TRUSTNETWORKGLOBALCOIN_QT_TEST_APPTESTS_H
+#endif // TNGC_QT_TEST_APPTESTS_H

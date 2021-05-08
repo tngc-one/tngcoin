@@ -1,41 +1,41 @@
-TrustNetworkGlobalCoin Core
+TNGC Core
 =============
 
 Setup
 ---------------------
-TrustNetworkGlobalCoin Core is the original TrustNetworkGlobalCoin client and it builds the backbone of the network. It downloads and, by default, stores the entire history of TrustNetworkGlobalCoin transactions, which requires a few hundred gigabytes of disk space. Depending on the speed of your computer and network connection, the synchronization process can take anywhere from a few hours to a day or more.
+TNGC Core is the original TNGC client and it builds the backbone of the network. It downloads and, by default, stores the entire history of TNGC transactions, which requires a few hundred gigabytes of disk space. Depending on the speed of your computer and network connection, the synchronization process can take anywhere from a few hours to a day or more.
 
-To download TrustNetworkGlobalCoin Core, visit [trustnetworkglobalcoincore.org](https://trustnetworkglobalcoincore.org/en/download/).
+To download TNGC Core, visit [tngccore.org](https://tngccore.org/en/download/).
 
 Running
 ---------------------
-The following are some helpful notes on how to run TrustNetworkGlobalCoin Core on your native platform.
+The following are some helpful notes on how to run TNGC Core on your native platform.
 
 ### Unix
 
 Unpack the files into a directory and run:
 
-- `bin/trustnetworkglobalcoin-qt` (GUI) or
-- `bin/trustnetworkglobalcoind` (headless)
+- `bin/tngc-qt` (GUI) or
+- `bin/tngcd` (headless)
 
 ### Windows
 
-Unpack the files into a directory, and then run trustnetworkglobalcoin-qt.exe.
+Unpack the files into a directory, and then run tngc-qt.exe.
 
 ### macOS
 
-Drag TrustNetworkGlobalCoin Core to your applications folder, and then run TrustNetworkGlobalCoin Core.
+Drag TNGC Core to your applications folder, and then run TNGC Core.
 
 ### Need Help?
 
-* See the documentation at the [TrustNetworkGlobalCoin Wiki](https://en.trustnetworkglobalcoin.it/wiki/Main_Page)
+* See the documentation at the [TNGC Wiki](https://en.tngc.it/wiki/Main_Page)
 for help and more information.
-* Ask for help on [#trustnetworkglobalcoin](https://webchat.freenode.net/#trustnetworkglobalcoin) on Freenode. If you don't have an IRC client, use [webchat here](https://webchat.freenode.net/#trustnetworkglobalcoin).
-* Ask for help on the [TrustNetworkGlobalCoinTalk](https://trustnetworkglobalcointalk.org/) forums, in the [Technical Support board](https://trustnetworkglobalcointalk.org/index.php?board=4.0).
+* Ask for help on [#tngc](https://webchat.freenode.net/#tngc) on Freenode. If you don't have an IRC client, use [webchat here](https://webchat.freenode.net/#tngc).
+* Ask for help on the [TNGCTalk](https://tngctalk.org/) forums, in the [Technical Support board](https://tngctalk.org/index.php?board=4.0).
 
 Building
 ---------------------
-The following are developer notes on how to build TrustNetworkGlobalCoin Core on your native platform. They are not complete guides, but include notes on the necessary libraries, compile flags, etc.
+The following are developer notes on how to build TNGC Core on your native platform. They are not complete guides, but include notes on the necessary libraries, compile flags, etc.
 
 - [Dependencies](dependencies.md)
 - [macOS Build Notes](build-osx.md)
@@ -44,17 +44,17 @@ The following are developer notes on how to build TrustNetworkGlobalCoin Core on
 - [FreeBSD Build Notes](build-freebsd.md)
 - [OpenBSD Build Notes](build-openbsd.md)
 - [NetBSD Build Notes](build-netbsd.md)
-- [Gitian Building Guide (External Link)](https://github.com/trustnetworkglobalcoin-core/docs/blob/master/gitian-building.md)
+- [Gitian Building Guide (External Link)](https://github.com/tngc-core/docs/blob/master/gitian-building.md)
 
 Development
 ---------------------
-The TrustNetworkGlobalCoin repo's [root README](/README.md) contains relevant information on the development process and automated testing.
+The TNGC repo's [root README](/README.md) contains relevant information on the development process and automated testing.
 
 - [Developer Notes](developer-notes.md)
 - [Productivity Notes](productivity.md)
 - [Release Notes](release-notes.md)
 - [Release Process](release-process.md)
-- [Source Code Documentation (External Link)](https://doxygen.trustnetworkglobalcoincore.org/)
+- [Source Code Documentation (External Link)](https://doxygen.tngccore.org/)
 - [Translation Process](translation_process.md)
 - [Translation Strings Policy](translation_strings_policy.md)
 - [JSON-RPC Interface](JSON-RPC-interface.md)
@@ -65,13 +65,13 @@ The TrustNetworkGlobalCoin repo's [root README](/README.md) contains relevant in
 - [Benchmarking](benchmarking.md)
 
 ### Resources
-* Discuss on the [TrustNetworkGlobalCoinTalk](https://trustnetworkglobalcointalk.org/) forums, in the [Development & Technical Discussion board](https://trustnetworkglobalcointalk.org/index.php?board=6.0).
-* Discuss project-specific development on #trustnetworkglobalcoin-core-dev on Freenode. If you don't have an IRC client, use [webchat here](https://webchat.freenode.net/#trustnetworkglobalcoin-core-dev).
-* Discuss general TrustNetworkGlobalCoin development on #trustnetworkglobalcoin-dev on Freenode. If you don't have an IRC client, use [webchat here](https://webchat.freenode.net/#trustnetworkglobalcoin-dev).
+* Discuss on the [TNGCTalk](https://tngctalk.org/) forums, in the [Development & Technical Discussion board](https://tngctalk.org/index.php?board=6.0).
+* Discuss project-specific development on #tngc-core-dev on Freenode. If you don't have an IRC client, use [webchat here](https://webchat.freenode.net/#tngc-core-dev).
+* Discuss general TNGC development on #tngc-dev on Freenode. If you don't have an IRC client, use [webchat here](https://webchat.freenode.net/#tngc-dev).
 
 ### Miscellaneous
 - [Assets Attribution](assets-attribution.md)
-- [trustnetworkglobalcoin.conf Configuration File](trustnetworkglobalcoin-conf.md)
+- [tngc.conf Configuration File](tngc-conf.md)
 - [Files](files.md)
 - [Fuzz-testing](fuzzing.md)
 - [Reduce Memory](reduce-memory.md)

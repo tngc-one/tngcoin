@@ -1,10 +1,10 @@
-# Copyright (c) 2012-2018 The TrustNetworkGlobalCoin Core developers
+# Copyright (c) 2012-2018 The TNGC Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 '''
-TrustNetworkGlobalCoin base58 encoding and decoding.
+TNGC base58 encoding and decoding.
 
-Based on https://trustnetworkglobalcointalk.org/index.php?topic=1026.0 (public domain)
+Based on https://tngctalk.org/index.php?topic=1026.0 (public domain)
 '''
 import hashlib
 
@@ -39,7 +39,7 @@ def b58encode(v):
         long_value = div
     result = __b58chars[long_value] + result
 
-    # TrustNetworkGlobalCoin does a little leading-zero-compression:
+    # TNGC does a little leading-zero-compression:
     # leading 0-bytes in the input become leading-1s
     nPad = 0
     for c in v:
@@ -106,7 +106,7 @@ def get_bcaddress_version(strAddress):
     return ord(version)
 
 if __name__ == '__main__':
-    # Test case (from http://gitorious.org/trustnetworkglobalcoin/python-base58.git)
+    # Test case (from http://gitorious.org/tngc/python-base58.git)
     assert get_bcaddress_version('15VjRaDX9zpbA8LVnbrCAFzrVzN7ixHNsC') == 0
     _ohai = 'o hai'.encode('ascii')
     _tmp = b58encode(_ohai)

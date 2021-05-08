@@ -1,9 +1,9 @@
-// Copyright (c) 2011-2020 The TrustNetworkGlobalCoin Core developers
+// Copyright (c) 2011-2020 The TNGC Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TRUSTNETWORKGLOBALCOIN_QT_BANTABLEMODEL_H
-#define TRUSTNETWORKGLOBALCOIN_QT_BANTABLEMODEL_H
+#ifndef TNGC_QT_BANTABLEMODEL_H
+#define TNGC_QT_BANTABLEMODEL_H
 
 #include <net.h>
 
@@ -76,4 +76,4 @@ private:
     std::unique_ptr<BanTablePriv> priv;
 };
 
-#endif // TRUSTNETWORKGLOBALCOIN_QT_BANTABLEMODEL_H
+#endif // TNGC_QT_BANTABLEMODEL_H

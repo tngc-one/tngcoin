@@ -1,9 +1,9 @@
-// Copyright (c) 2009-2019 The TrustNetworkGlobalCoin Core developers
+// Copyright (c) 2009-2019 The TNGC Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TRUSTNETWORKGLOBALCOIN_CORE_IO_H
-#define TRUSTNETWORKGLOBALCOIN_CORE_IO_H
+#ifndef TNGC_CORE_IO_H
+#define TNGC_CORE_IO_H
 
 #include <amount.h>
 #include <attributes.h>
@@ -47,4 +47,4 @@ void ScriptPubKeyToUniv(const CScript& scriptPubKey, UniValue& out, bool fInclud
 void ScriptToUniv(const CScript& script, UniValue& out, bool include_address);
 void TxToUniv(const CTransaction& tx, const uint256& hashBlock, UniValue& entry, bool include_hex = true, int serialize_flags = 0);
 
-#endif // TRUSTNETWORKGLOBALCOIN_CORE_IO_H
+#endif // TNGC_CORE_IO_H

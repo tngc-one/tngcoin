@@ -1,9 +1,9 @@
-// Copyright (c) 2014-2016 The TrustNetworkGlobalCoin Core developers
+// Copyright (c) 2014-2016 The TNGC Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TRUSTNETWORKGLOBALCOIN_CRYPTO_RIPEMD160_H
-#define TRUSTNETWORKGLOBALCOIN_CRYPTO_RIPEMD160_H
+#ifndef TNGC_CRYPTO_RIPEMD160_H
+#define TNGC_CRYPTO_RIPEMD160_H
 
 #include <stdint.h>
 #include <stdlib.h>
@@ -25,4 +25,4 @@ public:
     CRIPEMD160& Reset();
 };
 
-#endif // TRUSTNETWORKGLOBALCOIN_CRYPTO_RIPEMD160_H
+#endif // TNGC_CRYPTO_RIPEMD160_H

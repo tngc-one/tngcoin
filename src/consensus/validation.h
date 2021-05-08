@@ -1,10 +1,10 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
-// Copyright (c) 2009-2019 The TrustNetworkGlobalCoin Core developers
+// Copyright (c) 2009-2019 The TNGC Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TRUSTNETWORKGLOBALCOIN_CONSENSUS_VALIDATION_H
-#define TRUSTNETWORKGLOBALCOIN_CONSENSUS_VALIDATION_H
+#ifndef TNGC_CONSENSUS_VALIDATION_H
+#define TNGC_CONSENSUS_VALIDATION_H
 
 #include <string>
 #include <version.h>
@@ -178,4 +178,4 @@ inline int GetWitnessCommitmentIndex(const CBlock& block)
     return commitpos;
 }
 
-#endif // TRUSTNETWORKGLOBALCOIN_CONSENSUS_VALIDATION_H
+#endif // TNGC_CONSENSUS_VALIDATION_H

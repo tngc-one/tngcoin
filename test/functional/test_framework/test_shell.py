@@ -1,21 +1,21 @@
 #!/usr/bin/env python3
-# Copyright (c) 2019 The TrustNetworkGlobalCoin Core developers
+# Copyright (c) 2019 The TNGC Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-from test_framework.test_framework import TrustNetworkGlobalCoinTestFramework
+from test_framework.test_framework import TNGCTestFramework
 
 class TestShell:
-    """Wrapper Class for TrustNetworkGlobalCoinTestFramework.
+    """Wrapper Class for TNGCTestFramework.
 
-    The TestShell class extends the TrustNetworkGlobalCoinTestFramework
+    The TestShell class extends the TNGCTestFramework
     rpc & daemon process management functionality to external
     python environments.
 
     It is a singleton class, which ensures that users only
     start a single TestShell at a time."""
 
-    class __TestShell(TrustNetworkGlobalCoinTestFramework):
+    class __TestShell(TNGCTestFramework):
         def set_test_params(self):
             pass
 
@@ -28,7 +28,7 @@ class TestShell:
                 return
 
             # Num_nodes parameter must be set
-            # by TrustNetworkGlobalCoinTestFramework child class.
+            # by TNGCTestFramework child class.
             self.num_nodes = 1
 
             # User parameters override default values.

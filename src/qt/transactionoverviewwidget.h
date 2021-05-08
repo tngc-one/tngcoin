@@ -1,9 +1,9 @@
-// Copyright (c) 2021 The TrustNetworkGlobalCoin Core developers
+// Copyright (c) 2021 The TNGC Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TRUSTNETWORKGLOBALCOIN_QT_TRANSACTIONOVERVIEWWIDGET_H
-#define TRUSTNETWORKGLOBALCOIN_QT_TRANSACTIONOVERVIEWWIDGET_H
+#ifndef TNGC_QT_TRANSACTIONOVERVIEWWIDGET_H
+#define TNGC_QT_TRANSACTIONOVERVIEWWIDGET_H
 
 #include <qt/transactiontablemodel.h>
 
@@ -38,4 +38,4 @@ protected:
     }
 };
 
-#endif // TRUSTNETWORKGLOBALCOIN_QT_TRANSACTIONOVERVIEWWIDGET_H
+#endif // TNGC_QT_TRANSACTIONOVERVIEWWIDGET_H

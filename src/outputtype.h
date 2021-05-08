@@ -1,10 +1,10 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
-// Copyright (c) 2009-2019 The TrustNetworkGlobalCoin Core developers
+// Copyright (c) 2009-2019 The TNGC Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TRUSTNETWORKGLOBALCOIN_OUTPUTTYPE_H
-#define TRUSTNETWORKGLOBALCOIN_OUTPUTTYPE_H
+#ifndef TNGC_OUTPUTTYPE_H
+#define TNGC_OUTPUTTYPE_H
 
 #include <attributes.h>
 #include <script/signingprovider.h>
@@ -41,4 +41,4 @@ std::vector<CTxDestination> GetAllDestinationsForKey(const CPubKey& key);
  */
 CTxDestination AddAndGetDestinationForScript(FillableSigningProvider& keystore, const CScript& script, OutputType);
 
-#endif // TRUSTNETWORKGLOBALCOIN_OUTPUTTYPE_H
+#endif // TNGC_OUTPUTTYPE_H

@@ -1,10 +1,10 @@
 // Copyright (c) 2010 Satoshi Nakamoto
-// Copyright (c) 2009-2019 The TrustNetworkGlobalCoin Core developers
+// Copyright (c) 2009-2019 The TNGC Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TRUSTNETWORKGLOBALCOIN_RPC_REQUEST_H
-#define TRUSTNETWORKGLOBALCOIN_RPC_REQUEST_H
+#ifndef TNGC_RPC_REQUEST_H
+#define TNGC_RPC_REQUEST_H
 
 #include <string>
 
@@ -54,4 +54,4 @@ public:
     void parse(const UniValue& valRequest);
 };
 
-#endif // TRUSTNETWORKGLOBALCOIN_RPC_REQUEST_H
+#endif // TNGC_RPC_REQUEST_H

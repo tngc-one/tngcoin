@@ -1,4 +1,4 @@
-// Copyright (c) 2011-2019 The TrustNetworkGlobalCoin Core developers
+// Copyright (c) 2011-2019 The TNGC Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -282,7 +282,7 @@ void ReceiveCoinsDialog::copyURI()
     }
 
     const RecentRequestsTableModel * const submodel = model->getRecentRequestsTableModel();
-    const QString uri = GUIUtil::formatTrustNetworkGlobalCoinURI(submodel->entry(sel.row()).recipient);
+    const QString uri = GUIUtil::formatTNGCURI(submodel->entry(sel.row()).recipient);
     GUIUtil::setClipboard(uri);
 }
 

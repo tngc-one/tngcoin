@@ -1,9 +1,9 @@
-// Copyright (c) 2016-2018 The TrustNetworkGlobalCoin Core developers
+// Copyright (c) 2016-2018 The TNGC Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TRUSTNETWORKGLOBALCOIN_SUPPORT_EVENTS_H
-#define TRUSTNETWORKGLOBALCOIN_SUPPORT_EVENTS_H
+#ifndef TNGC_SUPPORT_EVENTS_H
+#define TNGC_SUPPORT_EVENTS_H
 
 #include <ios>
 #include <memory>
@@ -53,4 +53,4 @@ inline raii_evhttp_connection obtain_evhttp_connection_base(struct event_base* b
     return result;
 }
 
-#endif // TRUSTNETWORKGLOBALCOIN_SUPPORT_EVENTS_H
+#endif // TNGC_SUPPORT_EVENTS_H

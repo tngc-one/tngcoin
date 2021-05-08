@@ -1,9 +1,9 @@
-// Copyright (c) 2011-2020 The TrustNetworkGlobalCoin Core developers
+// Copyright (c) 2011-2020 The TNGC Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TRUSTNETWORKGLOBALCOIN_QT_GUICONSTANTS_H
-#define TRUSTNETWORKGLOBALCOIN_QT_GUICONSTANTS_H
+#ifndef TNGC_QT_GUICONSTANTS_H
+#define TNGC_QT_GUICONSTANTS_H
 
 #include <cstdint>
 
@@ -13,7 +13,7 @@ static const int MODEL_UPDATE_DELAY = 250;
 /* AskPassphraseDialog -- Maximum passphrase length */
 static const int MAX_PASSPHRASE_SIZE = 1024;
 
-/* TrustNetworkGlobalCoinGUI -- Size of icons in status bar */
+/* TNGCGUI -- Size of icons in status bar */
 static const int STATUSBAR_ICONSIZE = 16;
 
 static const bool DEFAULT_SPLASHSCREEN = true;
@@ -42,12 +42,12 @@ static const int TOOLTIP_WRAP_THRESHOLD = 80;
 /* Number of frames in spinner animation */
 #define SPINNER_FRAMES 36
 
-#define QAPP_ORG_NAME "TrustNetworkGlobalCoin"
-#define QAPP_ORG_DOMAIN "trustnetworkglobalcoin.org"
-#define QAPP_APP_NAME_DEFAULT "TrustNetworkGlobalCoin-Qt"
-#define QAPP_APP_NAME_TESTNET "TrustNetworkGlobalCoin-Qt-testnet"
-#define QAPP_APP_NAME_SIGNET "TrustNetworkGlobalCoin-Qt-signet"
-#define QAPP_APP_NAME_REGTEST "TrustNetworkGlobalCoin-Qt-regtest"
+#define QAPP_ORG_NAME "TNGC"
+#define QAPP_ORG_DOMAIN "tngc.org"
+#define QAPP_APP_NAME_DEFAULT "TNGC-Qt"
+#define QAPP_APP_NAME_TESTNET "TNGC-Qt-testnet"
+#define QAPP_APP_NAME_SIGNET "TNGC-Qt-signet"
+#define QAPP_APP_NAME_REGTEST "TNGC-Qt-regtest"
 
 /* One gigabyte (GB) in bytes */
 static constexpr uint64_t GB_BYTES{1000000000};
@@ -55,4 +55,4 @@ static constexpr uint64_t GB_BYTES{1000000000};
 // Default prune target displayed in GUI.
 static constexpr int DEFAULT_PRUNE_TARGET_GB{2};
 
-#endif // TRUSTNETWORKGLOBALCOIN_QT_GUICONSTANTS_H
+#endif // TNGC_QT_GUICONSTANTS_H

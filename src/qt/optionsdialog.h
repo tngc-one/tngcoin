@@ -1,9 +1,9 @@
-// Copyright (c) 2011-2018 The TrustNetworkGlobalCoin Core developers
+// Copyright (c) 2011-2018 The TNGC Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TRUSTNETWORKGLOBALCOIN_QT_OPTIONSDIALOG_H
-#define TRUSTNETWORKGLOBALCOIN_QT_OPTIONSDIALOG_H
+#ifndef TNGC_QT_OPTIONSDIALOG_H
+#define TNGC_QT_OPTIONSDIALOG_H
 
 #include <QDialog>
 #include <QValidator>
@@ -53,7 +53,7 @@ private Q_SLOTS:
     /* set OK button state (enabled / disabled) */
     void setOkButtonState(bool fState);
     void on_resetButton_clicked();
-    void on_openTrustNetworkGlobalCoinConfButton_clicked();
+    void on_openTNGCConfButton_clicked();
     void on_okButton_clicked();
     void on_cancelButton_clicked();
 
@@ -75,4 +75,4 @@ private:
     QDataWidgetMapper *mapper;
 };
 
-#endif // TRUSTNETWORKGLOBALCOIN_QT_OPTIONSDIALOG_H
+#endif // TNGC_QT_OPTIONSDIALOG_H

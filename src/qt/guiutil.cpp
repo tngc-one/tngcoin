@@ -1,11 +1,11 @@
-// Copyright (c) 2011-2020 The TrustNetworkGlobalCoin Core developers
+// Copyright (c) 2011-2020 The TNGC Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #include <qt/guiutil.h>
 
-#include <qt/trustnetworkglobalcoinaddressvalidator.h>
-#include <qt/trustnetworkglobalcoinunits.h>
+#include <qt/tngcaddressvalidator.h>
+#include <qt/tngcunits.h>
 #include <qt/qvalidatedlineedit.h>
 #include <qt/sendcoinsrecipient.h>
 
@@ -105,16 +105,16 @@ void setupAddressWidget(QValidatedLineEdit *widget, QWidget *parent)
     widget->setFont(fixedPitchFont());
     // We don't want translators to use own addresses in translations
     // and this is the only place, where this address is supplied.
-    widget->setPlaceholderText(QObject::tr("Enter a TrustNetworkGlobalCoin address (e.g. %1)").arg(
+    widget->setPlaceholderText(QObject::tr("Enter a TNGC address (e.g. %1)").arg(
         QString::fromStdString(DummyAddress(Params()))));
-    widget->setValidator(new TrustNetworkGlobalCoinAddressEntryValidator(parent));
-    widget->setCheckValidator(new TrustNetworkGlobalCoinAddressCheckValidator(parent));
+    widget->setValidator(new TNGCAddressEntryValidator(parent));
+    widget->setCheckValidator(new TNGCAddressCheckValidator(parent));
 }
 
-bool parseTrustNetworkGlobalCoinURI(const QUrl &uri, SendCoinsRecipient *out)
+bool parseTNGCURI(const QUrl &uri, SendCoinsRecipient *out)
 {
-    // return if URI is not valid or is no trustnetworkglobalcoin: URI
-    if(!uri.isValid() || uri.scheme() != QString("trustnetworkglobalcoin"))
+    // return if URI is not valid or is no tngc: URI
+    if(!uri.isValid() || uri.scheme() != QString("tngc"))
         return false;
 
     SendCoinsRecipient rv;
@@ -150,7 +150,7 @@ bool parseTrustNetworkGlobalCoinURI(const QUrl &uri, SendCoinsRecipient *out)
         {
             if(!i->second.isEmpty())
             {
-                if(!TrustNetworkGlobalCoinUnits::parse(TrustNetworkGlobalCoinUnits::TNGC, i->second, &rv.amount))
+                if(!TNGCUnits::parse(TNGCUnits::TNGC, i->second, &rv.amount))
                 {
                     return false;
                 }
@@ -168,22 +168,22 @@ bool parseTrustNetworkGlobalCoinURI(const QUrl &uri, SendCoinsRecipient *out)
     return true;
 }
 
-bool parseTrustNetworkGlobalCoinURI(QString uri, SendCoinsRecipient *out)
+bool parseTNGCURI(QString uri, SendCoinsRecipient *out)
 {
     QUrl uriInstance(uri);
-    return parseTrustNetworkGlobalCoinURI(uriInstance, out);
+    return parseTNGCURI(uriInstance, out);
 }
 
-QString formatTrustNetworkGlobalCoinURI(const SendCoinsRecipient &info)
+QString formatTNGCURI(const SendCoinsRecipient &info)
 {
     bool bech_32 = info.address.startsWith(QString::fromStdString(Params().Bech32HRP() + "1"));
 
-    QString ret = QString("trustnetworkglobalcoin:%1").arg(bech_32 ? info.address.toUpper() : info.address);
+    QString ret = QString("tngc:%1").arg(bech_32 ? info.address.toUpper() : info.address);
     int paramCount = 0;
 
     if (info.amount)
     {
-        ret += QString("?amount=%1").arg(TrustNetworkGlobalCoinUnits::format(TrustNetworkGlobalCoinUnits::TNGC, info.amount, false, TrustNetworkGlobalCoinUnits::SeparatorStyle::NEVER));
+        ret += QString("?amount=%1").arg(TNGCUnits::format(TNGCUnits::TNGC, info.amount, false, TNGCUnits::SeparatorStyle::NEVER));
         paramCount++;
     }
 
@@ -396,9 +396,9 @@ void openDebugLogfile()
         QDesktopServices::openUrl(QUrl::fromLocalFile(boostPathToQString(pathDebug)));
 }
 
-bool openTrustNetworkGlobalCoinConf()
+bool openTNGCConf()
 {
-    fs::path pathConfig = GetConfigFile(gArgs.GetArg("-conf", TRUSTNETWORKGLOBALCOIN_CONF_FILENAME));
+    fs::path pathConfig = GetConfigFile(gArgs.GetArg("-conf", TNGC_CONF_FILENAME));
 
     /* Create the file */
     fsbridge::ofstream configFile(pathConfig, std::ios_base::app);
@@ -408,7 +408,7 @@ bool openTrustNetworkGlobalCoinConf()
 
     configFile.close();
 
-    /* Open trustnetworkglobalcoin.conf with the associated application */
+    /* Open tngc.conf with the associated application */
     bool res = QDesktopServices::openUrl(QUrl::fromLocalFile(boostPathToQString(pathConfig)));
 #ifdef Q_OS_MAC
     // Workaround for macOS-specific behavior; see #15409.
@@ -586,15 +586,15 @@ fs::path static StartupShortcutPath()
 {
     std::string chain = gArgs.GetChainName();
     if (chain == CBaseChainParams::MAIN)
-        return GetSpecialFolderPath(CSIDL_STARTUP) / "TrustNetworkGlobalCoin.lnk";
+        return GetSpecialFolderPath(CSIDL_STARTUP) / "TNGC.lnk";
     if (chain == CBaseChainParams::TESTNET) // Remove this special case when CBaseChainParams::TESTNET = "testnet4"
-        return GetSpecialFolderPath(CSIDL_STARTUP) / "TrustNetworkGlobalCoin (testnet).lnk";
-    return GetSpecialFolderPath(CSIDL_STARTUP) / strprintf("TrustNetworkGlobalCoin (%s).lnk", chain);
+        return GetSpecialFolderPath(CSIDL_STARTUP) / "TNGC (testnet).lnk";
+    return GetSpecialFolderPath(CSIDL_STARTUP) / strprintf("TNGC (%s).lnk", chain);
 }
 
 bool GetStartOnSystemStartup()
 {
-    // check for TrustNetworkGlobalCoin*.lnk
+    // check for TNGC*.lnk
     return fs::exists(StartupShortcutPath());
 }
 
@@ -669,8 +669,8 @@ fs::path static GetAutostartFilePath()
 {
     std::string chain = gArgs.GetChainName();
     if (chain == CBaseChainParams::MAIN)
-        return GetAutostartDir() / "trustnetworkglobalcoin.desktop";
-    return GetAutostartDir() / strprintf("trustnetworkglobalcoin-%s.desktop", chain);
+        return GetAutostartDir() / "tngc.desktop";
+    return GetAutostartDir() / strprintf("tngc-%s.desktop", chain);
 }
 
 bool GetStartOnSystemStartup()
@@ -710,13 +710,13 @@ bool SetStartOnSystemStartup(bool fAutoStart)
         if (!optionFile.good())
             return false;
         std::string chain = gArgs.GetChainName();
-        // Write a trustnetworkglobalcoin.desktop file to the autostart directory:
+        // Write a tngc.desktop file to the autostart directory:
         optionFile << "[Desktop Entry]\n";
         optionFile << "Type=Application\n";
         if (chain == CBaseChainParams::MAIN)
-            optionFile << "Name=TrustNetworkGlobalCoin\n";
+            optionFile << "Name=TNGC\n";
         else
-            optionFile << strprintf("Name=TrustNetworkGlobalCoin (%s)\n", chain);
+            optionFile << strprintf("Name=TNGC (%s)\n", chain);
         optionFile << "Exec=" << pszExePath << strprintf(" -min -chain=%s\n", chain);
         optionFile << "Terminal=false\n";
         optionFile << "Hidden=false\n";

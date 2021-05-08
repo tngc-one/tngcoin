@@ -1,10 +1,10 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
-// Copyright (c) 2009-2020 The TrustNetworkGlobalCoin Core developers
+// Copyright (c) 2009-2020 The TNGC Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TRUSTNETWORKGLOBALCOIN_SCRIPT_SCRIPT_H
-#define TRUSTNETWORKGLOBALCOIN_SCRIPT_SCRIPT_H
+#ifndef TNGC_SCRIPT_SCRIPT_H
+#define TNGC_SCRIPT_SCRIPT_H
 
 #include <crypto/common.h>
 #include <prevector.h>
@@ -510,7 +510,7 @@ public:
     }
 
     /**
-     * Pre-version-0.6, TrustNetworkGlobalCoin always counted CHECKMULTISIGs
+     * Pre-version-0.6, TNGC always counted CHECKMULTISIGs
      * as 20 sigops. With pay-to-script-hash, that changed:
      * CHECKMULTISIGs serialized in scriptSigs are
      * counted more accurately, assuming they are of the form
@@ -572,4 +572,4 @@ struct CScriptWitness
 /** Test for OP_SUCCESSx opcodes as defined by BIP342. */
 bool IsOpSuccess(const opcodetype& opcode);
 
-#endif // TRUSTNETWORKGLOBALCOIN_SCRIPT_SCRIPT_H
+#endif // TNGC_SCRIPT_SCRIPT_H

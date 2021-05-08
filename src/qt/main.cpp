@@ -1,8 +1,8 @@
-// Copyright (c) 2018-2020 The TrustNetworkGlobalCoin Core developers
+// Copyright (c) 2018-2020 The TNGC Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#include <qt/trustnetworkglobalcoin.h>
+#include <qt/tngc.h>
 
 #include <util/translation.h>
 #include <util/url.h>
@@ -14,7 +14,7 @@
 
 /** Translate string to current locale using Qt. */
 extern const std::function<std::string(const char*)> G_TRANSLATION_FUN = [](const char* psz) {
-    return QCoreApplication::translate("trustnetworkglobalcoin-core", psz).toStdString();
+    return QCoreApplication::translate("tngc-core", psz).toStdString();
 };
 UrlDecodeFn* const URL_DECODE = urlDecode;
 

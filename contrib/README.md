@@ -3,7 +3,7 @@ Repository Tools
 
 ### [Developer tools](/contrib/devtools) ###
 Specific tools for developers working on this repository.
-Additional tools, including the `github-merge.py` script, are available in the [maintainer-tools](https://github.com/trustnetworkglobalcoin-core/trustnetworkglobalcoin-maintainer-tools) repository.
+Additional tools, including the `github-merge.py` script, are available in the [maintainer-tools](https://github.com/tngc-core/tngc-maintainer-tools) repository.
 
 ### [Verify-Commits](/contrib/verify-commits) ###
 Tool to verify that every merge commit was signed by a developer using the `github-merge.py` script.
@@ -13,7 +13,7 @@ Construct a linear, no-fork, best version of the blockchain.
 
 ### [Qos](/contrib/qos) ###
 
-A Linux bash script that will set up traffic control (tc) to limit the outgoing bandwidth for connections to the TrustNetworkGlobalCoin network. This means one can have an always-on trustnetworkglobalcoind instance running, and another local trustnetworkglobalcoind/trustnetworkglobalcoin-qt instance which connects to this node and receives blocks from it.
+A Linux bash script that will set up traffic control (tc) to limit the outgoing bandwidth for connections to the TNGC network. This means one can have an always-on tngcd instance running, and another local tngcd/tngc-qt instance which connects to this node and receives blocks from it.
 
 ### [Seeds](/contrib/seeds) ###
 Utility to generate the pnSeed[] array that is compiled into the client.
@@ -24,13 +24,13 @@ Build Tools and Keys
 ### Packaging ###
 The [Debian](/contrib/debian) subfolder contains the copyright file.
 
-All other packaging related files can be found in the [trustnetworkglobalcoin-core/packaging](https://github.com/trustnetworkglobalcoin-core/packaging) repository.
+All other packaging related files can be found in the [tngc-core/packaging](https://github.com/tngc-core/packaging) repository.
 
 ### [Gitian-descriptors](/contrib/gitian-descriptors) ###
-Files used during the gitian build process. For more information about gitian, see the [the TrustNetworkGlobalCoin Core documentation repository](https://github.com/trustnetworkglobalcoin-core/docs).
+Files used during the gitian build process. For more information about gitian, see the [the TNGC Core documentation repository](https://github.com/tngc-core/docs).
 
 ### [Gitian-keys](/contrib/gitian-keys)
-PGP keys used for signing TrustNetworkGlobalCoin Core [Gitian release](/doc/release-process.md) results.
+PGP keys used for signing TNGC Core [Gitian release](/doc/release-process.md) results.
 
 ### [MacDeploy](/contrib/macdeploy) ###
 Scripts and notes for Mac builds.
@@ -42,7 +42,7 @@ Test and Verify Tools
 ---------------------
 
 ### [TestGen](/contrib/testgen) ###
-Utilities to generate test vectors for the data-driven TrustNetworkGlobalCoin tests.
+Utilities to generate test vectors for the data-driven TNGC tests.
 
 ### [Verify Binaries](/contrib/verifybinaries) ###
-This script attempts to download and verify the signature file SHA256SUMS.asc from trustnetworkglobalcoin.org.
+This script attempts to download and verify the signature file SHA256SUMS.asc from tngc.org.

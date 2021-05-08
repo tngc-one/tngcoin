@@ -1,10 +1,10 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
-// Copyright (c) 2009-2019 The TrustNetworkGlobalCoin Core developers
+// Copyright (c) 2009-2019 The TNGC Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TRUSTNETWORKGLOBALCOIN_STREAMS_H
-#define TRUSTNETWORKGLOBALCOIN_STREAMS_H
+#ifndef TNGC_STREAMS_H
+#define TNGC_STREAMS_H
 
 #include <support/allocators/zeroafterfree.h>
 #include <serialize.h>
@@ -843,4 +843,4 @@ public:
     }
 };
 
-#endif // TRUSTNETWORKGLOBALCOIN_STREAMS_H
+#endif // TNGC_STREAMS_H

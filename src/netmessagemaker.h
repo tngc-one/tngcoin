@@ -1,10 +1,10 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
-// Copyright (c) 2009-2018 The TrustNetworkGlobalCoin Core developers
+// Copyright (c) 2009-2018 The TNGC Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TRUSTNETWORKGLOBALCOIN_NETMESSAGEMAKER_H
-#define TRUSTNETWORKGLOBALCOIN_NETMESSAGEMAKER_H
+#ifndef TNGC_NETMESSAGEMAKER_H
+#define TNGC_NETMESSAGEMAKER_H
 
 #include <net.h>
 #include <serialize.h>
@@ -33,4 +33,4 @@ private:
     const int nVersion;
 };
 
-#endif // TRUSTNETWORKGLOBALCOIN_NETMESSAGEMAKER_H
+#endif // TNGC_NETMESSAGEMAKER_H

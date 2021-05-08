@@ -1,9 +1,9 @@
-// Copyright (c) 2015-2020 The TrustNetworkGlobalCoin Core developers
+// Copyright (c) 2015-2020 The TNGC Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TRUSTNETWORKGLOBALCOIN_SCHEDULER_H
-#define TRUSTNETWORKGLOBALCOIN_SCHEDULER_H
+#ifndef TNGC_SCHEDULER_H
+#define TNGC_SCHEDULER_H
 
 #include <condition_variable>
 #include <functional>

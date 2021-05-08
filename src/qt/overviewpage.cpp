@@ -1,11 +1,11 @@
-// Copyright (c) 2011-2019 The TrustNetworkGlobalCoin Core developers
+// Copyright (c) 2011-2019 The TNGC Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #include <qt/overviewpage.h>
 #include <qt/forms/ui_overviewpage.h>
 
-#include <qt/trustnetworkglobalcoinunits.h>
+#include <qt/tngcunits.h>
 #include <qt/clientmodel.h>
 #include <qt/guiconstants.h>
 #include <qt/guiutil.h>
@@ -34,7 +34,7 @@ class TxViewDelegate : public QAbstractItemDelegate
     Q_OBJECT
 public:
     explicit TxViewDelegate(const PlatformStyle *_platformStyle, QObject *parent=nullptr):
-        QAbstractItemDelegate(parent), unit(TrustNetworkGlobalCoinUnits::TNGC),
+        QAbstractItemDelegate(parent), unit(TNGCUnits::TNGC),
         platformStyle(_platformStyle)
     {
         connect(this, &TxViewDelegate::width_changed, this, &TxViewDelegate::sizeHintChanged);
@@ -94,7 +94,7 @@ public:
             foreground = option.palette.color(QPalette::Text);
         }
         painter->setPen(foreground);
-        QString amountText = TrustNetworkGlobalCoinUnits::formatWithUnit(unit, amount, true, TrustNetworkGlobalCoinUnits::SeparatorStyle::ALWAYS);
+        QString amountText = TNGCUnits::formatWithUnit(unit, amount, true, TNGCUnits::SeparatorStyle::ALWAYS);
         if(!confirmed)
         {
             amountText = QString("[") + amountText + QString("]");
@@ -205,25 +205,25 @@ void OverviewPage::setBalance(const interfaces::WalletBalances& balances)
     m_balances = balances;
     if (walletModel->wallet().isLegacy()) {
         if (walletModel->wallet().privateKeysDisabled()) {
-            ui->labelBalance->setText(TrustNetworkGlobalCoinUnits::formatWithPrivacy(unit, balances.watch_only_balance, TrustNetworkGlobalCoinUnits::SeparatorStyle::ALWAYS, m_privacy));
-            ui->labelUnconfirmed->setText(TrustNetworkGlobalCoinUnits::formatWithPrivacy(unit, balances.unconfirmed_watch_only_balance, TrustNetworkGlobalCoinUnits::SeparatorStyle::ALWAYS, m_privacy));
-            ui->labelImmature->setText(TrustNetworkGlobalCoinUnits::formatWithPrivacy(unit, balances.immature_watch_only_balance, TrustNetworkGlobalCoinUnits::SeparatorStyle::ALWAYS, m_privacy));
-            ui->labelTotal->setText(TrustNetworkGlobalCoinUnits::formatWithPrivacy(unit, balances.watch_only_balance + balances.unconfirmed_watch_only_balance + balances.immature_watch_only_balance, TrustNetworkGlobalCoinUnits::SeparatorStyle::ALWAYS, m_privacy));
+            ui->labelBalance->setText(TNGCUnits::formatWithPrivacy(unit, balances.watch_only_balance, TNGCUnits::SeparatorStyle::ALWAYS, m_privacy));
+            ui->labelUnconfirmed->setText(TNGCUnits::formatWithPrivacy(unit, balances.unconfirmed_watch_only_balance, TNGCUnits::SeparatorStyle::ALWAYS, m_privacy));
+            ui->labelImmature->setText(TNGCUnits::formatWithPrivacy(unit, balances.immature_watch_only_balance, TNGCUnits::SeparatorStyle::ALWAYS, m_privacy));
+            ui->labelTotal->setText(TNGCUnits::formatWithPrivacy(unit, balances.watch_only_balance + balances.unconfirmed_watch_only_balance + balances.immature_watch_only_balance, TNGCUnits::SeparatorStyle::ALWAYS, m_privacy));
         } else {
-            ui->labelBalance->setText(TrustNetworkGlobalCoinUnits::formatWithPrivacy(unit, balances.balance, TrustNetworkGlobalCoinUnits::SeparatorStyle::ALWAYS, m_privacy));
-            ui->labelUnconfirmed->setText(TrustNetworkGlobalCoinUnits::formatWithPrivacy(unit, balances.unconfirmed_balance, TrustNetworkGlobalCoinUnits::SeparatorStyle::ALWAYS, m_privacy));
-            ui->labelImmature->setText(TrustNetworkGlobalCoinUnits::formatWithPrivacy(unit, balances.immature_balance, TrustNetworkGlobalCoinUnits::SeparatorStyle::ALWAYS, m_privacy));
-            ui->labelTotal->setText(TrustNetworkGlobalCoinUnits::formatWithPrivacy(unit, balances.balance + balances.unconfirmed_balance + balances.immature_balance, TrustNetworkGlobalCoinUnits::SeparatorStyle::ALWAYS, m_privacy));
-            ui->labelWatchAvailable->setText(TrustNetworkGlobalCoinUnits::formatWithPrivacy(unit, balances.watch_only_balance, TrustNetworkGlobalCoinUnits::SeparatorStyle::ALWAYS, m_privacy));
-            ui->labelWatchPending->setText(TrustNetworkGlobalCoinUnits::formatWithPrivacy(unit, balances.unconfirmed_watch_only_balance, TrustNetworkGlobalCoinUnits::SeparatorStyle::ALWAYS, m_privacy));
-            ui->labelWatchImmature->setText(TrustNetworkGlobalCoinUnits::formatWithPrivacy(unit, balances.immature_watch_only_balance, TrustNetworkGlobalCoinUnits::SeparatorStyle::ALWAYS, m_privacy));
-            ui->labelWatchTotal->setText(TrustNetworkGlobalCoinUnits::formatWithPrivacy(unit, balances.watch_only_balance + balances.unconfirmed_watch_only_balance + balances.immature_watch_only_balance, TrustNetworkGlobalCoinUnits::SeparatorStyle::ALWAYS, m_privacy));
+            ui->labelBalance->setText(TNGCUnits::formatWithPrivacy(unit, balances.balance, TNGCUnits::SeparatorStyle::ALWAYS, m_privacy));
+            ui->labelUnconfirmed->setText(TNGCUnits::formatWithPrivacy(unit, balances.unconfirmed_balance, TNGCUnits::SeparatorStyle::ALWAYS, m_privacy));
+            ui->labelImmature->setText(TNGCUnits::formatWithPrivacy(unit, balances.immature_balance, TNGCUnits::SeparatorStyle::ALWAYS, m_privacy));
+            ui->labelTotal->setText(TNGCUnits::formatWithPrivacy(unit, balances.balance + balances.unconfirmed_balance + balances.immature_balance, TNGCUnits::SeparatorStyle::ALWAYS, m_privacy));
+            ui->labelWatchAvailable->setText(TNGCUnits::formatWithPrivacy(unit, balances.watch_only_balance, TNGCUnits::SeparatorStyle::ALWAYS, m_privacy));
+            ui->labelWatchPending->setText(TNGCUnits::formatWithPrivacy(unit, balances.unconfirmed_watch_only_balance, TNGCUnits::SeparatorStyle::ALWAYS, m_privacy));
+            ui->labelWatchImmature->setText(TNGCUnits::formatWithPrivacy(unit, balances.immature_watch_only_balance, TNGCUnits::SeparatorStyle::ALWAYS, m_privacy));
+            ui->labelWatchTotal->setText(TNGCUnits::formatWithPrivacy(unit, balances.watch_only_balance + balances.unconfirmed_watch_only_balance + balances.immature_watch_only_balance, TNGCUnits::SeparatorStyle::ALWAYS, m_privacy));
         }
     } else {
-        ui->labelBalance->setText(TrustNetworkGlobalCoinUnits::formatWithPrivacy(unit, balances.balance, TrustNetworkGlobalCoinUnits::SeparatorStyle::ALWAYS, m_privacy));
-        ui->labelUnconfirmed->setText(TrustNetworkGlobalCoinUnits::formatWithPrivacy(unit, balances.unconfirmed_balance, TrustNetworkGlobalCoinUnits::SeparatorStyle::ALWAYS, m_privacy));
-        ui->labelImmature->setText(TrustNetworkGlobalCoinUnits::formatWithPrivacy(unit, balances.immature_balance, TrustNetworkGlobalCoinUnits::SeparatorStyle::ALWAYS, m_privacy));
-        ui->labelTotal->setText(TrustNetworkGlobalCoinUnits::formatWithPrivacy(unit, balances.balance + balances.unconfirmed_balance + balances.immature_balance, TrustNetworkGlobalCoinUnits::SeparatorStyle::ALWAYS, m_privacy));
+        ui->labelBalance->setText(TNGCUnits::formatWithPrivacy(unit, balances.balance, TNGCUnits::SeparatorStyle::ALWAYS, m_privacy));
+        ui->labelUnconfirmed->setText(TNGCUnits::formatWithPrivacy(unit, balances.unconfirmed_balance, TNGCUnits::SeparatorStyle::ALWAYS, m_privacy));
+        ui->labelImmature->setText(TNGCUnits::formatWithPrivacy(unit, balances.immature_balance, TNGCUnits::SeparatorStyle::ALWAYS, m_privacy));
+        ui->labelTotal->setText(TNGCUnits::formatWithPrivacy(unit, balances.balance + balances.unconfirmed_balance + balances.immature_balance, TNGCUnits::SeparatorStyle::ALWAYS, m_privacy));
     }
     // only show immature (newly mined) balance if it's non-zero, so as not to complicate things
     // for the non-mining users

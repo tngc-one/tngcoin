@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# Copyright (c) 2017-2020 The TrustNetworkGlobalCoin Core developers
+# Copyright (c) 2017-2020 The TNGC Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 """Test mempool acceptance of raw transactions."""
@@ -8,7 +8,7 @@ from decimal import Decimal
 from io import BytesIO
 import math
 
-from test_framework.test_framework import TrustNetworkGlobalCoinTestFramework
+from test_framework.test_framework import TNGCTestFramework
 from test_framework.key import ECKey
 from test_framework.messages import (
     BIP125_SEQUENCE_NUMBER,
@@ -37,7 +37,7 @@ from test_framework.util import (
 )
 
 
-class MempoolAcceptanceTest(TrustNetworkGlobalCoinTestFramework):
+class MempoolAcceptanceTest(TNGCTestFramework):
     def set_test_params(self):
         self.num_nodes = 1
         self.extra_args = [[

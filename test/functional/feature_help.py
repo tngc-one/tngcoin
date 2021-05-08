@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
-# Copyright (c) 2018-2019 The TrustNetworkGlobalCoin Core developers
+# Copyright (c) 2018-2019 The TNGC Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
-"""Verify that starting trustnetworkglobalcoin with -h works as expected."""
+"""Verify that starting tngc with -h works as expected."""
 
-from test_framework.test_framework import TrustNetworkGlobalCoinTestFramework
+from test_framework.test_framework import TNGCTestFramework
 from test_framework.util import assert_equal
 
-class HelpTest(TrustNetworkGlobalCoinTestFramework):
+class HelpTest(TNGCTestFramework):
     def set_test_params(self):
         self.setup_clean_chain = True
         self.num_nodes = 1
@@ -35,14 +35,14 @@ class HelpTest(TrustNetworkGlobalCoinTestFramework):
         return out, err
 
     def run_test(self):
-        self.log.info("Start trustnetworkglobalcoin with -h for help text")
+        self.log.info("Start tngc with -h for help text")
         self.nodes[0].start(extra_args=['-h'])
         # Node should exit immediately and output help to stdout.
         output, _ = self.get_node_output(ret_code_expected=0)
         assert b'Options' in output
         self.log.info("Help text received: {} (...)".format(output[0:60]))
 
-        self.log.info("Start trustnetworkglobalcoin with -version for version information")
+        self.log.info("Start tngc with -version for version information")
         self.nodes[0].start(extra_args=['-version'])
         # Node should exit immediately and output version to stdout.
         output, _ = self.get_node_output(ret_code_expected=0)
@@ -50,7 +50,7 @@ class HelpTest(TrustNetworkGlobalCoinTestFramework):
         self.log.info("Version text received: {} (...)".format(output[0:60]))
 
         # Test that arguments not in the help results in an error
-        self.log.info("Start trustnetworkglobalcoind with -fakearg to make sure it does not start")
+        self.log.info("Start tngcd with -fakearg to make sure it does not start")
         self.nodes[0].start(extra_args=['-fakearg'])
         # Node should exit immediately and output an error to stderr
         _, output = self.get_node_output(ret_code_expected=1)

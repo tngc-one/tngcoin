@@ -1,11 +1,11 @@
 Sample configuration files for:
 ```
-SystemD: trustnetworkglobalcoind.service
-Upstart: trustnetworkglobalcoind.conf
-OpenRC:  trustnetworkglobalcoind.openrc
-         trustnetworkglobalcoind.openrcconf
-CentOS:  trustnetworkglobalcoind.init
-macOS:   org.trustnetworkglobalcoin.trustnetworkglobalcoind.plist
+SystemD: tngcd.service
+Upstart: tngcd.conf
+OpenRC:  tngcd.openrc
+         tngcd.openrcconf
+CentOS:  tngcd.init
+macOS:   org.tngc.tngcd.plist
 ```
 have been made available to assist packagers in creating node packages here.
 

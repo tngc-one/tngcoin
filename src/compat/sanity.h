@@ -1,11 +1,11 @@
-// Copyright (c) 2009-2014 The TrustNetworkGlobalCoin Core developers
+// Copyright (c) 2009-2014 The TNGC Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TRUSTNETWORKGLOBALCOIN_COMPAT_SANITY_H
-#define TRUSTNETWORKGLOBALCOIN_COMPAT_SANITY_H
+#ifndef TNGC_COMPAT_SANITY_H
+#define TNGC_COMPAT_SANITY_H
 
 bool glibc_sanity_test();
 bool glibcxx_sanity_test();
 
-#endif // TRUSTNETWORKGLOBALCOIN_COMPAT_SANITY_H
+#endif // TNGC_COMPAT_SANITY_H
