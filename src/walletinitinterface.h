@@ -1,9 +1,9 @@
-// Copyright (c) 2017-2019 The TrustNetworkGlobalCoin Core developers
+// Copyright (c) 2017-2019 The TNGC Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TRUSTNETWORKGLOBALCOIN_WALLETINITINTERFACE_H
-#define TRUSTNETWORKGLOBALCOIN_WALLETINITINTERFACE_H
+#ifndef TNGC_WALLETINITINTERFACE_H
+#define TNGC_WALLETINITINTERFACE_H
 
 class ArgsManager;
 
@@ -25,4 +25,4 @@ public:
 
 extern const WalletInitInterface& g_wallet_init_interface;
 
-#endif // TRUSTNETWORKGLOBALCOIN_WALLETINITINTERFACE_H
+#endif // TNGC_WALLETINITINTERFACE_H

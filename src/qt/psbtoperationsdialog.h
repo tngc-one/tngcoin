@@ -1,9 +1,9 @@
-// Copyright (c) 2011-2020 The TrustNetworkGlobalCoin Core developers
+// Copyright (c) 2011-2020 The TNGC Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TRUSTNETWORKGLOBALCOIN_QT_PSBTOPERATIONSDIALOG_H
-#define TRUSTNETWORKGLOBALCOIN_QT_PSBTOPERATIONSDIALOG_H
+#ifndef TNGC_QT_PSBTOPERATIONSDIALOG_H
+#define TNGC_QT_PSBTOPERATIONSDIALOG_H
 
 #include <QDialog>
 
@@ -51,4 +51,4 @@ private:
     void showTransactionStatus(const PartiallySignedTransaction &psbtx);
 };
 
-#endif // TRUSTNETWORKGLOBALCOIN_QT_PSBTOPERATIONSDIALOG_H
+#endif // TNGC_QT_PSBTOPERATIONSDIALOG_H

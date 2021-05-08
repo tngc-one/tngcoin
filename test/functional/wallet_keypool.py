@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# Copyright (c) 2014-2019 The TrustNetworkGlobalCoin Core developers
+# Copyright (c) 2014-2019 The TNGC Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 """Test the wallet keypool and interaction with wallet encryption/locking."""
@@ -7,10 +7,10 @@
 import time
 from decimal import Decimal
 
-from test_framework.test_framework import TrustNetworkGlobalCoinTestFramework
+from test_framework.test_framework import TNGCTestFramework
 from test_framework.util import assert_equal, assert_raises_rpc_error
 
-class KeyPoolTest(TrustNetworkGlobalCoinTestFramework):
+class KeyPoolTest(TNGCTestFramework):
     def set_test_params(self):
         self.num_nodes = 1
 

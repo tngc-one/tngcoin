@@ -1,10 +1,10 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
-// Copyright (c) 2009-2020 The TrustNetworkGlobalCoin Core developers
+// Copyright (c) 2009-2020 The TNGC Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TRUSTNETWORKGLOBALCOIN_CHAINPARAMS_H
-#define TRUSTNETWORKGLOBALCOIN_CHAINPARAMS_H
+#ifndef TNGC_CHAINPARAMS_H
+#define TNGC_CHAINPARAMS_H
 
 #include <chainparamsbase.h>
 #include <consensus/params.h>
@@ -44,7 +44,7 @@ struct ChainTxData {
 
 /**
  * CChainParams defines various tweakable parameters of a given instance of the
- * TrustNetworkGlobalCoin system. There are three: the main network on which people trade goods
+ * TNGC system. There are three: the main network on which people trade goods
  * and services, the public test network which gets reset from time to time and
  * a regression test mode which is intended for private networks only. It has
  * minimal difficulty to ensure that blocks can be found instantly.
@@ -133,4 +133,4 @@ const CChainParams &Params();
  */
 void SelectParams(const std::string& chain);
 
-#endif // TRUSTNETWORKGLOBALCOIN_CHAINPARAMS_H
+#endif // TNGC_CHAINPARAMS_H

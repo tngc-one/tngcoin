@@ -1,9 +1,9 @@
-// Copyright (c) 2009-2019 The TrustNetworkGlobalCoin Core developers
+// Copyright (c) 2009-2019 The TNGC Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TRUSTNETWORKGLOBALCOIN_NODE_PSBT_H
-#define TRUSTNETWORKGLOBALCOIN_NODE_PSBT_H
+#ifndef TNGC_NODE_PSBT_H
+#define TNGC_NODE_PSBT_H
 
 #include <psbt.h>
 
@@ -51,4 +51,4 @@ struct PSBTAnalysis {
  */
 PSBTAnalysis AnalyzePSBT(PartiallySignedTransaction psbtx);
 
-#endif // TRUSTNETWORKGLOBALCOIN_NODE_PSBT_H
+#endif // TNGC_NODE_PSBT_H

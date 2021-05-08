@@ -1,21 +1,21 @@
 #!/usr/bin/env python3
-# Copyright (c) 2019-2020 The TrustNetworkGlobalCoin Core developers
+# Copyright (c) 2019-2020 The TNGC Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
-"""Test trustnetworkglobalcoind aborts if can't disconnect a block.
+"""Test tngcd aborts if can't disconnect a block.
 
 - Start a single node and generate 3 blocks.
 - Delete the undo data.
 - Mine a fork that requires disconnecting the tip.
-- Verify that trustnetworkglobalcoind AbortNode's.
+- Verify that tngcd AbortNode's.
 """
 
-from test_framework.test_framework import TrustNetworkGlobalCoinTestFramework
+from test_framework.test_framework import TNGCTestFramework
 from test_framework.util import get_datadir_path
 import os
 
 
-class AbortNodeTest(TrustNetworkGlobalCoinTestFramework):
+class AbortNodeTest(TNGCTestFramework):
     def set_test_params(self):
         self.setup_clean_chain = True
         self.num_nodes = 2

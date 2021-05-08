@@ -1,9 +1,9 @@
-// Copyright (c) 2019-2020 The TrustNetworkGlobalCoin Core developers
+// Copyright (c) 2019-2020 The TNGC Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TRUSTNETWORKGLOBALCOIN_UTIL_STRING_H
-#define TRUSTNETWORKGLOBALCOIN_UTIL_STRING_H
+#ifndef TNGC_UTIL_STRING_H
+#define TNGC_UTIL_STRING_H
 
 #include <attributes.h>
 
@@ -87,4 +87,4 @@ NODISCARD inline bool HasPrefix(const T1& obj,
            std::equal(std::begin(prefix), std::end(prefix), std::begin(obj));
 }
 
-#endif // TRUSTNETWORKGLOBALCOIN_UTIL_STRENCODINGS_H
+#endif // TNGC_UTIL_STRENCODINGS_H

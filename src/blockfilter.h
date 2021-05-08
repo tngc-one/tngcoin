@@ -1,9 +1,9 @@
-// Copyright (c) 2018-2019 The TrustNetworkGlobalCoin Core developers
+// Copyright (c) 2018-2019 The TNGC Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TRUSTNETWORKGLOBALCOIN_BLOCKFILTER_H
-#define TRUSTNETWORKGLOBALCOIN_BLOCKFILTER_H
+#ifndef TNGC_BLOCKFILTER_H
+#define TNGC_BLOCKFILTER_H
 
 #include <stdint.h>
 #include <string>
@@ -168,4 +168,4 @@ public:
     }
 };
 
-#endif // TRUSTNETWORKGLOBALCOIN_BLOCKFILTER_H
+#endif // TNGC_BLOCKFILTER_H

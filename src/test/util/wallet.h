@@ -1,9 +1,9 @@
-// Copyright (c) 2019 The TrustNetworkGlobalCoin Core developers
+// Copyright (c) 2019 The TNGC Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TRUSTNETWORKGLOBALCOIN_TEST_UTIL_WALLET_H
-#define TRUSTNETWORKGLOBALCOIN_TEST_UTIL_WALLET_H
+#ifndef TNGC_TEST_UTIL_WALLET_H
+#define TNGC_TEST_UTIL_WALLET_H
 
 #include <string>
 
@@ -21,4 +21,4 @@ void importaddress(CWallet& wallet, const std::string& address);
 std::string getnewaddress(CWallet& w);
 
 
-#endif // TRUSTNETWORKGLOBALCOIN_TEST_UTIL_WALLET_H
+#endif // TNGC_TEST_UTIL_WALLET_H

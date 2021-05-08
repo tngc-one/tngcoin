@@ -1,12 +1,12 @@
-// Copyright (c) 2011-2019 The TrustNetworkGlobalCoin Core developers
+// Copyright (c) 2011-2019 The TNGC Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TRUSTNETWORKGLOBALCOIN_QT_SENDCOINSRECIPIENT_H
-#define TRUSTNETWORKGLOBALCOIN_QT_SENDCOINSRECIPIENT_H
+#ifndef TNGC_QT_SENDCOINSRECIPIENT_H
+#define TNGC_QT_SENDCOINSRECIPIENT_H
 
 #if defined(HAVE_CONFIG_H)
-#include <config/trustnetworkglobalcoin-config.h>
+#include <config/tngc-config.h>
 #endif
 
 #include <amount.h>
@@ -62,4 +62,4 @@ public:
     }
 };
 
-#endif // TRUSTNETWORKGLOBALCOIN_QT_SENDCOINSRECIPIENT_H
+#endif // TNGC_QT_SENDCOINSRECIPIENT_H

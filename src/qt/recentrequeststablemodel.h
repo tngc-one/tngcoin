@@ -1,9 +1,9 @@
-// Copyright (c) 2011-2019 The TrustNetworkGlobalCoin Core developers
+// Copyright (c) 2011-2019 The TNGC Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TRUSTNETWORKGLOBALCOIN_QT_RECENTREQUESTSTABLEMODEL_H
-#define TRUSTNETWORKGLOBALCOIN_QT_RECENTREQUESTSTABLEMODEL_H
+#ifndef TNGC_QT_RECENTREQUESTSTABLEMODEL_H
+#define TNGC_QT_RECENTREQUESTSTABLEMODEL_H
 
 #include <qt/sendcoinsrecipient.h>
 
@@ -44,7 +44,7 @@ private:
     Qt::SortOrder order;
 };
 
-/** Model for list of recently generated payment requests / trustnetworkglobalcoin: URIs.
+/** Model for list of recently generated payment requests / tngc: URIs.
  * Part of wallet model.
  */
 class RecentRequestsTableModel: public QAbstractTableModel
@@ -96,4 +96,4 @@ private:
     QString getAmountTitle();
 };
 
-#endif // TRUSTNETWORKGLOBALCOIN_QT_RECENTREQUESTSTABLEMODEL_H
+#endif // TNGC_QT_RECENTREQUESTSTABLEMODEL_H

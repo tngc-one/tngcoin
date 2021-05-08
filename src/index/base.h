@@ -1,9 +1,9 @@
-// Copyright (c) 2017-2020 The TrustNetworkGlobalCoin Core developers
+// Copyright (c) 2017-2020 The TNGC Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TRUSTNETWORKGLOBALCOIN_INDEX_BASE_H
-#define TRUSTNETWORKGLOBALCOIN_INDEX_BASE_H
+#ifndef TNGC_INDEX_BASE_H
+#define TNGC_INDEX_BASE_H
 
 #include <dbwrapper.h>
 #include <primitives/block.h>
@@ -124,4 +124,4 @@ public:
     IndexSummary GetSummary() const;
 };
 
-#endif // TRUSTNETWORKGLOBALCOIN_INDEX_BASE_H
+#endif // TNGC_INDEX_BASE_H

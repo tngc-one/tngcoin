@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# Copyright (c) 2017-2019 The TrustNetworkGlobalCoin Core developers
+# Copyright (c) 2017-2019 The TNGC Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 """Test the RPC call related to the uptime command.
@@ -9,11 +9,11 @@ Test corresponds to code in rpc/server.cpp.
 
 import time
 
-from test_framework.test_framework import TrustNetworkGlobalCoinTestFramework
+from test_framework.test_framework import TNGCTestFramework
 from test_framework.util import assert_raises_rpc_error
 
 
-class UptimeTest(TrustNetworkGlobalCoinTestFramework):
+class UptimeTest(TNGCTestFramework):
     def set_test_params(self):
         self.num_nodes = 1
         self.setup_clean_chain = True

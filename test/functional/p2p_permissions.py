@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# Copyright (c) 2015-2020 The TrustNetworkGlobalCoin Core developers
+# Copyright (c) 2015-2020 The TNGC Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 """Test p2p permission message.
@@ -19,14 +19,14 @@ from test_framework.script import (
     OP_TRUE,
 )
 from test_framework.test_node import ErrorMatch
-from test_framework.test_framework import TrustNetworkGlobalCoinTestFramework
+from test_framework.test_framework import TNGCTestFramework
 from test_framework.util import (
     assert_equal,
     p2p_port,
 )
 
 
-class P2PPermissionsTests(TrustNetworkGlobalCoinTestFramework):
+class P2PPermissionsTests(TNGCTestFramework):
     def set_test_params(self):
         self.num_nodes = 2
         self.setup_clean_chain = True
@@ -185,9 +185,9 @@ class P2PPermissionsTests(TrustNetworkGlobalCoinTestFramework):
                 raise AssertionError("Expected permissions %r is not granted." % p)
 
     def replaceinconfig(self, nodeid, old, new):
-        with open(self.nodes[nodeid].trustnetworkglobalcoinconf, encoding="utf8") as f:
+        with open(self.nodes[nodeid].tngcconf, encoding="utf8") as f:
             newText = f.read().replace(old, new)
-        with open(self.nodes[nodeid].trustnetworkglobalcoinconf, 'w', encoding="utf8") as f:
+        with open(self.nodes[nodeid].tngcconf, 'w', encoding="utf8") as f:
             f.write(newText)
 
 

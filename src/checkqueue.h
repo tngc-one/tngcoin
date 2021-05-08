@@ -1,9 +1,9 @@
-// Copyright (c) 2012-2020 The TrustNetworkGlobalCoin Core developers
+// Copyright (c) 2012-2020 The TNGC Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TRUSTNETWORKGLOBALCOIN_CHECKQUEUE_H
-#define TRUSTNETWORKGLOBALCOIN_CHECKQUEUE_H
+#ifndef TNGC_CHECKQUEUE_H
+#define TNGC_CHECKQUEUE_H
 
 #include <sync.h>
 
@@ -210,4 +210,4 @@ public:
     }
 };
 
-#endif // TRUSTNETWORKGLOBALCOIN_CHECKQUEUE_H
+#endif // TNGC_CHECKQUEUE_H

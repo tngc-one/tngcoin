@@ -1,6 +1,6 @@
 all:
-	$(MAKE) -C .. trustnetworkglobalcoin_test
+	$(MAKE) -C .. tngc_test
 clean:
-	$(MAKE) -C .. trustnetworkglobalcoin_test_clean
+	$(MAKE) -C .. tngc_test_clean
 check:
-	$(MAKE) -C .. trustnetworkglobalcoin_test_check
+	$(MAKE) -C .. tngc_test_check

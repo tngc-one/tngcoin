@@ -1,10 +1,10 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
-// Copyright (c) 2009-2020 The TrustNetworkGlobalCoin Core developers
+// Copyright (c) 2009-2020 The TNGC Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TRUSTNETWORKGLOBALCOIN_SCRIPT_SIGN_H
-#define TRUSTNETWORKGLOBALCOIN_SCRIPT_SIGN_H
+#ifndef TNGC_SCRIPT_SIGN_H
+#define TNGC_SCRIPT_SIGN_H
 
 #include <coins.h>
 #include <hash.h>
@@ -173,4 +173,4 @@ bool IsSegWitOutput(const SigningProvider& provider, const CScript& script);
 /** Sign the CMutableTransaction */
 bool SignTransaction(CMutableTransaction& mtx, const SigningProvider* provider, const std::map<COutPoint, Coin>& coins, int sighash, std::map<int, std::string>& input_errors);
 
-#endif // TRUSTNETWORKGLOBALCOIN_SCRIPT_SIGN_H
+#endif // TNGC_SCRIPT_SIGN_H

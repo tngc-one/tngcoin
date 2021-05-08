@@ -1,9 +1,9 @@
-// Copyright (c) 2011-2019 The TrustNetworkGlobalCoin Core developers
+// Copyright (c) 2011-2019 The TNGC Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TRUSTNETWORKGLOBALCOIN_QT_SENDCOINSDIALOG_H
-#define TRUSTNETWORKGLOBALCOIN_QT_SENDCOINSDIALOG_H
+#ifndef TNGC_QT_SENDCOINSDIALOG_H
+#define TNGC_QT_SENDCOINSDIALOG_H
 
 #include <qt/walletmodel.h>
 
@@ -27,7 +27,7 @@ QT_BEGIN_NAMESPACE
 class QUrl;
 QT_END_NAMESPACE
 
-/** Dialog for sending trustnetworkglobalcoins */
+/** Dialog for sending tngcs */
 class SendCoinsDialog : public QDialog
 {
     Q_OBJECT
@@ -129,4 +129,4 @@ private:
     QString confirmButtonText;
 };
 
-#endif // TRUSTNETWORKGLOBALCOIN_QT_SENDCOINSDIALOG_H
+#endif // TNGC_QT_SENDCOINSDIALOG_H

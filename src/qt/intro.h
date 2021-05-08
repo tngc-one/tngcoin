@@ -1,9 +1,9 @@
-// Copyright (c) 2011-2019 The TrustNetworkGlobalCoin Core developers
+// Copyright (c) 2011-2019 The TNGC Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TRUSTNETWORKGLOBALCOIN_QT_INTRO_H
-#define TRUSTNETWORKGLOBALCOIN_QT_INTRO_H
+#ifndef TNGC_QT_INTRO_H
+#define TNGC_QT_INTRO_H
 
 #include <QDialog>
 #include <QMutex>
@@ -83,4 +83,4 @@ private:
     friend class FreespaceChecker;
 };
 
-#endif // TRUSTNETWORKGLOBALCOIN_QT_INTRO_H
+#endif // TNGC_QT_INTRO_H

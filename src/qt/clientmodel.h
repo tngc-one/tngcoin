@@ -1,9 +1,9 @@
-// Copyright (c) 2011-2019 The TrustNetworkGlobalCoin Core developers
+// Copyright (c) 2011-2019 The TNGC Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TRUSTNETWORKGLOBALCOIN_QT_CLIENTMODEL_H
-#define TRUSTNETWORKGLOBALCOIN_QT_CLIENTMODEL_H
+#ifndef TNGC_QT_CLIENTMODEL_H
+#define TNGC_QT_CLIENTMODEL_H
 
 #include <QObject>
 #include <QDateTime>
@@ -42,7 +42,7 @@ enum NumConnections {
     CONNECTIONS_ALL  = (CONNECTIONS_IN | CONNECTIONS_OUT),
 };
 
-/** Model for TrustNetworkGlobalCoin network client. */
+/** Model for TNGC network client. */
 class ClientModel : public QObject
 {
     Q_OBJECT
@@ -125,4 +125,4 @@ public Q_SLOTS:
     void updateBanlist();
 };
 
-#endif // TRUSTNETWORKGLOBALCOIN_QT_CLIENTMODEL_H
+#endif // TNGC_QT_CLIENTMODEL_H

@@ -1,9 +1,9 @@
-// Copyright (c) 2017-2020 The TrustNetworkGlobalCoin Core developers
+// Copyright (c) 2017-2020 The TNGC Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TRUSTNETWORKGLOBALCOIN_NODE_TRANSACTION_H
-#define TRUSTNETWORKGLOBALCOIN_NODE_TRANSACTION_H
+#ifndef TNGC_NODE_TRANSACTION_H
+#define TNGC_NODE_TRANSACTION_H
 
 #include <attributes.h>
 #include <policy/feerate.h>
@@ -38,4 +38,4 @@ static const CFeeRate DEFAULT_MAX_RAW_TX_FEE_RATE{COIN / 10};
  */
 NODISCARD TransactionError BroadcastTransaction(NodeContext& node, CTransactionRef tx, std::string& err_string, const CAmount& max_tx_fee, bool relay, bool wait_callback);
 
-#endif // TRUSTNETWORKGLOBALCOIN_NODE_TRANSACTION_H
+#endif // TNGC_NODE_TRANSACTION_H

@@ -1,9 +1,9 @@
-// Copyright (c) 2012-2019 The TrustNetworkGlobalCoin Core developers
+// Copyright (c) 2012-2019 The TNGC Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TRUSTNETWORKGLOBALCOIN_DBWRAPPER_H
-#define TRUSTNETWORKGLOBALCOIN_DBWRAPPER_H
+#ifndef TNGC_DBWRAPPER_H
+#define TNGC_DBWRAPPER_H
 
 #include <clientversion.h>
 #include <fs.h>
@@ -336,4 +336,4 @@ public:
 
 };
 
-#endif // TRUSTNETWORKGLOBALCOIN_DBWRAPPER_H
+#endif // TNGC_DBWRAPPER_H

@@ -1,9 +1,9 @@
-// Copyright (c) 2017-2020 The TrustNetworkGlobalCoin Core developers
+// Copyright (c) 2017-2020 The TNGC Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TRUSTNETWORKGLOBALCOIN_WALLET_FEEBUMPER_H
-#define TRUSTNETWORKGLOBALCOIN_WALLET_FEEBUMPER_H
+#ifndef TNGC_WALLET_FEEBUMPER_H
+#define TNGC_WALLET_FEEBUMPER_H
 
 #include <primitives/transaction.h>
 
@@ -55,4 +55,4 @@ Result CommitTransaction(CWallet& wallet,
 
 } // namespace feebumper
 
-#endif // TRUSTNETWORKGLOBALCOIN_WALLET_FEEBUMPER_H
+#endif // TNGC_WALLET_FEEBUMPER_H

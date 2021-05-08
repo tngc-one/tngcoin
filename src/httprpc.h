@@ -1,9 +1,9 @@
-// Copyright (c) 2015-2019 The TrustNetworkGlobalCoin Core developers
+// Copyright (c) 2015-2019 The TNGC Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TRUSTNETWORKGLOBALCOIN_HTTPRPC_H
-#define TRUSTNETWORKGLOBALCOIN_HTTPRPC_H
+#ifndef TNGC_HTTPRPC_H
+#define TNGC_HTTPRPC_H
 
 namespace util {
 class Ref;

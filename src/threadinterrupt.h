@@ -1,9 +1,9 @@
-// Copyright (c) 2016-2019 The TrustNetworkGlobalCoin Core developers
+// Copyright (c) 2016-2019 The TNGC Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TRUSTNETWORKGLOBALCOIN_THREADINTERRUPT_H
-#define TRUSTNETWORKGLOBALCOIN_THREADINTERRUPT_H
+#ifndef TNGC_THREADINTERRUPT_H
+#define TNGC_THREADINTERRUPT_H
 
 #include <sync.h>
 
@@ -33,4 +33,4 @@ private:
     std::atomic<bool> flag;
 };
 
-#endif //TRUSTNETWORKGLOBALCOIN_THREADINTERRUPT_H
+#endif //TNGC_THREADINTERRUPT_H

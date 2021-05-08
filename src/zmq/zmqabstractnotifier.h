@@ -1,9 +1,9 @@
-// Copyright (c) 2015-2018 The TrustNetworkGlobalCoin Core developers
+// Copyright (c) 2015-2018 The TNGC Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TRUSTNETWORKGLOBALCOIN_ZMQ_ZMQABSTRACTNOTIFIER_H
-#define TRUSTNETWORKGLOBALCOIN_ZMQ_ZMQABSTRACTNOTIFIER_H
+#ifndef TNGC_ZMQ_ZMQABSTRACTNOTIFIER_H
+#define TNGC_ZMQ_ZMQABSTRACTNOTIFIER_H
 
 #include <util/memory.h>
 
@@ -64,4 +64,4 @@ protected:
     int outbound_message_high_water_mark; // aka SNDHWM
 };
 
-#endif // TRUSTNETWORKGLOBALCOIN_ZMQ_ZMQABSTRACTNOTIFIER_H
+#endif // TNGC_ZMQ_ZMQABSTRACTNOTIFIER_H

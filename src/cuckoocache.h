@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TRUSTNETWORKGLOBALCOIN_CUCKOOCACHE_H
-#define TRUSTNETWORKGLOBALCOIN_CUCKOOCACHE_H
+#ifndef TNGC_CUCKOOCACHE_H
+#define TNGC_CUCKOOCACHE_H
 
 #include <algorithm> // std::find
 #include <array>
@@ -480,4 +480,4 @@ public:
 };
 } // namespace CuckooCache
 
-#endif // TRUSTNETWORKGLOBALCOIN_CUCKOOCACHE_H
+#endif // TNGC_CUCKOOCACHE_H

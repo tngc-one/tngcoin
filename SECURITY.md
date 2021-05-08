@@ -2,12 +2,12 @@
 
 ## Supported Versions
 
-See our website for versions of TrustNetworkGlobalCoin Core that are currently supported with
-security updates: https://trustnetworkglobalcoincore.org/en/lifecycle/#schedule
+See our website for versions of TNGC Core that are currently supported with
+security updates: https://tngccore.org/en/lifecycle/#schedule
 
 ## Reporting a Vulnerability
 
-To report security issues send an email to security@trustnetworkglobalcoincore.org (not for support).
+To report security issues send an email to security@tngccore.org (not for support).
 
 The following keys may be used to communicate sensitive information to developers:
 

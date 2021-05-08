@@ -3,14 +3,14 @@ define(_CLIENT_VERSION_MAJOR, 0)
 define(_CLIENT_VERSION_MINOR, 21)
 define(_CLIENT_VERSION_REVISION, 1)
 define(_CLIENT_VERSION_BUILD, 0)
-define(_CLIENT_VERSION_RC, 1)
+define(_CLIENT_VERSION_RC, 0)
 define(_CLIENT_VERSION_IS_RELEASE, true)
 define(_COPYRIGHT_YEAR, 2020)
 define(_COPYRIGHT_HOLDERS,[The %s developers])
-define(_COPYRIGHT_HOLDERS_SUBSTITUTION,[[TrustNetworkGlobalCoin Core]])
-AC_INIT([TrustNetworkGlobalCoin Core],m4_join([.], _CLIENT_VERSION_MAJOR, _CLIENT_VERSION_MINOR, _CLIENT_VERSION_REVISION, m4_if(_CLIENT_VERSION_BUILD, [0], [], _CLIENT_VERSION_BUILD))m4_if(_CLIENT_VERSION_RC, [0], [], [rc]_CLIENT_VERSION_RC),[https://github.com/trustnetworkglobalcoin/trustnetworkglobalcoin/issues],[trustnetworkglobalcoin],[https://trustnetworkglobalcoincore.org/])
+define(_COPYRIGHT_HOLDERS_SUBSTITUTION,[[TNGC Core]])
+AC_INIT([TNGC Core],m4_join([.], _CLIENT_VERSION_MAJOR, _CLIENT_VERSION_MINOR, _CLIENT_VERSION_REVISION, m4_if(_CLIENT_VERSION_BUILD, [0], [], _CLIENT_VERSION_BUILD))m4_if(_CLIENT_VERSION_RC, [0], [], [rc]_CLIENT_VERSION_RC),[https://github.com/tngc/tngc/issues],[tngc],[https://tngccore.org/])
 AC_CONFIG_SRCDIR([src/validation.cpp])
-AC_CONFIG_HEADERS([src/config/trustnetworkglobalcoin-config.h])
+AC_CONFIG_HEADERS([src/config/tngc-config.h])
 AC_CONFIG_AUX_DIR([build-aux])
 AC_CONFIG_MACRO_DIR([build-aux/m4])
 
@@ -20,11 +20,11 @@ if test "x$PKG_CONFIG" = x; then
   AC_MSG_ERROR([pkg-config not found])
 fi
 
-TRUSTNETWORKGLOBALCOIN_DAEMON_NAME=trustnetworkglobalcoind
-TRUSTNETWORKGLOBALCOIN_GUI_NAME=trustnetworkglobalcoin-qt
-TRUSTNETWORKGLOBALCOIN_CLI_NAME=trustnetworkglobalcoin-cli
-TRUSTNETWORKGLOBALCOIN_TX_NAME=trustnetworkglobalcoin-tx
-TRUSTNETWORKGLOBALCOIN_WALLET_TOOL_NAME=trustnetworkglobalcoin-wallet
+TNGC_DAEMON_NAME=tngcd
+TNGC_GUI_NAME=tngc-qt
+TNGC_CLI_NAME=tngc-cli
+TNGC_TX_NAME=tngc-tx
+TNGC_WALLET_TOOL_NAME=tngc-wallet
 
 dnl Unless the user specified ARFLAGS, force it to be cr
 AC_ARG_VAR(ARFLAGS, [Flags for the archiver, defaults to <cr> if not set])
@@ -34,9 +34,9 @@ fi
 
 AC_CANONICAL_HOST
 
-AH_TOP([#ifndef TRUSTNETWORKGLOBALCOIN_CONFIG_H])
-AH_TOP([#define TRUSTNETWORKGLOBALCOIN_CONFIG_H])
-AH_BOTTOM([#endif //TRUSTNETWORKGLOBALCOIN_CONFIG_H])
+AH_TOP([#ifndef TNGC_CONFIG_H])
+AH_TOP([#define TNGC_CONFIG_H])
+AH_BOTTOM([#endif //TNGC_CONFIG_H])
 
 dnl faketime breaks configure and is only needed for make. Disable it here.
 unset FAKETIME
@@ -198,7 +198,7 @@ AC_ARG_ENABLE([ccache],
 
 dnl Suppress warnings from external headers (e.g. Boost, Qt).
 dnl May be useful if warnings from external headers clutter the build output
-dnl too much, so that it becomes difficult to spot TrustNetworkGlobalCoin Core warnings
+dnl too much, so that it becomes difficult to spot TNGC Core warnings
 dnl or if they cause a build failure with --enable-werror.
 AC_ARG_ENABLE([suppress-external-warnings],
   [AS_HELP_STRING([--enable-suppress-external-warnings],
@@ -266,7 +266,7 @@ AC_ARG_WITH([mpgen],
 
 AC_ARG_ENABLE([multiprocess],
   [AS_HELP_STRING([--enable-multiprocess],
-  [build multiprocess trustnetworkglobalcoin-node, trustnetworkglobalcoin-wallet, and trustnetworkglobalcoin-gui executables in addition to monolithic trustnetworkglobalcoind and trustnetworkglobalcoin-qt executables. Requires libmultiprocess library. Experimental (default is no)])],
+  [build multiprocess tngc-node, tngc-wallet, and tngc-gui executables in addition to monolithic tngcd and tngc-qt executables. Requires libmultiprocess library. Experimental (default is no)])],
   [enable_multiprocess=$enableval],
   [enable_multiprocess=no])
 
@@ -554,39 +554,39 @@ CPPFLAGS="$CPPFLAGS -DHAVE_BUILD_INFO -D__STDC_FORMAT_MACROS"
 
 AC_ARG_WITH([utils],
   [AS_HELP_STRING([--with-utils],
-  [build trustnetworkglobalcoin-cli trustnetworkglobalcoin-tx trustnetworkglobalcoin-wallet (default=yes)])],
-  [build_trustnetworkglobalcoin_utils=$withval],
-  [build_trustnetworkglobalcoin_utils=yes])
+  [build tngc-cli tngc-tx tngc-wallet (default=yes)])],
+  [build_tngc_utils=$withval],
+  [build_tngc_utils=yes])
 
 AC_ARG_ENABLE([util-cli],
   [AS_HELP_STRING([--enable-util-cli],
-  [build trustnetworkglobalcoin-cli])],
-  [build_trustnetworkglobalcoin_cli=$enableval],
-  [build_trustnetworkglobalcoin_cli=$build_trustnetworkglobalcoin_utils])
+  [build tngc-cli])],
+  [build_tngc_cli=$enableval],
+  [build_tngc_cli=$build_tngc_utils])
 
 AC_ARG_ENABLE([util-tx],
   [AS_HELP_STRING([--enable-util-tx],
-  [build trustnetworkglobalcoin-tx])],
-  [build_trustnetworkglobalcoin_tx=$enableval],
-  [build_trustnetworkglobalcoin_tx=$build_trustnetworkglobalcoin_utils])
+  [build tngc-tx])],
+  [build_tngc_tx=$enableval],
+  [build_tngc_tx=$build_tngc_utils])
 
 AC_ARG_ENABLE([util-wallet],
   [AS_HELP_STRING([--enable-util-wallet],
-  [build trustnetworkglobalcoin-wallet])],
-  [build_trustnetworkglobalcoin_wallet=$enableval],
-  [build_trustnetworkglobalcoin_wallet=$build_trustnetworkglobalcoin_utils])
+  [build tngc-wallet])],
+  [build_tngc_wallet=$enableval],
+  [build_tngc_wallet=$build_tngc_utils])
 
 AC_ARG_WITH([libs],
   [AS_HELP_STRING([--with-libs],
   [build libraries (default=yes)])],
-  [build_trustnetworkglobalcoin_libs=$withval],
-  [build_trustnetworkglobalcoin_libs=yes])
+  [build_tngc_libs=$withval],
+  [build_tngc_libs=yes])
 
 AC_ARG_WITH([daemon],
   [AS_HELP_STRING([--with-daemon],
-  [build trustnetworkglobalcoind daemon (default=yes)])],
-  [build_trustnetworkglobalcoind=$withval],
-  [build_trustnetworkglobalcoind=yes])
+  [build tngcd daemon (default=yes)])],
+  [build_tngcd=$withval],
+  [build_tngcd=yes])
 
 case $host in
   *mingw*)
@@ -648,7 +648,7 @@ case $host in
 
          if test "x$use_bdb" != xno && $BREW list --versions berkeley-db4 >/dev/null && test "x$BDB_CFLAGS" = "x" && test "x$BDB_LIBS" = "x"; then
            bdb_prefix=$($BREW --prefix berkeley-db4 2>/dev/null)
-           dnl This must precede the call to TRUSTNETWORKGLOBALCOIN_FIND_BDB48 below.
+           dnl This must precede the call to TNGC_FIND_BDB48 below.
            BDB_CFLAGS="-I$bdb_prefix/include"
            BDB_LIBS="-L$bdb_prefix/lib -ldb_cxx-4.8"
          fi
@@ -753,7 +753,7 @@ AC_C_BIGENDIAN
 dnl Check for pthread compile/link requirements
 AX_PTHREAD
 
-dnl The following macro will add the necessary defines to trustnetworkglobalcoin-config.h, but
+dnl The following macro will add the necessary defines to tngc-config.h, but
 dnl they also need to be passed down to any subprojects. Pull the results out of
 dnl the cache and add them to CPPFLAGS.
 AC_SYS_LARGEFILE
@@ -1183,15 +1183,15 @@ AC_DEFUN([SUPPRESS_WARNINGS],
 dnl enable-fuzz should disable all other targets
 if test "x$enable_fuzz" = "xyes"; then
   AC_MSG_WARN(enable-fuzz will disable all other targets)
-  build_trustnetworkglobalcoin_utils=no
-  build_trustnetworkglobalcoin_cli=no
-  build_trustnetworkglobalcoin_tx=no
-  build_trustnetworkglobalcoin_wallet=no
-  build_trustnetworkglobalcoind=no
-  build_trustnetworkglobalcoin_libs=no
-  trustnetworkglobalcoin_enable_qt=no
-  trustnetworkglobalcoin_enable_qt_test=no
-  trustnetworkglobalcoin_enable_qt_dbus=no
+  build_tngc_utils=no
+  build_tngc_cli=no
+  build_tngc_tx=no
+  build_tngc_wallet=no
+  build_tngcd=no
+  build_tngc_libs=no
+  tngc_enable_qt=no
+  tngc_enable_qt_test=no
+  tngc_enable_qt_dbus=no
   enable_wallet=no
   use_bench=no
   use_upnp=no
@@ -1211,10 +1211,10 @@ if test "x$enable_fuzz" = "xyes"; then
       /* unterminated comment to remove the main function ...
     ]],[[]])])
 else
-  TRUSTNETWORKGLOBALCOIN_QT_INIT
+  TNGC_QT_INIT
 
-  dnl sets $trustnetworkglobalcoin_enable_qt, $trustnetworkglobalcoin_enable_qt_test, $trustnetworkglobalcoin_enable_qt_dbus
-  TRUSTNETWORKGLOBALCOIN_QT_CONFIGURE([5.5.1])
+  dnl sets $tngc_enable_qt, $tngc_enable_qt_test, $tngc_enable_qt_dbus
+  TNGC_QT_CONFIGURE([5.5.1])
 
   dnl Keep a copy of the original $QT_INCLUDES and use it when invoking qt's moc
   QT_INCLUDES_UNSUPPRESSED=$QT_INCLUDES
@@ -1227,7 +1227,7 @@ fi
 
 if test x$enable_wallet != xno; then
     dnl Check for libdb_cxx only if wallet enabled
-    TRUSTNETWORKGLOBALCOIN_FIND_BDB48
+    TNGC_FIND_BDB48
     if test x$suppress_external_warnings != xno ; then
         BDB_CPPFLAGS=SUPPRESS_WARNINGS($BDB_CPPFLAGS)
     fi
@@ -1282,7 +1282,7 @@ if test x$have_miniupnpc != xno; then
 fi
 fi
 
-if test x$build_trustnetworkglobalcoin_wallet$build_trustnetworkglobalcoin_cli$build_trustnetworkglobalcoin_tx$build_trustnetworkglobalcoind$trustnetworkglobalcoin_enable_qt$use_tests$use_bench = xnonononononono; then
+if test x$build_tngc_wallet$build_tngc_cli$build_tngc_tx$build_tngcd$tngc_enable_qt$use_tests$use_bench = xnonononononono; then
     use_boost=no
 else
     use_boost=yes
@@ -1296,7 +1296,7 @@ define(MINIMUM_REQUIRED_BOOST, 1.58.0)
 dnl Check for Boost libs
 AX_BOOST_BASE([MINIMUM_REQUIRED_BOOST])
 if test x$want_boost = xno; then
-    AC_MSG_ERROR([[only libtrustnetworkglobalcoinconsensus can be built without boost]])
+    AC_MSG_ERROR([[only libtngcconsensus can be built without boost]])
 fi
 AX_BOOST_SYSTEM
 AX_BOOST_FILESYSTEM
@@ -1355,7 +1355,7 @@ fi
 
 dnl libevent check
 
-if test x$build_trustnetworkglobalcoin_cli$build_trustnetworkglobalcoind$trustnetworkglobalcoin_enable_qt$use_tests$use_bench != xnonononono; then
+if test x$build_tngc_cli$build_tngcd$tngc_enable_qt$use_tests$use_bench != xnonononono; then
   PKG_CHECK_MODULES([EVENT], [libevent >= 2.0.21], [use_libevent=yes], [AC_MSG_ERROR([libevent version 2.0.21 or greater not found.])])
   if test x$TARGET_OS != xwindows; then
     PKG_CHECK_MODULES([EVENT_PTHREADS], [libevent_pthreads >= 2.0.21],, [AC_MSG_ERROR([libevent_pthreads version 2.0.21 or greater not found.])])
@@ -1365,7 +1365,7 @@ fi
 dnl QR Code encoding library check
 
 if test "x$use_qr" != xno; then
-  TRUSTNETWORKGLOBALCOIN_QT_CHECK([PKG_CHECK_MODULES([QR], [libqrencode], [have_qrencode=yes], [have_qrencode=no])])
+  TNGC_QT_CHECK([PKG_CHECK_MODULES([QR], [libqrencode], [have_qrencode=yes], [have_qrencode=no])])
 fi
 
 dnl ZMQ check
@@ -1392,7 +1392,7 @@ fi
 dnl univalue check
 
 need_bundled_univalue=yes
-if test x$build_trustnetworkglobalcoin_wallet$build_trustnetworkglobalcoin_cli$build_trustnetworkglobalcoin_tx$build_trustnetworkglobalcoind$trustnetworkglobalcoin_enable_qt$use_tests$use_bench = xnonononononono; then
+if test x$build_tngc_wallet$build_tngc_cli$build_tngc_tx$build_tngcd$tngc_enable_qt$use_tests$use_bench = xnonononononono; then
   need_bundled_univalue=no
 else
   if test x$system_univalue != xno; then
@@ -1445,8 +1445,8 @@ else
 fi
 
 AM_CONDITIONAL([BUILD_MULTIPROCESS],[test "x$build_multiprocess" = xyes])
-AM_CONDITIONAL([BUILD_TRUSTNETWORKGLOBALCOIN_NODE], [test "x$build_multiprocess" = xyes])
-AM_CONDITIONAL([BUILD_TRUSTNETWORKGLOBALCOIN_GUI], [test "x$build_multiprocess" = xyes])
+AM_CONDITIONAL([BUILD_TNGC_NODE], [test "x$build_multiprocess" = xyes])
+AM_CONDITIONAL([BUILD_TNGC_GUI], [test "x$build_multiprocess" = xyes])
 
 dnl codegen tools check
 
@@ -1459,29 +1459,29 @@ if test x$build_multiprocess != xno; then
   AC_SUBST(MPGEN_PREFIX)
 fi
 
-AC_MSG_CHECKING([whether to build trustnetworkglobalcoind])
-AM_CONDITIONAL([BUILD_TRUSTNETWORKGLOBALCOIND], [test x$build_trustnetworkglobalcoind = xyes])
-AC_MSG_RESULT($build_trustnetworkglobalcoind)
+AC_MSG_CHECKING([whether to build tngcd])
+AM_CONDITIONAL([BUILD_TNGCD], [test x$build_tngcd = xyes])
+AC_MSG_RESULT($build_tngcd)
 
-AC_MSG_CHECKING([whether to build trustnetworkglobalcoin-cli])
-AM_CONDITIONAL([BUILD_TRUSTNETWORKGLOBALCOIN_CLI], [test x$build_trustnetworkglobalcoin_cli = xyes])
-AC_MSG_RESULT($build_trustnetworkglobalcoin_cli)
+AC_MSG_CHECKING([whether to build tngc-cli])
+AM_CONDITIONAL([BUILD_TNGC_CLI], [test x$build_tngc_cli = xyes])
+AC_MSG_RESULT($build_tngc_cli)
 
-AC_MSG_CHECKING([whether to build trustnetworkglobalcoin-tx])
-AM_CONDITIONAL([BUILD_TRUSTNETWORKGLOBALCOIN_TX], [test x$build_trustnetworkglobalcoin_tx = xyes])
-AC_MSG_RESULT($build_trustnetworkglobalcoin_tx)
+AC_MSG_CHECKING([whether to build tngc-tx])
+AM_CONDITIONAL([BUILD_TNGC_TX], [test x$build_tngc_tx = xyes])
+AC_MSG_RESULT($build_tngc_tx)
 
-AC_MSG_CHECKING([whether to build trustnetworkglobalcoin-wallet])
-AM_CONDITIONAL([BUILD_TRUSTNETWORKGLOBALCOIN_WALLET], [test x$build_trustnetworkglobalcoin_wallet = xyes])
-AC_MSG_RESULT($build_trustnetworkglobalcoin_wallet)
+AC_MSG_CHECKING([whether to build tngc-wallet])
+AM_CONDITIONAL([BUILD_TNGC_WALLET], [test x$build_tngc_wallet = xyes])
+AC_MSG_RESULT($build_tngc_wallet)
 
 AC_MSG_CHECKING([whether to build libraries])
-AM_CONDITIONAL([BUILD_TRUSTNETWORKGLOBALCOIN_LIBS], [test x$build_trustnetworkglobalcoin_libs = xyes])
-if test x$build_trustnetworkglobalcoin_libs = xyes; then
+AM_CONDITIONAL([BUILD_TNGC_LIBS], [test x$build_tngc_libs = xyes])
+if test x$build_tngc_libs = xyes; then
   AC_DEFINE(HAVE_CONSENSUS_LIB, 1, [Define this symbol if the consensus lib has been built])
-  AC_CONFIG_FILES([libtrustnetworkglobalcoinconsensus.pc:libtrustnetworkglobalcoinconsensus.pc.in])
+  AC_CONFIG_FILES([libtngcconsensus.pc:libtngcconsensus.pc.in])
 fi
-AC_MSG_RESULT($build_trustnetworkglobalcoin_libs)
+AC_MSG_RESULT($build_tngc_libs)
 
 AC_LANG_POP
 
@@ -1541,13 +1541,13 @@ fi
 
 dnl these are only used when qt is enabled
 BUILD_TEST_QT=""
-if test x$trustnetworkglobalcoin_enable_qt != xno; then
+if test x$tngc_enable_qt != xno; then
   dnl enable dbus support
   AC_MSG_CHECKING([whether to build GUI with support for D-Bus])
-  if test x$trustnetworkglobalcoin_enable_qt_dbus != xno; then
+  if test x$tngc_enable_qt_dbus != xno; then
     AC_DEFINE([USE_DBUS],[1],[Define if dbus support should be compiled in])
   fi
-  AC_MSG_RESULT($trustnetworkglobalcoin_enable_qt_dbus)
+  AC_MSG_RESULT($tngc_enable_qt_dbus)
 
   dnl enable qr support
   AC_MSG_CHECKING([whether to build GUI with support for QR codes])
@@ -1568,8 +1568,8 @@ if test x$trustnetworkglobalcoin_enable_qt != xno; then
     AC_MSG_WARN("xgettext is required to update qt translations")
   fi
 
-  AC_MSG_CHECKING([whether to build test_trustnetworkglobalcoin-qt])
-  if test x$use_gui_tests$trustnetworkglobalcoin_enable_qt_test = xyesyes; then
+  AC_MSG_CHECKING([whether to build test_tngc-qt])
+  if test x$use_gui_tests$tngc_enable_qt_test = xyesyes; then
     AC_MSG_RESULT([yes])
     BUILD_TEST_QT="yes"
   else
@@ -1579,7 +1579,7 @@ fi
 
 AM_CONDITIONAL([ENABLE_ZMQ], [test "x$use_zmq" = "xyes"])
 
-AC_MSG_CHECKING([whether to build test_trustnetworkglobalcoin])
+AC_MSG_CHECKING([whether to build test_tngc])
 if test x$use_tests = xyes; then
   AC_MSG_RESULT([yes])
   BUILD_TEST="yes"
@@ -1595,7 +1595,7 @@ else
   AC_MSG_RESULT([no])
 fi
 
-if test x$build_trustnetworkglobalcoin_wallet$build_trustnetworkglobalcoin_cli$build_trustnetworkglobalcoin_tx$build_trustnetworkglobalcoin_libs$build_trustnetworkglobalcoind$trustnetworkglobalcoin_enable_qt$use_bench$use_tests = xnononononononono; then
+if test x$build_tngc_wallet$build_tngc_cli$build_tngc_tx$build_tngc_libs$build_tngcd$tngc_enable_qt$use_bench$use_tests = xnononononononono; then
   AC_MSG_ERROR([No targets! Please specify at least one of: --with-utils --with-libs --with-daemon --with-gui --enable-bench or --enable-tests])
 fi
 
@@ -1607,7 +1607,7 @@ AM_CONDITIONAL([ENABLE_WALLET],[test x$enable_wallet = xyes])
 AM_CONDITIONAL([USE_SQLITE], [test "x$use_sqlite" = "xyes"])
 AM_CONDITIONAL([ENABLE_TESTS],[test x$BUILD_TEST = xyes])
 AM_CONDITIONAL([ENABLE_FUZZ],[test x$enable_fuzz = xyes])
-AM_CONDITIONAL([ENABLE_QT],[test x$trustnetworkglobalcoin_enable_qt = xyes])
+AM_CONDITIONAL([ENABLE_QT],[test x$tngc_enable_qt = xyes])
 AM_CONDITIONAL([ENABLE_QT_TESTS],[test x$BUILD_TEST_QT = xyes])
 AM_CONDITIONAL([ENABLE_BENCH],[test x$use_bench = xyes])
 AM_CONDITIONAL([USE_QRCODE], [test x$use_qr = xyes])
@@ -1642,11 +1642,11 @@ AC_SUBST(COPYRIGHT_YEAR, _COPYRIGHT_YEAR)
 AC_SUBST(COPYRIGHT_HOLDERS, "_COPYRIGHT_HOLDERS")
 AC_SUBST(COPYRIGHT_HOLDERS_SUBSTITUTION, "_COPYRIGHT_HOLDERS_SUBSTITUTION")
 AC_SUBST(COPYRIGHT_HOLDERS_FINAL, "_COPYRIGHT_HOLDERS_FINAL")
-AC_SUBST(TRUSTNETWORKGLOBALCOIN_DAEMON_NAME)
-AC_SUBST(TRUSTNETWORKGLOBALCOIN_GUI_NAME)
-AC_SUBST(TRUSTNETWORKGLOBALCOIN_CLI_NAME)
-AC_SUBST(TRUSTNETWORKGLOBALCOIN_TX_NAME)
-AC_SUBST(TRUSTNETWORKGLOBALCOIN_WALLET_TOOL_NAME)
+AC_SUBST(TNGC_DAEMON_NAME)
+AC_SUBST(TNGC_GUI_NAME)
+AC_SUBST(TNGC_CLI_NAME)
+AC_SUBST(TNGC_TX_NAME)
+AC_SUBST(TNGC_WALLET_TOOL_NAME)
 
 AC_SUBST(RELDFLAGS)
 AC_SUBST(DEBUG_CPPFLAGS)
@@ -1698,7 +1698,7 @@ AC_CONFIG_LINKS([contrib/devtools/test-security-check.py:contrib/devtools/test-s
 AC_CONFIG_LINKS([contrib/filter-lcov.py:contrib/filter-lcov.py])
 AC_CONFIG_LINKS([test/functional/test_runner.py:test/functional/test_runner.py])
 AC_CONFIG_LINKS([test/fuzz/test_runner.py:test/fuzz/test_runner.py])
-AC_CONFIG_LINKS([test/util/trustnetworkglobalcoin-util-test.py:test/util/trustnetworkglobalcoin-util-test.py])
+AC_CONFIG_LINKS([test/util/tngc-util-test.py:test/util/tngc-util-test.py])
 AC_CONFIG_LINKS([test/util/rpcauth-test.py:test/util/rpcauth-test.py])
 
 dnl boost's m4 checks do something really nasty: they export these vars. As a
@@ -1749,8 +1749,8 @@ echo "  with wallet   = $enable_wallet"
 if test "x$enable_wallet" != "xno"; then
     echo "    with sqlite = $use_sqlite"
 fi
-echo "  with gui / qt = $trustnetworkglobalcoin_enable_qt"
-if test x$trustnetworkglobalcoin_enable_qt != xno; then
+echo "  with gui / qt = $tngc_enable_qt"
+if test x$tngc_enable_qt != xno; then
     echo "    with qr     = $use_qr"
 fi
 echo "  with zmq      = $use_zmq"

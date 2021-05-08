@@ -1,9 +1,9 @@
-// Copyright (c) 2019 The TrustNetworkGlobalCoin Core developers
+// Copyright (c) 2019 The TNGC Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TRUSTNETWORKGLOBALCOIN_NODE_COIN_H
-#define TRUSTNETWORKGLOBALCOIN_NODE_COIN_H
+#ifndef TNGC_NODE_COIN_H
+#define TNGC_NODE_COIN_H
 
 #include <map>
 
@@ -21,4 +21,4 @@ struct NodeContext;
  */
 void FindCoins(const NodeContext& node, std::map<COutPoint, Coin>& coins);
 
-#endif // TRUSTNETWORKGLOBALCOIN_NODE_COIN_H
+#endif // TNGC_NODE_COIN_H

@@ -1,4 +1,4 @@
-# Copyright (c) 2013-2020 The TrustNetworkGlobalCoin Core developers
+# Copyright (c) 2013-2020 The TNGC Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -12,13 +12,13 @@ TEST_FUZZ_H = \
     test/fuzz/FuzzedDataProvider.h \
     test/fuzz/util.h
 
-libtest_fuzz_a_CPPFLAGS = $(AM_CPPFLAGS) $(TRUSTNETWORKGLOBALCOIN_INCLUDES) $(MINIUPNPC_CPPFLAGS) $(EVENT_CFLAGS) $(EVENT_PTHREADS_CFLAGS)
+libtest_fuzz_a_CPPFLAGS = $(AM_CPPFLAGS) $(TNGC_INCLUDES) $(MINIUPNPC_CPPFLAGS) $(EVENT_CFLAGS) $(EVENT_PTHREADS_CFLAGS)
 libtest_fuzz_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 libtest_fuzz_a_SOURCES = \
   test/fuzz/fuzz.cpp \
   $(TEST_FUZZ_H)
 
-LIBTEST_FUZZ += $(LIBTRUSTNETWORKGLOBALCOIN_SERVER)
-LIBTEST_FUZZ += $(LIBTRUSTNETWORKGLOBALCOIN_COMMON)
-LIBTEST_FUZZ += $(LIBTRUSTNETWORKGLOBALCOIN_UTIL)
-LIBTEST_FUZZ += $(LIBTRUSTNETWORKGLOBALCOIN_CRYPTO_BASE)
+LIBTEST_FUZZ += $(LIBTNGC_SERVER)
+LIBTEST_FUZZ += $(LIBTNGC_COMMON)
+LIBTEST_FUZZ += $(LIBTNGC_UTIL)
+LIBTEST_FUZZ += $(LIBTNGC_CRYPTO_BASE)
