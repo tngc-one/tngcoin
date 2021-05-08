@@ -1,5 +1,5 @@
 {
-  "name": "trustnetworkglobalcoin-core",
+  "name": "tngc-core",
   "version-string": "1",
   "dependencies": [
     "berkeleydb",

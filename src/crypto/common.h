@@ -1,12 +1,12 @@
-// Copyright (c) 2014-2018 The TrustNetworkGlobalCoin Core developers
+// Copyright (c) 2014-2018 The TNGC Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TRUSTNETWORKGLOBALCOIN_CRYPTO_COMMON_H
-#define TRUSTNETWORKGLOBALCOIN_CRYPTO_COMMON_H
+#ifndef TNGC_CRYPTO_COMMON_H
+#define TNGC_CRYPTO_COMMON_H
 
 #if defined(HAVE_CONFIG_H)
-#include <config/trustnetworkglobalcoin-config.h>
+#include <config/tngc-config.h>
 #endif
 
 #include <stdint.h>
@@ -107,4 +107,4 @@ uint64_t static inline CountBits(uint64_t x)
     return ret;
 }
 
-#endif // TRUSTNETWORKGLOBALCOIN_CRYPTO_COMMON_H
+#endif // TNGC_CRYPTO_COMMON_H

@@ -1,9 +1,9 @@
-// Copyright (c) 2019-2020 The TrustNetworkGlobalCoin Core developers
+// Copyright (c) 2019-2020 The TNGC Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TRUSTNETWORKGLOBALCOIN_TEST_UTIL_TRANSACTION_UTILS_H
-#define TRUSTNETWORKGLOBALCOIN_TEST_UTIL_TRANSACTION_UTILS_H
+#ifndef TNGC_TEST_UTIL_TRANSACTION_UTILS_H
+#define TNGC_TEST_UTIL_TRANSACTION_UTILS_H
 
 #include <primitives/transaction.h>
 
@@ -26,4 +26,4 @@ CMutableTransaction BuildSpendingTransaction(const CScript& scriptSig, const CSc
 // the second nValues[2] and nValues[3] outputs paid to a TxoutType::PUBKEYHASH.
 std::vector<CMutableTransaction> SetupDummyInputs(FillableSigningProvider& keystoreRet, CCoinsViewCache& coinsRet, const std::array<CAmount,4>& nValues);
 
-#endif // TRUSTNETWORKGLOBALCOIN_TEST_UTIL_TRANSACTION_UTILS_H
+#endif // TNGC_TEST_UTIL_TRANSACTION_UTILS_H

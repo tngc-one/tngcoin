@@ -1,9 +1,9 @@
-// Copyright (c) 2020 The TrustNetworkGlobalCoin Core developers
+// Copyright (c) 2020 The TNGC Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TRUSTNETWORKGLOBALCOIN_TEST_UTIL_VALIDATION_H
-#define TRUSTNETWORKGLOBALCOIN_TEST_UTIL_VALIDATION_H
+#ifndef TNGC_TEST_UTIL_VALIDATION_H
+#define TNGC_TEST_UTIL_VALIDATION_H
 
 #include <validation.h>
 
@@ -14,4 +14,4 @@ struct TestChainState : public CChainState {
     void JumpOutOfIbd();
 };
 
-#endif // TRUSTNETWORKGLOBALCOIN_TEST_UTIL_VALIDATION_H
+#endif // TNGC_TEST_UTIL_VALIDATION_H

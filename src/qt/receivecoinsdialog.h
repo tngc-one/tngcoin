@@ -1,9 +1,9 @@
-// Copyright (c) 2011-2018 The TrustNetworkGlobalCoin Core developers
+// Copyright (c) 2011-2018 The TNGC Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TRUSTNETWORKGLOBALCOIN_QT_RECEIVECOINSDIALOG_H
-#define TRUSTNETWORKGLOBALCOIN_QT_RECEIVECOINSDIALOG_H
+#ifndef TNGC_QT_RECEIVECOINSDIALOG_H
+#define TNGC_QT_RECEIVECOINSDIALOG_H
 
 #include <qt/guiutil.h>
 
@@ -26,7 +26,7 @@ QT_BEGIN_NAMESPACE
 class QModelIndex;
 QT_END_NAMESPACE
 
-/** Dialog for requesting payment of trustnetworkglobalcoins */
+/** Dialog for requesting payment of tngcs */
 class ReceiveCoinsDialog : public QDialog
 {
     Q_OBJECT
@@ -74,4 +74,4 @@ private Q_SLOTS:
     void copyAmount();
 };
 
-#endif // TRUSTNETWORKGLOBALCOIN_QT_RECEIVECOINSDIALOG_H
+#endif // TNGC_QT_RECEIVECOINSDIALOG_H

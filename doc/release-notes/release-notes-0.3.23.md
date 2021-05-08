@@ -1,7 +1,7 @@
-Win32, Linux, MacOSX and source releases for trustnetworkglobalcoin v0.3.23 have been uploaded to
-https://sourceforge.net/projects/trustnetworkglobalcoin/files/TrustNetworkGlobalCoin/trustnetworkglobalcoin-0.3.23/
+Win32, Linux, MacOSX and source releases for tngc v0.3.23 have been uploaded to
+https://sourceforge.net/projects/tngc/files/TNGC/tngc-0.3.23/
 
-This is another quick bugfix release, trying to deal with the influx of new trustnetworkglobalcoin users.
+This is another quick bugfix release, trying to deal with the influx of new tngc users.
 
 Main items of note:
 

@@ -1,9 +1,9 @@
-// Copyright (c) 2016-2020 The TrustNetworkGlobalCoin Core developers
+// Copyright (c) 2016-2020 The TNGC Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TRUSTNETWORKGLOBALCOIN_INDIRECTMAP_H
-#define TRUSTNETWORKGLOBALCOIN_INDIRECTMAP_H
+#ifndef TNGC_INDIRECTMAP_H
+#define TNGC_INDIRECTMAP_H
 
 #include <map>
 
@@ -55,4 +55,4 @@ public:
     const_iterator cend() const     { return m.cend(); }
 };
 
-#endif // TRUSTNETWORKGLOBALCOIN_INDIRECTMAP_H
+#endif // TNGC_INDIRECTMAP_H

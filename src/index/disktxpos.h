@@ -1,9 +1,9 @@
-// Copyright (c) 2019 The TrustNetworkGlobalCoin Core developers
+// Copyright (c) 2019 The TNGC Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TRUSTNETWORKGLOBALCOIN_INDEX_DISKTXPOS_H
-#define TRUSTNETWORKGLOBALCOIN_INDEX_DISKTXPOS_H
+#ifndef TNGC_INDEX_DISKTXPOS_H
+#define TNGC_INDEX_DISKTXPOS_H
 
 #include <flatfile.h>
 #include <serialize.h>
@@ -32,4 +32,4 @@ struct CDiskTxPos : public FlatFilePos
 };
 
 
-#endif // TRUSTNETWORKGLOBALCOIN_INDEX_DISKTXPOS_H
+#endif // TNGC_INDEX_DISKTXPOS_H

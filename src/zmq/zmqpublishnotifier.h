@@ -1,9 +1,9 @@
-// Copyright (c) 2015-2018 The TrustNetworkGlobalCoin Core developers
+// Copyright (c) 2015-2018 The TNGC Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TRUSTNETWORKGLOBALCOIN_ZMQ_ZMQPUBLISHNOTIFIER_H
-#define TRUSTNETWORKGLOBALCOIN_ZMQ_ZMQPUBLISHNOTIFIER_H
+#ifndef TNGC_ZMQ_ZMQPUBLISHNOTIFIER_H
+#define TNGC_ZMQ_ZMQPUBLISHNOTIFIER_H
 
 #include <zmq/zmqabstractnotifier.h>
 
@@ -61,4 +61,4 @@ public:
     bool NotifyTransactionRemoval(const CTransaction &transaction, uint64_t mempool_sequence) override;
 };
 
-#endif // TRUSTNETWORKGLOBALCOIN_ZMQ_ZMQPUBLISHNOTIFIER_H
+#endif // TNGC_ZMQ_ZMQPUBLISHNOTIFIER_H

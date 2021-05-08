@@ -1,29 +1,29 @@
 #!/usr/bin/env bash
-# Copyright (c) 2018-2020 The TrustNetworkGlobalCoin Core developers
+# Copyright (c) 2018-2020 The TNGC Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 export LC_ALL=C
 
-# Be aware that trustnetworkglobalcoind and trustnetworkglobalcoin-qt differ in terms of localization: Qt
+# Be aware that tngcd and tngc-qt differ in terms of localization: Qt
 # opts in to POSIX localization by running setlocale(LC_ALL, "") on startup,
-# whereas no such call is made in trustnetworkglobalcoind.
+# whereas no such call is made in tngcd.
 #
 # Qt runs setlocale(LC_ALL, "") on initialization. This installs the locale
 # specified by the user's LC_ALL (or LC_*) environment variable as the new
 # C locale.
 #
-# In contrast, trustnetworkglobalcoind does not opt in to localization -- no call to
+# In contrast, tngcd does not opt in to localization -- no call to
 # setlocale(LC_ALL, "") is made and the environment variables LC_* are
 # thus ignored.
 #
-# This results in situations where trustnetworkglobalcoind is guaranteed to be running
-# with the classic locale ("C") whereas the locale of trustnetworkglobalcoin-qt will vary
+# This results in situations where tngcd is guaranteed to be running
+# with the classic locale ("C") whereas the locale of tngc-qt will vary
 # depending on the user's environment variables.
 #
 # An example: Assuming the environment variable LC_ALL=de_DE then the
-# call std::to_string(1.23) will return "1.230000" in trustnetworkglobalcoind but
-# "1,230000" in trustnetworkglobalcoin-qt.
+# call std::to_string(1.23) will return "1.230000" in tngcd but
+# "1,230000" in tngc-qt.
 #
 # From the Qt documentation:
 # "On Unix/Linux Qt is configured to use the system locale settings by default.
@@ -38,8 +38,8 @@ export LC_ALL=C
 # https://stackoverflow.com/a/34878283 for more details.
 
 KNOWN_VIOLATIONS=(
-    "src/trustnetworkglobalcoin-tx.cpp.*stoul"
-    "src/trustnetworkglobalcoin-tx.cpp.*trim_right"
+    "src/tngc-tx.cpp.*stoul"
+    "src/tngc-tx.cpp.*trim_right"
     "src/dbwrapper.cpp.*stoul"
     "src/dbwrapper.cpp:.*vsnprintf"
     "src/httprpc.cpp.*trim"

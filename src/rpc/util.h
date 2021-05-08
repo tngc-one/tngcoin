@@ -1,9 +1,9 @@
-// Copyright (c) 2017-2020 The TrustNetworkGlobalCoin Core developers
+// Copyright (c) 2017-2020 The TNGC Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TRUSTNETWORKGLOBALCOIN_RPC_UTIL_H
-#define TRUSTNETWORKGLOBALCOIN_RPC_UTIL_H
+#ifndef TNGC_RPC_UTIL_H
+#define TNGC_RPC_UTIL_H
 
 #include <node/coinstats.h>
 #include <node/transaction.h>
@@ -366,4 +366,4 @@ private:
     const RPCExamples m_examples;
 };
 
-#endif // TRUSTNETWORKGLOBALCOIN_RPC_UTIL_H
+#endif // TNGC_RPC_UTIL_H

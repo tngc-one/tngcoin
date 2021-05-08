@@ -1,9 +1,9 @@
-// Copyright (c) 2011-2019 The TrustNetworkGlobalCoin Core developers
+// Copyright (c) 2011-2019 The TNGC Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TRUSTNETWORKGLOBALCOIN_WALLET_COINCONTROL_H
-#define TRUSTNETWORKGLOBALCOIN_WALLET_COINCONTROL_H
+#ifndef TNGC_WALLET_COINCONTROL_H
+#define TNGC_WALLET_COINCONTROL_H
 
 #include <optional.h>
 #include <outputtype.h>
@@ -92,4 +92,4 @@ private:
     std::set<COutPoint> setSelected;
 };
 
-#endif // TRUSTNETWORKGLOBALCOIN_WALLET_COINCONTROL_H
+#endif // TNGC_WALLET_COINCONTROL_H

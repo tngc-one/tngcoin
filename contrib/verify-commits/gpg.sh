@@ -1,5 +1,5 @@
 #!/bin/sh
-# Copyright (c) 2014-2019 The TrustNetworkGlobalCoin Core developers
+# Copyright (c) 2014-2019 The TNGC Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -9,7 +9,7 @@ VALID=false
 REVSIG=false
 IFS='
 '
-if [ "$TRUSTNETWORKGLOBALCOIN_VERIFY_COMMITS_ALLOW_SHA1" = 1 ]; then
+if [ "$TNGC_VERIFY_COMMITS_ALLOW_SHA1" = 1 ]; then
 	GPG_RES="$(printf '%s\n' "$INPUT" | gpg --trust-model always "$@" 2>/dev/null)"
 else
 	# Note how we've disabled SHA1 with the --weak-digest option, disabling
@@ -43,12 +43,12 @@ for LINE in $GPG_RES; do
 		done < ./contrib/verify-commits/trusted-keys
 		;;
 	"[GNUPG:] REVKEYSIG "*)
-		[ "$TRUSTNETWORKGLOBALCOIN_VERIFY_COMMITS_ALLOW_REVSIG" != 1 ] && exit 1
+		[ "$TNGC_VERIFY_COMMITS_ALLOW_REVSIG" != 1 ] && exit 1
 		REVSIG=true
 		GOODREVSIG="[GNUPG:] GOODSIG ${LINE#* * *}"
 		;;
 	"[GNUPG:] EXPKEYSIG "*)
-		[ "$TRUSTNETWORKGLOBALCOIN_VERIFY_COMMITS_ALLOW_REVSIG" != 1 ] && exit 1
+		[ "$TNGC_VERIFY_COMMITS_ALLOW_REVSIG" != 1 ] && exit 1
 		REVSIG=true
 		GOODREVSIG="[GNUPG:] GOODSIG ${LINE#* * *}"
 		;;

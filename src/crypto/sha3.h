@@ -1,9 +1,9 @@
-// Copyright (c) 2020 The TrustNetworkGlobalCoin Core developers
+// Copyright (c) 2020 The TNGC Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TRUSTNETWORKGLOBALCOIN_CRYPTO_SHA3_H
-#define TRUSTNETWORKGLOBALCOIN_CRYPTO_SHA3_H
+#ifndef TNGC_CRYPTO_SHA3_H
+#define TNGC_CRYPTO_SHA3_H
 
 #include <span.h>
 
@@ -38,4 +38,4 @@ public:
     SHA3_256& Reset();
 };
 
-#endif // TRUSTNETWORKGLOBALCOIN_CRYPTO_SHA3_H
+#endif // TNGC_CRYPTO_SHA3_H

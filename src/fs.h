@@ -1,9 +1,9 @@
-// Copyright (c) 2017-2019 The TrustNetworkGlobalCoin Core developers
+// Copyright (c) 2017-2019 The TNGC Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TRUSTNETWORKGLOBALCOIN_FS_H
-#define TRUSTNETWORKGLOBALCOIN_FS_H
+#ifndef TNGC_FS_H
+#define TNGC_FS_H
 
 #include <stdio.h>
 #include <string>
@@ -92,4 +92,4 @@ namespace fsbridge {
 #endif // WIN32 && __GLIBCXX__
 };
 
-#endif // TRUSTNETWORKGLOBALCOIN_FS_H
+#endif // TNGC_FS_H

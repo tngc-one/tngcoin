@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# Copyright (c) 2019-2020 The TrustNetworkGlobalCoin Core developers
+# Copyright (c) 2019-2020 The TNGC Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -23,4 +23,4 @@ export RUN_UNIT_TESTS=true
 export TEST_RUNNER_ENV="LC_ALL=C"
 export RUN_FUNCTIONAL_TESTS=true
 export GOAL="install"
-export TRUSTNETWORKGLOBALCOIN_CONFIG="--enable-reduce-exports --with-incompatible-bdb --with-boost-process"
+export TNGC_CONFIG="--enable-reduce-exports --with-incompatible-bdb --with-boost-process"

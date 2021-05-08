@@ -1,10 +1,10 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
-// Copyright (c) 2009-2019 The TrustNetworkGlobalCoin Core developers
+// Copyright (c) 2009-2019 The TNGC Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TRUSTNETWORKGLOBALCOIN_POLICY_FEERATE_H
-#define TRUSTNETWORKGLOBALCOIN_POLICY_FEERATE_H
+#ifndef TNGC_POLICY_FEERATE_H
+#define TNGC_POLICY_FEERATE_H
 
 #include <amount.h>
 #include <serialize.h>
@@ -70,4 +70,4 @@ public:
     SERIALIZE_METHODS(CFeeRate, obj) { READWRITE(obj.nSatoshisPerK); }
 };
 
-#endif //  TRUSTNETWORKGLOBALCOIN_POLICY_FEERATE_H
+#endif //  TNGC_POLICY_FEERATE_H

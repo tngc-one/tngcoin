@@ -1,16 +1,16 @@
-TrustNetworkGlobalCoin Core version 0.17.0.1 is now available from:
+TNGC Core version 0.17.0.1 is now available from:
 
-  <https://trustnetworkglobalcoincore.org/bin/trustnetworkglobalcoin-core-0.17.0.1/>
+  <https://tngccore.org/bin/tngc-core-0.17.0.1/>
 
 This release provides a minor bug fix for 0.17.0.
 
 Please report bugs using the issue tracker at GitHub:
 
-  <https://github.com/trustnetworkglobalcoin/trustnetworkglobalcoin/issues>
+  <https://github.com/tngc/tngc/issues>
 
 To receive security and update notifications, please subscribe to:
 
-  <https://trustnetworkglobalcoincore.org/en/list/announcements/join/>
+  <https://tngccore.org/en/list/announcements/join/>
 
 Notable changes
 ===============

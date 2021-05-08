@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# Copyright (c) 2018-2019 The TrustNetworkGlobalCoin Core developers
+# Copyright (c) 2018-2019 The TNGC Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -26,13 +26,13 @@ def setup():
         programs += ['apt-cacher-ng', 'lxc', 'debootstrap']
     subprocess.check_call(['sudo', 'apt-get', 'install', '-qq'] + programs)
     if not os.path.isdir('gitian.sigs'):
-        subprocess.check_call(['git', 'clone', 'https://github.com/trustnetworkglobalcoin-core/gitian.sigs.git'])
-    if not os.path.isdir('trustnetworkglobalcoin-detached-sigs'):
-        subprocess.check_call(['git', 'clone', 'https://github.com/trustnetworkglobalcoin-core/trustnetworkglobalcoin-detached-sigs.git'])
+        subprocess.check_call(['git', 'clone', 'https://github.com/tngc-core/gitian.sigs.git'])
+    if not os.path.isdir('tngc-detached-sigs'):
+        subprocess.check_call(['git', 'clone', 'https://github.com/tngc-core/tngc-detached-sigs.git'])
     if not os.path.isdir('gitian-builder'):
         subprocess.check_call(['git', 'clone', 'https://github.com/devrandom/gitian-builder.git'])
-    if not os.path.isdir('trustnetworkglobalcoin'):
-        subprocess.check_call(['git', 'clone', 'https://github.com/trustnetworkglobalcoin/trustnetworkglobalcoin.git'])
+    if not os.path.isdir('tngc'):
+        subprocess.check_call(['git', 'clone', 'https://github.com/tngc/tngc.git'])
     os.chdir('gitian-builder')
     make_image_prog = ['bin/make-base-vm', '--suite', 'bionic', '--arch', 'amd64']
     if args.docker:
@@ -49,34 +49,34 @@ def setup():
 def build():
     global args, workdir
 
-    os.makedirs('trustnetworkglobalcoin-binaries/' + args.version, exist_ok=True)
+    os.makedirs('tngc-binaries/' + args.version, exist_ok=True)
     print('\nBuilding Dependencies\n')
     os.chdir('gitian-builder')
     os.makedirs('inputs', exist_ok=True)
 
     subprocess.check_call(['wget', '-O', 'inputs/osslsigncode-2.0.tar.gz', 'https://github.com/mtrojnar/osslsigncode/archive/2.0.tar.gz'])
     subprocess.check_call(["echo '5a60e0a4b3e0b4d655317b2f12a810211c50242138322b16e7e01c6fbb89d92f inputs/osslsigncode-2.0.tar.gz' | sha256sum -c"], shell=True)
-    subprocess.check_call(['make', '-C', '../trustnetworkglobalcoin/depends', 'download', 'SOURCES_PATH=' + os.getcwd() + '/cache/common'])
+    subprocess.check_call(['make', '-C', '../tngc/depends', 'download', 'SOURCES_PATH=' + os.getcwd() + '/cache/common'])
 
     if args.linux:
         print('\nCompiling ' + args.version + ' Linux')
-        subprocess.check_call(['bin/gbuild', '-j', args.jobs, '-m', args.memory, '--commit', 'trustnetworkglobalcoin='+args.commit, '--url', 'trustnetworkglobalcoin='+args.url, '../trustnetworkglobalcoin/contrib/gitian-descriptors/gitian-linux.yml'])
-        subprocess.check_call(['bin/gsign', '-p', args.sign_prog, '--signer', args.signer, '--release', args.version+'-linux', '--destination', '../gitian.sigs/', '../trustnetworkglobalcoin/contrib/gitian-descriptors/gitian-linux.yml'])
-        subprocess.check_call('mv build/out/trustnetworkglobalcoin-*.tar.gz build/out/src/trustnetworkglobalcoin-*.tar.gz ../trustnetworkglobalcoin-binaries/'+args.version, shell=True)
+        subprocess.check_call(['bin/gbuild', '-j', args.jobs, '-m', args.memory, '--commit', 'tngc='+args.commit, '--url', 'tngc='+args.url, '../tngc/contrib/gitian-descriptors/gitian-linux.yml'])
+        subprocess.check_call(['bin/gsign', '-p', args.sign_prog, '--signer', args.signer, '--release', args.version+'-linux', '--destination', '../gitian.sigs/', '../tngc/contrib/gitian-descriptors/gitian-linux.yml'])
+        subprocess.check_call('mv build/out/tngc-*.tar.gz build/out/src/tngc-*.tar.gz ../tngc-binaries/'+args.version, shell=True)
 
     if args.windows:
         print('\nCompiling ' + args.version + ' Windows')
-        subprocess.check_call(['bin/gbuild', '-j', args.jobs, '-m', args.memory, '--commit', 'trustnetworkglobalcoin='+args.commit, '--url', 'trustnetworkglobalcoin='+args.url, '../trustnetworkglobalcoin/contrib/gitian-descriptors/gitian-win.yml'])
-        subprocess.check_call(['bin/gsign', '-p', args.sign_prog, '--signer', args.signer, '--release', args.version+'-win-unsigned', '--destination', '../gitian.sigs/', '../trustnetworkglobalcoin/contrib/gitian-descriptors/gitian-win.yml'])
-        subprocess.check_call('mv build/out/trustnetworkglobalcoin-*-win-unsigned.tar.gz inputs/', shell=True)
-        subprocess.check_call('mv build/out/trustnetworkglobalcoin-*.zip build/out/trustnetworkglobalcoin-*.exe build/out/src/trustnetworkglobalcoin-*.tar.gz ../trustnetworkglobalcoin-binaries/'+args.version, shell=True)
+        subprocess.check_call(['bin/gbuild', '-j', args.jobs, '-m', args.memory, '--commit', 'tngc='+args.commit, '--url', 'tngc='+args.url, '../tngc/contrib/gitian-descriptors/gitian-win.yml'])
+        subprocess.check_call(['bin/gsign', '-p', args.sign_prog, '--signer', args.signer, '--release', args.version+'-win-unsigned', '--destination', '../gitian.sigs/', '../tngc/contrib/gitian-descriptors/gitian-win.yml'])
+        subprocess.check_call('mv build/out/tngc-*-win-unsigned.tar.gz inputs/', shell=True)
+        subprocess.check_call('mv build/out/tngc-*.zip build/out/tngc-*.exe build/out/src/tngc-*.tar.gz ../tngc-binaries/'+args.version, shell=True)
 
     if args.macos:
         print('\nCompiling ' + args.version + ' MacOS')
-        subprocess.check_call(['bin/gbuild', '-j', args.jobs, '-m', args.memory, '--commit', 'trustnetworkglobalcoin='+args.commit, '--url', 'trustnetworkglobalcoin='+args.url, '../trustnetworkglobalcoin/contrib/gitian-descriptors/gitian-osx.yml'])
-        subprocess.check_call(['bin/gsign', '-p', args.sign_prog, '--signer', args.signer, '--release', args.version+'-osx-unsigned', '--destination', '../gitian.sigs/', '../trustnetworkglobalcoin/contrib/gitian-descriptors/gitian-osx.yml'])
-        subprocess.check_call('mv build/out/trustnetworkglobalcoin-*-osx-unsigned.tar.gz inputs/', shell=True)
-        subprocess.check_call('mv build/out/trustnetworkglobalcoin-*.tar.gz build/out/trustnetworkglobalcoin-*.dmg build/out/src/trustnetworkglobalcoin-*.tar.gz ../trustnetworkglobalcoin-binaries/'+args.version, shell=True)
+        subprocess.check_call(['bin/gbuild', '-j', args.jobs, '-m', args.memory, '--commit', 'tngc='+args.commit, '--url', 'tngc='+args.url, '../tngc/contrib/gitian-descriptors/gitian-osx.yml'])
+        subprocess.check_call(['bin/gsign', '-p', args.sign_prog, '--signer', args.signer, '--release', args.version+'-osx-unsigned', '--destination', '../gitian.sigs/', '../tngc/contrib/gitian-descriptors/gitian-osx.yml'])
+        subprocess.check_call('mv build/out/tngc-*-osx-unsigned.tar.gz inputs/', shell=True)
+        subprocess.check_call('mv build/out/tngc-*.tar.gz build/out/tngc-*.dmg build/out/src/tngc-*.tar.gz ../tngc-binaries/'+args.version, shell=True)
 
     os.chdir(workdir)
 
@@ -95,17 +95,17 @@ def sign():
 
     if args.windows:
         print('\nSigning ' + args.version + ' Windows')
-        subprocess.check_call('cp inputs/trustnetworkglobalcoin-' + args.version + '-win-unsigned.tar.gz inputs/trustnetworkglobalcoin-win-unsigned.tar.gz', shell=True)
-        subprocess.check_call(['bin/gbuild', '--skip-image', '--upgrade', '--commit', 'signature='+args.commit, '../trustnetworkglobalcoin/contrib/gitian-descriptors/gitian-win-signer.yml'])
-        subprocess.check_call(['bin/gsign', '-p', args.sign_prog, '--signer', args.signer, '--release', args.version+'-win-signed', '--destination', '../gitian.sigs/', '../trustnetworkglobalcoin/contrib/gitian-descriptors/gitian-win-signer.yml'])
-        subprocess.check_call('mv build/out/trustnetworkglobalcoin-*win64-setup.exe ../trustnetworkglobalcoin-binaries/'+args.version, shell=True)
+        subprocess.check_call('cp inputs/tngc-' + args.version + '-win-unsigned.tar.gz inputs/tngc-win-unsigned.tar.gz', shell=True)
+        subprocess.check_call(['bin/gbuild', '--skip-image', '--upgrade', '--commit', 'signature='+args.commit, '../tngc/contrib/gitian-descriptors/gitian-win-signer.yml'])
+        subprocess.check_call(['bin/gsign', '-p', args.sign_prog, '--signer', args.signer, '--release', args.version+'-win-signed', '--destination', '../gitian.sigs/', '../tngc/contrib/gitian-descriptors/gitian-win-signer.yml'])
+        subprocess.check_call('mv build/out/tngc-*win64-setup.exe ../tngc-binaries/'+args.version, shell=True)
 
     if args.macos:
         print('\nSigning ' + args.version + ' MacOS')
-        subprocess.check_call('cp inputs/trustnetworkglobalcoin-' + args.version + '-osx-unsigned.tar.gz inputs/trustnetworkglobalcoin-osx-unsigned.tar.gz', shell=True)
-        subprocess.check_call(['bin/gbuild', '--skip-image', '--upgrade', '--commit', 'signature='+args.commit, '../trustnetworkglobalcoin/contrib/gitian-descriptors/gitian-osx-signer.yml'])
-        subprocess.check_call(['bin/gsign', '-p', args.sign_prog, '--signer', args.signer, '--release', args.version+'-osx-signed', '--destination', '../gitian.sigs/', '../trustnetworkglobalcoin/contrib/gitian-descriptors/gitian-osx-signer.yml'])
-        subprocess.check_call('mv build/out/trustnetworkglobalcoin-osx-signed.dmg ../trustnetworkglobalcoin-binaries/'+args.version+'/trustnetworkglobalcoin-'+args.version+'-osx.dmg', shell=True)
+        subprocess.check_call('cp inputs/tngc-' + args.version + '-osx-unsigned.tar.gz inputs/tngc-osx-unsigned.tar.gz', shell=True)
+        subprocess.check_call(['bin/gbuild', '--skip-image', '--upgrade', '--commit', 'signature='+args.commit, '../tngc/contrib/gitian-descriptors/gitian-osx-signer.yml'])
+        subprocess.check_call(['bin/gsign', '-p', args.sign_prog, '--signer', args.signer, '--release', args.version+'-osx-signed', '--destination', '../gitian.sigs/', '../tngc/contrib/gitian-descriptors/gitian-osx-signer.yml'])
+        subprocess.check_call('mv build/out/tngc-osx-signed.dmg ../tngc-binaries/'+args.version+'/tngc-'+args.version+'-osx.dmg', shell=True)
 
     os.chdir(workdir)
 
@@ -123,27 +123,27 @@ def verify():
     os.chdir('gitian-builder')
 
     print('\nVerifying v'+args.version+' Linux\n')
-    if subprocess.call(['bin/gverify', '-v', '-d', '../gitian.sigs/', '-r', args.version+'-linux', '../trustnetworkglobalcoin/contrib/gitian-descriptors/gitian-linux.yml']):
+    if subprocess.call(['bin/gverify', '-v', '-d', '../gitian.sigs/', '-r', args.version+'-linux', '../tngc/contrib/gitian-descriptors/gitian-linux.yml']):
         print('Verifying v'+args.version+' Linux FAILED\n')
         rc = 1
 
     print('\nVerifying v'+args.version+' Windows\n')
-    if subprocess.call(['bin/gverify', '-v', '-d', '../gitian.sigs/', '-r', args.version+'-win-unsigned', '../trustnetworkglobalcoin/contrib/gitian-descriptors/gitian-win.yml']):
+    if subprocess.call(['bin/gverify', '-v', '-d', '../gitian.sigs/', '-r', args.version+'-win-unsigned', '../tngc/contrib/gitian-descriptors/gitian-win.yml']):
         print('Verifying v'+args.version+' Windows FAILED\n')
         rc = 1
 
     print('\nVerifying v'+args.version+' MacOS\n')
-    if subprocess.call(['bin/gverify', '-v', '-d', '../gitian.sigs/', '-r', args.version+'-osx-unsigned', '../trustnetworkglobalcoin/contrib/gitian-descriptors/gitian-osx.yml']):
+    if subprocess.call(['bin/gverify', '-v', '-d', '../gitian.sigs/', '-r', args.version+'-osx-unsigned', '../tngc/contrib/gitian-descriptors/gitian-osx.yml']):
         print('Verifying v'+args.version+' MacOS FAILED\n')
         rc = 1
 
     print('\nVerifying v'+args.version+' Signed Windows\n')
-    if subprocess.call(['bin/gverify', '-v', '-d', '../gitian.sigs/', '-r', args.version+'-win-signed', '../trustnetworkglobalcoin/contrib/gitian-descriptors/gitian-win-signer.yml']):
+    if subprocess.call(['bin/gverify', '-v', '-d', '../gitian.sigs/', '-r', args.version+'-win-signed', '../tngc/contrib/gitian-descriptors/gitian-win-signer.yml']):
         print('Verifying v'+args.version+' Signed Windows FAILED\n')
         rc = 1
 
     print('\nVerifying v'+args.version+' Signed MacOS\n')
-    if subprocess.call(['bin/gverify', '-v', '-d', '../gitian.sigs/', '-r', args.version+'-osx-signed', '../trustnetworkglobalcoin/contrib/gitian-descriptors/gitian-osx-signer.yml']):
+    if subprocess.call(['bin/gverify', '-v', '-d', '../gitian.sigs/', '-r', args.version+'-osx-signed', '../tngc/contrib/gitian-descriptors/gitian-osx-signer.yml']):
         print('Verifying v'+args.version+' Signed MacOS FAILED\n')
         rc = 1
 
@@ -156,7 +156,7 @@ def main():
     parser = argparse.ArgumentParser(description='Script for running full Gitian builds.')
     parser.add_argument('-c', '--commit', action='store_true', dest='commit', help='Indicate that the version argument is for a commit or branch')
     parser.add_argument('-p', '--pull', action='store_true', dest='pull', help='Indicate that the version argument is the number of a github repository pull request')
-    parser.add_argument('-u', '--url', dest='url', default='https://github.com/trustnetworkglobalcoin/trustnetworkglobalcoin', help='Specify the URL of the repository. Default is %(default)s')
+    parser.add_argument('-u', '--url', dest='url', default='https://github.com/tngc/tngc', help='Specify the URL of the repository. Default is %(default)s')
     parser.add_argument('-v', '--verify', action='store_true', dest='verify', help='Verify the Gitian build')
     parser.add_argument('-b', '--build', action='store_true', dest='build', help='Do a Gitian build')
     parser.add_argument('-s', '--sign', action='store_true', dest='sign', help='Make signed binaries for Windows and MacOS')
@@ -230,10 +230,10 @@ def main():
         raise Exception('Cannot have both commit and pull')
     args.commit = ('' if args.commit else 'v') + args.version
 
-    os.chdir('trustnetworkglobalcoin')
+    os.chdir('tngc')
     if args.pull:
         subprocess.check_call(['git', 'fetch', args.url, 'refs/pull/'+args.version+'/merge'])
-        os.chdir('../gitian-builder/inputs/trustnetworkglobalcoin')
+        os.chdir('../gitian-builder/inputs/tngc')
         subprocess.check_call(['git', 'fetch', args.url, 'refs/pull/'+args.version+'/merge'])
         args.commit = subprocess.check_output(['git', 'show', '-s', '--format=%H', 'FETCH_HEAD'], universal_newlines=True, encoding='utf8').strip()
         args.version = 'pull-' + args.version

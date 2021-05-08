@@ -1,9 +1,9 @@
-// Copyright (c) 2016-2020 The TrustNetworkGlobalCoin Core developers
+// Copyright (c) 2016-2020 The TNGC Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TRUSTNETWORKGLOBALCOIN_BLOCKENCODINGS_H
-#define TRUSTNETWORKGLOBALCOIN_BLOCKENCODINGS_H
+#ifndef TNGC_BLOCKENCODINGS_H
+#define TNGC_BLOCKENCODINGS_H
 
 #include <primitives/block.h>
 
@@ -137,4 +137,4 @@ public:
     ReadStatus FillBlock(CBlock& block, const std::vector<CTransactionRef>& vtx_missing);
 };
 
-#endif // TRUSTNETWORKGLOBALCOIN_BLOCKENCODINGS_H
+#endif // TNGC_BLOCKENCODINGS_H

@@ -1,9 +1,9 @@
-// Copyright (c) 2018-2020 The TrustNetworkGlobalCoin Core developers
+// Copyright (c) 2018-2020 The TNGC Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TRUSTNETWORKGLOBALCOIN_INTERFACES_HANDLER_H
-#define TRUSTNETWORKGLOBALCOIN_INTERFACES_HANDLER_H
+#ifndef TNGC_INTERFACES_HANDLER_H
+#define TNGC_INTERFACES_HANDLER_H
 
 #include <functional>
 #include <memory>
@@ -36,4 +36,4 @@ std::unique_ptr<Handler> MakeHandler(std::function<void()> cleanup);
 
 } // namespace interfaces
 
-#endif // TRUSTNETWORKGLOBALCOIN_INTERFACES_HANDLER_H
+#endif // TNGC_INTERFACES_HANDLER_H

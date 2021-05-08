@@ -1,21 +1,21 @@
 Benchmarking
 ============
 
-TrustNetworkGlobalCoin Core has an internal benchmarking framework, with benchmarks
+TNGC Core has an internal benchmarking framework, with benchmarks
 for cryptographic algorithms (e.g. SHA1, SHA256, SHA512, RIPEMD160, Poly1305, ChaCha20), rolling bloom filter, coins selection,
 thread queue, wallet balance.
 
 Running
 ---------------------
 
-For benchmarks purposes you only need to compile `trustnetworkglobalcoin_bench`. Beware of configuring without `--enable-debug` as this would impact
+For benchmarks purposes you only need to compile `tngc_bench`. Beware of configuring without `--enable-debug` as this would impact
 benchmarking by unlatching log printers and lock analysis.
 
-    make -C src trustnetworkglobalcoin_bench
+    make -C src tngc_bench
 
-After compiling trustnetworkglobalcoin-core, the benchmarks can be run with:
+After compiling tngc-core, the benchmarks can be run with:
 
-    src/bench/bench_trustnetworkglobalcoin
+    src/bench/bench_tngc
 
 The output will look similar to:
 ```
@@ -29,7 +29,7 @@ The output will look similar to:
 Help
 ---------------------
 
-    src/bench/bench_trustnetworkglobalcoin --help
+    src/bench/bench_tngc --help
 
 To print options like scaling factor or per-benchmark filter.
 
@@ -45,6 +45,6 @@ More benchmarks are needed for, in no particular order:
 Going Further
 --------------------
 
-To monitor TrustNetworkGlobalCoin Core performance more in depth (like reindex or IBD): https://github.com/chaincodelabs/trustnetworkglobalcoinperf
+To monitor TNGC Core performance more in depth (like reindex or IBD): https://github.com/chaincodelabs/tngcperf
 
-To generate Flame Graphs for TrustNetworkGlobalCoin Core: https://github.com/eklitzke/trustnetworkglobalcoin/blob/flamegraphs/doc/flamegraphs.md
+To generate Flame Graphs for TNGC Core: https://github.com/eklitzke/tngc/blob/flamegraphs/doc/flamegraphs.md

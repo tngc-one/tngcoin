@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# Copyright (c) 2014-2019 The TrustNetworkGlobalCoin Core developers
+# Copyright (c) 2014-2019 The TNGC Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 """Test the importmulti RPC.
@@ -19,7 +19,7 @@ from test_framework.script import (
     CScript,
     OP_NOP,
 )
-from test_framework.test_framework import TrustNetworkGlobalCoinTestFramework
+from test_framework.test_framework import TNGCTestFramework
 from test_framework.descriptors import descsum_create
 from test_framework.util import (
     assert_equal,
@@ -33,7 +33,7 @@ from test_framework.wallet_util import (
 )
 
 
-class ImportMultiTest(TrustNetworkGlobalCoinTestFramework):
+class ImportMultiTest(TNGCTestFramework):
     def set_test_params(self):
         self.num_nodes = 2
         self.extra_args = [["-addresstype=legacy"], ["-addresstype=legacy"]]
@@ -81,7 +81,7 @@ class ImportMultiTest(TrustNetworkGlobalCoinTestFramework):
 
         # RPC importmulti -----------------------------------------------
 
-        # TrustNetworkGlobalCoin Address (implicit non-internal)
+        # TNGC Address (implicit non-internal)
         self.log.info("Should import an address")
         key = get_key(self.nodes[0])
         self.test_importmulti({"scriptPubKey": {"address": key.p2pkh_addr},

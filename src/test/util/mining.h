@@ -1,9 +1,9 @@
-// Copyright (c) 2019 The TrustNetworkGlobalCoin Core developers
+// Copyright (c) 2019 The TNGC Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TRUSTNETWORKGLOBALCOIN_TEST_UTIL_MINING_H
-#define TRUSTNETWORKGLOBALCOIN_TEST_UTIL_MINING_H
+#ifndef TNGC_TEST_UTIL_MINING_H
+#define TNGC_TEST_UTIL_MINING_H
 
 #include <memory>
 #include <string>
@@ -22,4 +22,4 @@ std::shared_ptr<CBlock> PrepareBlock(const NodeContext&, const CScript& coinbase
 /** RPC-like helper function, returns the generated coin */
 CTxIn generatetoaddress(const NodeContext&, const std::string& address);
 
-#endif // TRUSTNETWORKGLOBALCOIN_TEST_UTIL_MINING_H
+#endif // TNGC_TEST_UTIL_MINING_H

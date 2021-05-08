@@ -1,10 +1,10 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
-// Copyright (c) 2009-2018 The TrustNetworkGlobalCoin Core developers
+// Copyright (c) 2009-2018 The TNGC Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TRUSTNETWORKGLOBALCOIN_SCRIPT_SIGCACHE_H
-#define TRUSTNETWORKGLOBALCOIN_SCRIPT_SIGCACHE_H
+#ifndef TNGC_SCRIPT_SIGCACHE_H
+#define TNGC_SCRIPT_SIGCACHE_H
 
 #include <script/interpreter.h>
 #include <span.h>
@@ -55,4 +55,4 @@ public:
 
 void InitSignatureCache();
 
-#endif // TRUSTNETWORKGLOBALCOIN_SCRIPT_SIGCACHE_H
+#endif // TNGC_SCRIPT_SIGCACHE_H

@@ -1,9 +1,9 @@
-// Copyright (c) 2017-2019 The TrustNetworkGlobalCoin Core developers
+// Copyright (c) 2017-2019 The TNGC Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TRUSTNETWORKGLOBALCOIN_OPTIONAL_H
-#define TRUSTNETWORKGLOBALCOIN_OPTIONAL_H
+#ifndef TNGC_OPTIONAL_H
+#define TNGC_OPTIONAL_H
 
 #include <utility>
 
@@ -23,4 +23,4 @@ Optional<T> MakeOptional(bool condition, T&& value)
 //! Substitute for C++17 std::nullopt
 static auto& nullopt = boost::none;
 
-#endif // TRUSTNETWORKGLOBALCOIN_OPTIONAL_H
+#endif // TNGC_OPTIONAL_H

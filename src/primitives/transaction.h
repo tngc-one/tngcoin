@@ -1,10 +1,10 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
-// Copyright (c) 2009-2019 The TrustNetworkGlobalCoin Core developers
+// Copyright (c) 2009-2019 The TNGC Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TRUSTNETWORKGLOBALCOIN_PRIMITIVES_TRANSACTION_H
-#define TRUSTNETWORKGLOBALCOIN_PRIMITIVES_TRANSACTION_H
+#ifndef TNGC_PRIMITIVES_TRANSACTION_H
+#define TNGC_PRIMITIVES_TRANSACTION_H
 
 #include <stdint.h>
 #include <amount.h>
@@ -409,4 +409,4 @@ public:
     friend bool operator<(const GenTxid& a, const GenTxid& b) { return std::tie(a.m_is_wtxid, a.m_hash) < std::tie(b.m_is_wtxid, b.m_hash); }
 };
 
-#endif // TRUSTNETWORKGLOBALCOIN_PRIMITIVES_TRANSACTION_H
+#endif // TNGC_PRIMITIVES_TRANSACTION_H

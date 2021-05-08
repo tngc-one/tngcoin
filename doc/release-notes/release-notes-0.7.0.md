@@ -1,24 +1,24 @@
-TrustNetworkGlobalCoin version 0.7.0 is now available for download at:
-  http://sourceforge.net/projects/trustnetworkglobalcoin/files/TrustNetworkGlobalCoin/trustnetworkglobalcoin-0.7.0/
+TNGC version 0.7.0 is now available for download at:
+  http://sourceforge.net/projects/tngc/files/TNGC/tngc-0.7.0/
 
-We recommend that everybody running prior versions of trustnetworkglobalcoind/TrustNetworkGlobalCoin-Qt
+We recommend that everybody running prior versions of tngcd/TNGC-Qt
 upgrade to this release, except for users running Mac OSX 10.5.
 
 Please report bugs using the issue tracker at github:
-  https://github.com/trustnetworkglobalcoin/trustnetworkglobalcoin/issues
+  https://github.com/tngc/tngc/issues
 
 Project source code is hosted at github; you can get
 source-only tarballs/zipballs directly from there:
-  https://github.com/trustnetworkglobalcoin/trustnetworkglobalcoin/tarball/v0.7.0  # .tar.gz
-  https://github.com/trustnetworkglobalcoin/trustnetworkglobalcoin/zipball/v0.7.0  # .zip
+  https://github.com/tngc/tngc/tarball/v0.7.0  # .tar.gz
+  https://github.com/tngc/tngc/zipball/v0.7.0  # .zip
 
 Ubuntu Linux users can use the "Personal Package Archive" (PPA)
 maintained by Matt Corallo to automatically keep 
-trustnetworkglobalcoin up-to-date.  Just type
-  sudo apt-add-repository ppa:trustnetworkglobalcoin/trustnetworkglobalcoin
+tngc up-to-date.  Just type
+  sudo apt-add-repository ppa:tngc/tngc
   sudo apt-get update
-in your terminal, then install the trustnetworkglobalcoin-qt package:
-  sudo apt-get install trustnetworkglobalcoin-qt
+in your terminal, then install the tngc-qt package:
+  sudo apt-get install tngc-qt
 
 
 How to Upgrade
@@ -27,10 +27,10 @@ If you are running an older version, shut it down. Wait
 until it has completely shut down (which might take a few minutes for older
 versions), then run the installer (on Windows) or just copy over
 Code:
-/Applications/TrustNetworkGlobalCoin-Qt
+/Applications/TNGC-Qt
 (on Mac) or
 Code:
-trustnetworkglobalcoind/trustnetworkglobalcoin-qt
+tngcd/tngc-qt
 (on Linux).
 
 If you were running on Linux with a version that might have been compiled
@@ -45,14 +45,14 @@ Incompatible Changes
   and 'getrawmempool' commands.
 * Remove deprecated RPC 'getblocknumber'
 
-TrustNetworkGlobalCoin Improvement Proposals implemented
+TNGC Improvement Proposals implemented
 
 BIP 22 - 'getblocktemplate', 'submitblock' RPCs
 BIP 34 - block version 2, height in coinbase
 BIP 35 - 'mempool' message, extended 'getdata' message behavior
 
 
-Core trustnetworkglobalcoin handling and blockchain database
+Core tngc handling and blockchain database
 
 * Reduced CPU usage, by eliminating some redundant hash calculations
 * Cache signature verifications, to eliminate redundant signature checks
@@ -109,7 +109,7 @@ Qt GUI
 * Add 2 labels to the overviewpage that display Wallet and Transaction status (obsolete or current)
 * Extend the optionsdialog (e.g. language selection) and re-work it to a tabbed UI
 * Merge sign/verify message into a single window with tabbed UI
-* Ensure a changed trustnetworkglobalcoin unit immediately updates all GUI elements that use units
+* Ensure a changed tngc unit immediately updates all GUI elements that use units
 * Update QR Code dialog
 * Improve error reporting at startup
 * Fine-grained UI updates for a much smoother UI during block downloads
@@ -119,8 +119,8 @@ Qt GUI
 * Much better translations
 * Override progress bar design on platforms with segmented progress bars to assist with readability
 * Added 'immature balance' display on the overview page
-* (Windows only): enable ASLR and DEP for trustnetworkglobalcoin-qt.exe
-* (Windows only): add meta-data to trustnetworkglobalcoin-qt.exe (e.g. description)
+* (Windows only): enable ASLR and DEP for tngc-qt.exe
+* (Windows only): add meta-data to tngc-qt.exe (e.g. description)
 
 Internal codebase
 
@@ -131,7 +131,7 @@ Internal codebase
 Miscellaneous
 
 * Reopen debug.log upon SIGHUP
-* Bash programmable completion for trustnetworkglobalcoind(1)
+* Bash programmable completion for tngcd(1)
 * On supported OS's, each thread is given a useful name
 
 

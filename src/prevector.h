@@ -1,9 +1,9 @@
-// Copyright (c) 2015-2020 The TrustNetworkGlobalCoin Core developers
+// Copyright (c) 2015-2020 The TNGC Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TRUSTNETWORKGLOBALCOIN_PREVECTOR_H
-#define TRUSTNETWORKGLOBALCOIN_PREVECTOR_H
+#ifndef TNGC_PREVECTOR_H
+#define TNGC_PREVECTOR_H
 
 #include <assert.h>
 #include <stdlib.h>
@@ -534,4 +534,4 @@ public:
     }
 };
 
-#endif // TRUSTNETWORKGLOBALCOIN_PREVECTOR_H
+#endif // TNGC_PREVECTOR_H

@@ -1,11 +1,11 @@
-TrustNetworkGlobalCoin-Qt version 0.8.3 is now available from:
-  http://sourceforge.net/projects/trustnetworkglobalcoin/files/TrustNetworkGlobalCoin/trustnetworkglobalcoin-0.8.3/
+TNGC-Qt version 0.8.3 is now available from:
+  http://sourceforge.net/projects/tngc/files/TNGC/tngc-0.8.3/
 
 This is a maintenance release to fix a denial-of-service attack that
 can cause nodes to crash.
 
 Please report bugs using the issue tracker at github:
-  https://github.com/trustnetworkglobalcoin/trustnetworkglobalcoin/issues
+  https://github.com/tngc/tngc/issues
 
 0.8.3 Release notes
 

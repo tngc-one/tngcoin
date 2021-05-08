@@ -1,13 +1,13 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
-// Copyright (c) 2009-2020 The TrustNetworkGlobalCoin Core developers
+// Copyright (c) 2009-2020 The TNGC Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TRUSTNETWORKGLOBALCOIN_VALIDATION_H
-#define TRUSTNETWORKGLOBALCOIN_VALIDATION_H
+#ifndef TNGC_VALIDATION_H
+#define TNGC_VALIDATION_H
 
 #if defined(HAVE_CONFIG_H)
-#include <config/trustnetworkglobalcoin-config.h>
+#include <config/tngc-config.h>
 #endif
 
 #include <amount.h>
@@ -981,4 +981,4 @@ inline bool IsBlockPruned(const CBlockIndex* pblockindex)
     return (fHavePruned && !(pblockindex->nStatus & BLOCK_HAVE_DATA) && pblockindex->nTx > 0);
 }
 
-#endif // TRUSTNETWORKGLOBALCOIN_VALIDATION_H
+#endif // TNGC_VALIDATION_H

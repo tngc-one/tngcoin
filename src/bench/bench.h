@@ -1,9 +1,9 @@
-// Copyright (c) 2015-2020 The TrustNetworkGlobalCoin Core developers
+// Copyright (c) 2015-2020 The TNGC Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TRUSTNETWORKGLOBALCOIN_BENCH_BENCH_H
-#define TRUSTNETWORKGLOBALCOIN_BENCH_BENCH_H
+#ifndef TNGC_BENCH_BENCH_H
+#define TNGC_BENCH_BENCH_H
 
 #include <chrono>
 #include <functional>
@@ -60,4 +60,4 @@ public:
 #define BENCHMARK(n) \
     benchmark::BenchRunner BOOST_PP_CAT(bench_, BOOST_PP_CAT(__LINE__, n))(BOOST_PP_STRINGIZE(n), n);
 
-#endif // TRUSTNETWORKGLOBALCOIN_BENCH_BENCH_H
+#endif // TNGC_BENCH_BENCH_H

@@ -1,9 +1,9 @@
-// Copyright (c) 2019 The TrustNetworkGlobalCoin Core developers
+// Copyright (c) 2019 The TNGC Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TRUSTNETWORKGLOBALCOIN_SCRIPT_KEYORIGIN_H
-#define TRUSTNETWORKGLOBALCOIN_SCRIPT_KEYORIGIN_H
+#ifndef TNGC_SCRIPT_KEYORIGIN_H
+#define TNGC_SCRIPT_KEYORIGIN_H
 
 #include <serialize.h>
 #include <vector>
@@ -27,4 +27,4 @@ struct KeyOriginInfo
     }
 };
 
-#endif // TRUSTNETWORKGLOBALCOIN_SCRIPT_KEYORIGIN_H
+#endif // TNGC_SCRIPT_KEYORIGIN_H

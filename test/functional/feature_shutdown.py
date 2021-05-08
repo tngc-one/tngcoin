@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-# Copyright (c) 2018-2019 The TrustNetworkGlobalCoin Core developers
+# Copyright (c) 2018-2019 The TNGC Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
-"""Test trustnetworkglobalcoind shutdown."""
+"""Test tngcd shutdown."""
 
-from test_framework.test_framework import TrustNetworkGlobalCoinTestFramework
+from test_framework.test_framework import TNGCTestFramework
 from test_framework.util import assert_equal, get_rpc_proxy
 from threading import Thread
 
@@ -12,7 +12,7 @@ def test_long_call(node):
     block = node.waitfornewblock()
     assert_equal(block['height'], 0)
 
-class ShutdownTest(TrustNetworkGlobalCoinTestFramework):
+class ShutdownTest(TNGCTestFramework):
 
     def set_test_params(self):
         self.setup_clean_chain = True

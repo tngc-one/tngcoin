@@ -1,9 +1,9 @@
-// Copyright (c) 2017-2020 The TrustNetworkGlobalCoin Core developers
+// Copyright (c) 2017-2020 The TNGC Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TRUSTNETWORKGLOBALCOIN_RPC_RAWTRANSACTION_UTIL_H
-#define TRUSTNETWORKGLOBALCOIN_RPC_RAWTRANSACTION_UTIL_H
+#ifndef TNGC_RPC_RAWTRANSACTION_UTIL_H
+#define TNGC_RPC_RAWTRANSACTION_UTIL_H
 
 #include <map>
 #include <string>
@@ -39,4 +39,4 @@ void ParsePrevouts(const UniValue& prevTxsUnival, FillableSigningProvider* keyst
 /** Create a transaction from univalue parameters */
 CMutableTransaction ConstructTransaction(const UniValue& inputs_in, const UniValue& outputs_in, const UniValue& locktime, bool rbf);
 
-#endif // TRUSTNETWORKGLOBALCOIN_RPC_RAWTRANSACTION_UTIL_H
+#endif // TNGC_RPC_RAWTRANSACTION_UTIL_H

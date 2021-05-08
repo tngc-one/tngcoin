@@ -1,16 +1,16 @@
-# Copyright (c) 2013-2016 The TrustNetworkGlobalCoin Core developers
+# Copyright (c) 2013-2016 The TNGC Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-bin_PROGRAMS += qt/trustnetworkglobalcoin-qt
+bin_PROGRAMS += qt/tngc-qt
 
-if BUILD_TRUSTNETWORKGLOBALCOIN_GUI
-  bin_PROGRAMS += trustnetworkglobalcoin-gui
+if BUILD_TNGC_GUI
+  bin_PROGRAMS += tngc-gui
 endif
 
-EXTRA_LIBRARIES += qt/libtrustnetworkglobalcoinqt.a
+EXTRA_LIBRARIES += qt/libtngcqt.a
 
-# trustnetworkglobalcoin qt core #
+# tngc qt core #
 include Makefile.qt_locale.include
 
 QT_FORMS_UI = \
@@ -40,11 +40,11 @@ QT_MOC_CPP = \
   qt/moc_askpassphrasedialog.cpp \
   qt/moc_createwalletdialog.cpp \
   qt/moc_bantablemodel.cpp \
-  qt/moc_trustnetworkglobalcoinaddressvalidator.cpp \
-  qt/moc_trustnetworkglobalcoinamountfield.cpp \
-  qt/moc_trustnetworkglobalcoin.cpp \
-  qt/moc_trustnetworkglobalcoingui.cpp \
-  qt/moc_trustnetworkglobalcoinunits.cpp \
+  qt/moc_tngcaddressvalidator.cpp \
+  qt/moc_tngcamountfield.cpp \
+  qt/moc_tngc.cpp \
+  qt/moc_tngcgui.cpp \
+  qt/moc_tngcunits.cpp \
   qt/moc_clientmodel.cpp \
   qt/moc_coincontroldialog.cpp \
   qt/moc_coincontroltreewidget.cpp \
@@ -87,32 +87,32 @@ QT_MOC_CPP = \
   qt/moc_walletmodel.cpp \
   qt/moc_walletview.cpp
 
-TRUSTNETWORKGLOBALCOIN_MM = \
+TNGC_MM = \
   qt/macdockiconhandler.mm \
   qt/macnotificationhandler.mm \
   qt/macos_appnap.mm
 
 QT_MOC = \
-  qt/trustnetworkglobalcoinamountfield.moc \
+  qt/tngcamountfield.moc \
   qt/intro.moc \
   qt/overviewpage.moc \
   qt/rpcconsole.moc
 
-QT_QRC_CPP = qt/qrc_trustnetworkglobalcoin.cpp
-QT_QRC = qt/trustnetworkglobalcoin.qrc
-QT_QRC_LOCALE_CPP = qt/qrc_trustnetworkglobalcoin_locale.cpp
-QT_QRC_LOCALE = qt/trustnetworkglobalcoin_locale.qrc
+QT_QRC_CPP = qt/qrc_tngc.cpp
+QT_QRC = qt/tngc.qrc
+QT_QRC_LOCALE_CPP = qt/qrc_tngc_locale.cpp
+QT_QRC_LOCALE = qt/tngc_locale.qrc
 
-TRUSTNETWORKGLOBALCOIN_QT_H = \
+TNGC_QT_H = \
   qt/addressbookpage.h \
   qt/addresstablemodel.h \
   qt/askpassphrasedialog.h \
   qt/bantablemodel.h \
-  qt/trustnetworkglobalcoinaddressvalidator.h \
-  qt/trustnetworkglobalcoinamountfield.h \
-  qt/trustnetworkglobalcoin.h \
-  qt/trustnetworkglobalcoingui.h \
-  qt/trustnetworkglobalcoinunits.h \
+  qt/tngcaddressvalidator.h \
+  qt/tngcamountfield.h \
+  qt/tngc.h \
+  qt/tngcgui.h \
+  qt/tngcunits.h \
   qt/clientmodel.h \
   qt/coincontroldialog.h \
   qt/coincontroltreewidget.h \
@@ -167,9 +167,9 @@ TRUSTNETWORKGLOBALCOIN_QT_H = \
 RES_ICONS = \
   qt/res/icons/add.png \
   qt/res/icons/address-book.png \
-  qt/res/icons/trustnetworkglobalcoin.ico \
-  qt/res/icons/trustnetworkglobalcoin_testnet.ico \
-  qt/res/icons/trustnetworkglobalcoin.png \
+  qt/res/icons/tngc.ico \
+  qt/res/icons/tngc_testnet.ico \
+  qt/res/icons/tngc.png \
   qt/res/icons/chevron.png \
   qt/res/icons/clock1.png \
   qt/res/icons/clock2.png \
@@ -212,13 +212,13 @@ RES_ICONS = \
   qt/res/icons/tx_mined.png \
   qt/res/icons/warning.png
 
-TRUSTNETWORKGLOBALCOIN_QT_BASE_CPP = \
+TNGC_QT_BASE_CPP = \
   qt/bantablemodel.cpp \
-  qt/trustnetworkglobalcoin.cpp \
-  qt/trustnetworkglobalcoinaddressvalidator.cpp \
-  qt/trustnetworkglobalcoinamountfield.cpp \
-  qt/trustnetworkglobalcoingui.cpp \
-  qt/trustnetworkglobalcoinunits.cpp \
+  qt/tngc.cpp \
+  qt/tngcaddressvalidator.cpp \
+  qt/tngcamountfield.cpp \
+  qt/tngcgui.cpp \
+  qt/tngcunits.cpp \
   qt/clientmodel.cpp \
   qt/csvmodelwriter.cpp \
   qt/guiutil.cpp \
@@ -237,9 +237,9 @@ TRUSTNETWORKGLOBALCOIN_QT_BASE_CPP = \
   qt/trafficgraphwidget.cpp \
   qt/utilitydialog.cpp
 
-TRUSTNETWORKGLOBALCOIN_QT_WINDOWS_CPP = qt/winshutdownmonitor.cpp
+TNGC_QT_WINDOWS_CPP = qt/winshutdownmonitor.cpp
 
-TRUSTNETWORKGLOBALCOIN_QT_WALLET_CPP = \
+TNGC_QT_WALLET_CPP = \
   qt/addressbookpage.cpp \
   qt/addresstablemodel.cpp \
   qt/askpassphrasedialog.cpp \
@@ -270,32 +270,32 @@ TRUSTNETWORKGLOBALCOIN_QT_WALLET_CPP = \
   qt/walletmodeltransaction.cpp \
   qt/walletview.cpp
 
-TRUSTNETWORKGLOBALCOIN_QT_CPP = $(TRUSTNETWORKGLOBALCOIN_QT_BASE_CPP)
+TNGC_QT_CPP = $(TNGC_QT_BASE_CPP)
 if TARGET_WINDOWS
-TRUSTNETWORKGLOBALCOIN_QT_CPP += $(TRUSTNETWORKGLOBALCOIN_QT_WINDOWS_CPP)
+TNGC_QT_CPP += $(TNGC_QT_WINDOWS_CPP)
 endif
 if ENABLE_WALLET
-TRUSTNETWORKGLOBALCOIN_QT_CPP += $(TRUSTNETWORKGLOBALCOIN_QT_WALLET_CPP)
+TNGC_QT_CPP += $(TNGC_QT_WALLET_CPP)
 endif # ENABLE_WALLET
 
 RES_ANIMATION = $(wildcard $(srcdir)/qt/res/animation/spinner-*.png)
 
-TRUSTNETWORKGLOBALCOIN_RC = qt/res/trustnetworkglobalcoin-qt-res.rc
+TNGC_RC = qt/res/tngc-qt-res.rc
 
-TRUSTNETWORKGLOBALCOIN_QT_INCLUDES = -DQT_NO_KEYWORDS
+TNGC_QT_INCLUDES = -DQT_NO_KEYWORDS
 
-qt_libtrustnetworkglobalcoinqt_a_CPPFLAGS = $(AM_CPPFLAGS) $(TRUSTNETWORKGLOBALCOIN_INCLUDES) $(TRUSTNETWORKGLOBALCOIN_QT_INCLUDES) \
+qt_libtngcqt_a_CPPFLAGS = $(AM_CPPFLAGS) $(TNGC_INCLUDES) $(TNGC_QT_INCLUDES) \
   $(QT_INCLUDES) $(QT_DBUS_INCLUDES) $(QR_CFLAGS)
-qt_libtrustnetworkglobalcoinqt_a_CXXFLAGS = $(AM_CXXFLAGS) $(QT_PIE_FLAGS)
-qt_libtrustnetworkglobalcoinqt_a_OBJCXXFLAGS = $(AM_OBJCXXFLAGS) $(QT_PIE_FLAGS)
+qt_libtngcqt_a_CXXFLAGS = $(AM_CXXFLAGS) $(QT_PIE_FLAGS)
+qt_libtngcqt_a_OBJCXXFLAGS = $(AM_OBJCXXFLAGS) $(QT_PIE_FLAGS)
 
-qt_libtrustnetworkglobalcoinqt_a_SOURCES = $(TRUSTNETWORKGLOBALCOIN_QT_CPP) $(TRUSTNETWORKGLOBALCOIN_QT_H) $(QT_FORMS_UI) \
+qt_libtngcqt_a_SOURCES = $(TNGC_QT_CPP) $(TNGC_QT_H) $(QT_FORMS_UI) \
   $(QT_QRC) $(QT_QRC_LOCALE) $(QT_TS) $(RES_ICONS) $(RES_ANIMATION)
 if TARGET_DARWIN
-  qt_libtrustnetworkglobalcoinqt_a_SOURCES += $(TRUSTNETWORKGLOBALCOIN_MM)
+  qt_libtngcqt_a_SOURCES += $(TNGC_MM)
 endif
 
-nodist_qt_libtrustnetworkglobalcoinqt_a_SOURCES = $(QT_MOC_CPP) $(QT_MOC) $(QT_QRC_CPP) $(QT_QRC_LOCALE_CPP)
+nodist_qt_libtngcqt_a_SOURCES = $(QT_MOC_CPP) $(QT_MOC) $(QT_QRC_CPP) $(QT_QRC_LOCALE_CPP)
 
 # forms/foo.h -> forms/ui_foo.h
 QT_FORMS_H=$(join $(dir $(QT_FORMS_UI)),$(addprefix ui_, $(notdir $(QT_FORMS_UI:.ui=.h))))
@@ -303,77 +303,77 @@ QT_FORMS_H=$(join $(dir $(QT_FORMS_UI)),$(addprefix ui_, $(notdir $(QT_FORMS_UI:
 # Most files will depend on the forms and moc files as includes. Generate them
 # before anything else.
 $(QT_MOC): $(QT_FORMS_H)
-$(qt_libtrustnetworkglobalcoinqt_a_OBJECTS) $(qt_trustnetworkglobalcoin_qt_OBJECTS) $(trustnetworkglobalcoin_gui_OBJECTS) : | $(QT_MOC)
+$(qt_libtngcqt_a_OBJECTS) $(qt_tngc_qt_OBJECTS) $(tngc_gui_OBJECTS) : | $(QT_MOC)
 
-# trustnetworkglobalcoin-qt and trustnetworkglobalcoin-gui binaries #
-trustnetworkglobalcoin_qt_cppflags = $(AM_CPPFLAGS) $(TRUSTNETWORKGLOBALCOIN_INCLUDES) $(TRUSTNETWORKGLOBALCOIN_QT_INCLUDES) \
+# tngc-qt and tngc-gui binaries #
+tngc_qt_cppflags = $(AM_CPPFLAGS) $(TNGC_INCLUDES) $(TNGC_QT_INCLUDES) \
   $(QT_INCLUDES) $(QR_CFLAGS)
-trustnetworkglobalcoin_qt_cxxflags = $(AM_CXXFLAGS) $(QT_PIE_FLAGS)
+tngc_qt_cxxflags = $(AM_CXXFLAGS) $(QT_PIE_FLAGS)
 
-trustnetworkglobalcoin_qt_sources = qt/main.cpp
+tngc_qt_sources = qt/main.cpp
 if TARGET_WINDOWS
-  trustnetworkglobalcoin_qt_sources += $(TRUSTNETWORKGLOBALCOIN_RC)
+  tngc_qt_sources += $(TNGC_RC)
 endif
-trustnetworkglobalcoin_qt_ldadd = qt/libtrustnetworkglobalcoinqt.a $(LIBTRUSTNETWORKGLOBALCOIN_SERVER)
+tngc_qt_ldadd = qt/libtngcqt.a $(LIBTNGC_SERVER)
 if ENABLE_WALLET
-trustnetworkglobalcoin_qt_ldadd += $(LIBTRUSTNETWORKGLOBALCOIN_UTIL) $(LIBTRUSTNETWORKGLOBALCOIN_WALLET)
+tngc_qt_ldadd += $(LIBTNGC_UTIL) $(LIBTNGC_WALLET)
 endif
 if ENABLE_ZMQ
-trustnetworkglobalcoin_qt_ldadd += $(LIBTRUSTNETWORKGLOBALCOIN_ZMQ) $(ZMQ_LIBS)
+tngc_qt_ldadd += $(LIBTNGC_ZMQ) $(ZMQ_LIBS)
 endif
-trustnetworkglobalcoin_qt_ldadd += $(LIBTRUSTNETWORKGLOBALCOIN_CLI) $(LIBTRUSTNETWORKGLOBALCOIN_COMMON) $(LIBTRUSTNETWORKGLOBALCOIN_UTIL) $(LIBTRUSTNETWORKGLOBALCOIN_CONSENSUS) $(LIBTRUSTNETWORKGLOBALCOIN_CRYPTO) $(LIBUNIVALUE) $(LIBLEVELDB) $(LIBLEVELDB_SSE42) $(LIBMEMENV) \
+tngc_qt_ldadd += $(LIBTNGC_CLI) $(LIBTNGC_COMMON) $(LIBTNGC_UTIL) $(LIBTNGC_CONSENSUS) $(LIBTNGC_CRYPTO) $(LIBUNIVALUE) $(LIBLEVELDB) $(LIBLEVELDB_SSE42) $(LIBMEMENV) \
   $(BOOST_LIBS) $(QT_LIBS) $(QT_DBUS_LIBS) $(QR_LIBS) $(BDB_LIBS) $(MINIUPNPC_LIBS) $(LIBSECP256K1) \
   $(EVENT_PTHREADS_LIBS) $(EVENT_LIBS) $(SQLITE_LIBS)
-trustnetworkglobalcoin_qt_ldflags = $(RELDFLAGS) $(AM_LDFLAGS) $(QT_LDFLAGS) $(LIBTOOL_APP_LDFLAGS) $(PTHREAD_FLAGS)
-trustnetworkglobalcoin_qt_libtoolflags = $(AM_LIBTOOLFLAGS) --tag CXX
+tngc_qt_ldflags = $(RELDFLAGS) $(AM_LDFLAGS) $(QT_LDFLAGS) $(LIBTOOL_APP_LDFLAGS) $(PTHREAD_FLAGS)
+tngc_qt_libtoolflags = $(AM_LIBTOOLFLAGS) --tag CXX
 
-qt_trustnetworkglobalcoin_qt_CPPFLAGS = $(trustnetworkglobalcoin_qt_cppflags)
-qt_trustnetworkglobalcoin_qt_CXXFLAGS = $(trustnetworkglobalcoin_qt_cxxflags)
-qt_trustnetworkglobalcoin_qt_SOURCES = $(trustnetworkglobalcoin_qt_sources)
-qt_trustnetworkglobalcoin_qt_LDADD = $(trustnetworkglobalcoin_qt_ldadd)
-qt_trustnetworkglobalcoin_qt_LDFLAGS = $(trustnetworkglobalcoin_qt_ldflags)
-qt_trustnetworkglobalcoin_qt_LIBTOOLFLAGS = $(trustnetworkglobalcoin_qt_libtoolflags)
+qt_tngc_qt_CPPFLAGS = $(tngc_qt_cppflags)
+qt_tngc_qt_CXXFLAGS = $(tngc_qt_cxxflags)
+qt_tngc_qt_SOURCES = $(tngc_qt_sources)
+qt_tngc_qt_LDADD = $(tngc_qt_ldadd)
+qt_tngc_qt_LDFLAGS = $(tngc_qt_ldflags)
+qt_tngc_qt_LIBTOOLFLAGS = $(tngc_qt_libtoolflags)
 
-trustnetworkglobalcoin_gui_CPPFLAGS = $(trustnetworkglobalcoin_qt_cppflags)
-trustnetworkglobalcoin_gui_CXXFLAGS = $(trustnetworkglobalcoin_qt_cxxflags)
-trustnetworkglobalcoin_gui_SOURCES = $(trustnetworkglobalcoin_qt_sources)
-trustnetworkglobalcoin_gui_LDADD = $(trustnetworkglobalcoin_qt_ldadd)
-trustnetworkglobalcoin_gui_LDFLAGS = $(trustnetworkglobalcoin_qt_ldflags)
-trustnetworkglobalcoin_gui_LIBTOOLFLAGS = $(trustnetworkglobalcoin_qt_libtoolflags)
+tngc_gui_CPPFLAGS = $(tngc_qt_cppflags)
+tngc_gui_CXXFLAGS = $(tngc_qt_cxxflags)
+tngc_gui_SOURCES = $(tngc_qt_sources)
+tngc_gui_LDADD = $(tngc_qt_ldadd)
+tngc_gui_LDFLAGS = $(tngc_qt_ldflags)
+tngc_gui_LIBTOOLFLAGS = $(tngc_qt_libtoolflags)
 
 #locale/foo.ts -> locale/foo.qm
 QT_QM=$(QT_TS:.ts=.qm)
 
 SECONDARY: $(QT_QM)
 
-$(srcdir)/qt/trustnetworkglobalcoinstrings.cpp: FORCE
+$(srcdir)/qt/tngcstrings.cpp: FORCE
 	@test -n $(XGETTEXT) || echo "xgettext is required for updating translations"
-	$(AM_V_GEN) cd $(srcdir); XGETTEXT=$(XGETTEXT) COPYRIGHT_HOLDERS="$(COPYRIGHT_HOLDERS)" $(PYTHON) ../share/qt/extract_strings_qt.py $(libtrustnetworkglobalcoin_server_a_SOURCES) $(libtrustnetworkglobalcoin_wallet_a_SOURCES) $(libtrustnetworkglobalcoin_common_a_SOURCES) $(libtrustnetworkglobalcoin_zmq_a_SOURCES) $(libtrustnetworkglobalcoin_consensus_a_SOURCES) $(libtrustnetworkglobalcoin_util_a_SOURCES)
+	$(AM_V_GEN) cd $(srcdir); XGETTEXT=$(XGETTEXT) COPYRIGHT_HOLDERS="$(COPYRIGHT_HOLDERS)" $(PYTHON) ../share/qt/extract_strings_qt.py $(libtngc_server_a_SOURCES) $(libtngc_wallet_a_SOURCES) $(libtngc_common_a_SOURCES) $(libtngc_zmq_a_SOURCES) $(libtngc_consensus_a_SOURCES) $(libtngc_util_a_SOURCES)
 
-translate: $(srcdir)/qt/trustnetworkglobalcoinstrings.cpp $(QT_FORMS_UI) $(QT_FORMS_UI) $(TRUSTNETWORKGLOBALCOIN_QT_BASE_CPP) qt/trustnetworkglobalcoin.cpp $(TRUSTNETWORKGLOBALCOIN_QT_WINDOWS_CPP) $(TRUSTNETWORKGLOBALCOIN_QT_WALLET_CPP) $(TRUSTNETWORKGLOBALCOIN_QT_H) $(TRUSTNETWORKGLOBALCOIN_MM)
+translate: $(srcdir)/qt/tngcstrings.cpp $(QT_FORMS_UI) $(QT_FORMS_UI) $(TNGC_QT_BASE_CPP) qt/tngc.cpp $(TNGC_QT_WINDOWS_CPP) $(TNGC_QT_WALLET_CPP) $(TNGC_QT_H) $(TNGC_MM)
 	@test -n $(LUPDATE) || echo "lupdate is required for updating translations"
-	$(AM_V_GEN) QT_SELECT=$(QT_SELECT) $(LUPDATE) $^ -locations relative -no-obsolete -ts $(srcdir)/qt/locale/trustnetworkglobalcoin_en.ts
+	$(AM_V_GEN) QT_SELECT=$(QT_SELECT) $(LUPDATE) $^ -locations relative -no-obsolete -ts $(srcdir)/qt/locale/tngc_en.ts
 
 $(QT_QRC_LOCALE_CPP): $(QT_QRC_LOCALE) $(QT_QM)
 	@test -f $(RCC)
 	@cp -f $< $(@D)/temp_$(<F)
-	$(AM_V_GEN) QT_SELECT=$(QT_SELECT) $(RCC) -name trustnetworkglobalcoin_locale $(@D)/temp_$(<F) | \
+	$(AM_V_GEN) QT_SELECT=$(QT_SELECT) $(RCC) -name tngc_locale $(@D)/temp_$(<F) | \
 	  $(SED) -e '/^\*\*.*Created:/d' -e '/^\*\*.*by:/d' > $@
 	@rm $(@D)/temp_$(<F)
 
 $(QT_QRC_CPP): $(QT_QRC) $(QT_FORMS_H) $(RES_ICONS) $(RES_ANIMATION)
 	@test -f $(RCC)
-	$(AM_V_GEN) QT_SELECT=$(QT_SELECT) $(RCC) -name trustnetworkglobalcoin $< | \
+	$(AM_V_GEN) QT_SELECT=$(QT_SELECT) $(RCC) -name tngc $< | \
 	  $(SED) -e '/^\*\*.*Created:/d' -e '/^\*\*.*by:/d' > $@
 
-CLEAN_QT = $(nodist_qt_libtrustnetworkglobalcoinqt_a_SOURCES) $(QT_QM) $(QT_FORMS_H) qt/*.gcda qt/*.gcno qt/temp_trustnetworkglobalcoin_locale.qrc
+CLEAN_QT = $(nodist_qt_libtngcqt_a_SOURCES) $(QT_QM) $(QT_FORMS_H) qt/*.gcda qt/*.gcno qt/temp_tngc_locale.qrc
 
 CLEANFILES += $(CLEAN_QT)
 
-trustnetworkglobalcoin_qt_clean: FORCE
-	rm -f $(CLEAN_QT) $(qt_libtrustnetworkglobalcoinqt_a_OBJECTS) $(qt_trustnetworkglobalcoin_qt_OBJECTS) qt/trustnetworkglobalcoin-qt$(EXEEXT) $(LIBTRUSTNETWORKGLOBALCOINQT)
+tngc_qt_clean: FORCE
+	rm -f $(CLEAN_QT) $(qt_libtngcqt_a_OBJECTS) $(qt_tngc_qt_OBJECTS) qt/tngc-qt$(EXEEXT) $(LIBTNGCQT)
 
-trustnetworkglobalcoin_qt : qt/trustnetworkglobalcoin-qt$(EXEEXT)
+tngc_qt : qt/tngc-qt$(EXEEXT)
 
 ui_%.h: %.ui
 	@test -f $(UIC)

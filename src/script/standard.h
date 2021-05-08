@@ -1,10 +1,10 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
-// Copyright (c) 2009-2020 The TrustNetworkGlobalCoin Core developers
+// Copyright (c) 2009-2020 The TNGC Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TRUSTNETWORKGLOBALCOIN_SCRIPT_STANDARD_H
-#define TRUSTNETWORKGLOBALCOIN_SCRIPT_STANDARD_H
+#ifndef TNGC_SCRIPT_STANDARD_H
+#define TNGC_SCRIPT_STANDARD_H
 
 #include <script/interpreter.h>
 #include <uint256.h>
@@ -209,7 +209,7 @@ struct WitnessUnknown
  *  * WitnessV0KeyHash: TxoutType::WITNESS_V0_KEYHASH destination (P2WPKH)
  *  * WitnessUnknown: TxoutType::WITNESS_UNKNOWN/WITNESS_V1_TAPROOT destination (P2W???)
  *    (taproot outputs do not require their own type as long as no wallet support exists)
- *  A CTxDestination is the internal data type encoded in a trustnetworkglobalcoin address
+ *  A CTxDestination is the internal data type encoded in a tngc address
  */
 typedef boost::variant<CNoDestination, PKHash, ScriptHash, WitnessV0ScriptHash, WitnessV0KeyHash, WitnessUnknown> CTxDestination;
 
@@ -253,7 +253,7 @@ bool ExtractDestination(const CScript& scriptPubKey, CTxDestination& addressRet)
 bool ExtractDestinations(const CScript& scriptPubKey, TxoutType& typeRet, std::vector<CTxDestination>& addressRet, int& nRequiredRet);
 
 /**
- * Generate a TrustNetworkGlobalCoin scriptPubKey for the given CTxDestination. Returns a P2PKH
+ * Generate a TNGC scriptPubKey for the given CTxDestination. Returns a P2PKH
  * script for a CKeyID destination, a P2SH script for a CScriptID, and an empty
  * script for CNoDestination.
  */
@@ -265,4 +265,4 @@ CScript GetScriptForRawPubKey(const CPubKey& pubkey);
 /** Generate a multisig script. */
 CScript GetScriptForMultisig(int nRequired, const std::vector<CPubKey>& keys);
 
-#endif // TRUSTNETWORKGLOBALCOIN_SCRIPT_STANDARD_H
+#endif // TNGC_SCRIPT_STANDARD_H

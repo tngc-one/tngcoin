@@ -1,9 +1,9 @@
-// Copyright (c) 2009-2020 The TrustNetworkGlobalCoin Core developers
+// Copyright (c) 2009-2020 The TNGC Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TRUSTNETWORKGLOBALCOIN_TEST_FUZZ_UTIL_H
-#define TRUSTNETWORKGLOBALCOIN_TEST_FUZZ_UTIL_H
+#ifndef TNGC_TEST_FUZZ_UTIL_H
+#define TNGC_TEST_FUZZ_UTIL_H
 
 #include <amount.h>
 #include <arith_uint256.h>
@@ -511,4 +511,4 @@ void ReadFromStream(FuzzedDataProvider& fuzzed_data_provider, Stream& stream) no
     }
 }
 
-#endif // TRUSTNETWORKGLOBALCOIN_TEST_FUZZ_UTIL_H
+#endif // TNGC_TEST_FUZZ_UTIL_H

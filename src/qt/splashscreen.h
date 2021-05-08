@@ -1,9 +1,9 @@
-// Copyright (c) 2011-2018 The TrustNetworkGlobalCoin Core developers
+// Copyright (c) 2011-2018 The TNGC Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TRUSTNETWORKGLOBALCOIN_QT_SPLASHSCREEN_H
-#define TRUSTNETWORKGLOBALCOIN_QT_SPLASHSCREEN_H
+#ifndef TNGC_QT_SPLASHSCREEN_H
+#define TNGC_QT_SPLASHSCREEN_H
 
 #include <QWidget>
 
@@ -19,7 +19,7 @@ class Wallet;
 
 /** Class for the splashscreen with information of the running client.
  *
- * @note this is intentionally not a QSplashScreen. TrustNetworkGlobalCoin Core initialization
+ * @note this is intentionally not a QSplashScreen. TNGC Core initialization
  * can take a long time, and in that case a progress window that cannot be
  * moved around and minimized has turned out to be frustrating to the user.
  */
@@ -71,4 +71,4 @@ private:
     std::list<std::unique_ptr<interfaces::Handler>> m_connected_wallet_handlers;
 };
 
-#endif // TRUSTNETWORKGLOBALCOIN_QT_SPLASHSCREEN_H
+#endif // TNGC_QT_SPLASHSCREEN_H

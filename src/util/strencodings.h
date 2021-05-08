@@ -1,13 +1,13 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
-// Copyright (c) 2009-2020 The TrustNetworkGlobalCoin Core developers
+// Copyright (c) 2009-2020 The TNGC Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 /**
  * Utilities for converting data from/to strings.
  */
-#ifndef TRUSTNETWORKGLOBALCOIN_UTIL_STRENCODINGS_H
-#define TRUSTNETWORKGLOBALCOIN_UTIL_STRENCODINGS_H
+#ifndef TNGC_UTIL_STRENCODINGS_H
+#define TNGC_UTIL_STRENCODINGS_H
 
 #include <attributes.h>
 #include <span.h>
@@ -259,4 +259,4 @@ std::string ToUpper(const std::string& str);
  */
 std::string Capitalize(std::string str);
 
-#endif // TRUSTNETWORKGLOBALCOIN_UTIL_STRENCODINGS_H
+#endif // TNGC_UTIL_STRENCODINGS_H

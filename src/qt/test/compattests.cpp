@@ -1,9 +1,9 @@
-// Copyright (c) 2016-2019 The TrustNetworkGlobalCoin Core developers
+// Copyright (c) 2016-2019 The TNGC Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #if defined(HAVE_CONFIG_H)
-#include <config/trustnetworkglobalcoin-config.h>
+#include <config/tngc-config.h>
 #endif
 
 #include <qt/test/compattests.h>
@@ -12,7 +12,7 @@
 
 void CompatTests::bswapTests()
 {
-	// Sibling in trustnetworkglobalcoin/src/test/bswap_tests.cpp
+	// Sibling in tngc/src/test/bswap_tests.cpp
 	uint16_t u1 = 0x1234;
 	uint32_t u2 = 0x56789abc;
 	uint64_t u3 = 0xdef0123456789abc;

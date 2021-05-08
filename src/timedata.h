@@ -1,9 +1,9 @@
-// Copyright (c) 2014-2018 The TrustNetworkGlobalCoin Core developers
+// Copyright (c) 2014-2018 The TNGC Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TRUSTNETWORKGLOBALCOIN_TIMEDATA_H
-#define TRUSTNETWORKGLOBALCOIN_TIMEDATA_H
+#ifndef TNGC_TIMEDATA_H
+#define TNGC_TIMEDATA_H
 
 #include <algorithm>
 #include <assert.h>
@@ -75,4 +75,4 @@ int64_t GetTimeOffset();
 int64_t GetAdjustedTime();
 void AddTimeData(const CNetAddr& ip, int64_t nTime);
 
-#endif // TRUSTNETWORKGLOBALCOIN_TIMEDATA_H
+#endif // TNGC_TIMEDATA_H

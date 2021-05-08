@@ -1,9 +1,9 @@
-// Copyright (c) 2018-2019 The TrustNetworkGlobalCoin Core developers
+// Copyright (c) 2018-2019 The TNGC Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TRUSTNETWORKGLOBALCOIN_INTERFACES_NODE_H
-#define TRUSTNETWORKGLOBALCOIN_INTERFACES_NODE_H
+#ifndef TNGC_INTERFACES_NODE_H
+#define TNGC_INTERFACES_NODE_H
 
 #include <amount.h>     // For CAmount
 #include <net.h>        // For CConnman::NumConnections
@@ -48,7 +48,7 @@ struct BlockAndHeaderTipInfo
     double verification_progress;
 };
 
-//! Top-level interface for a trustnetworkglobalcoin node (trustnetworkglobalcoind process).
+//! Top-level interface for a tngc node (tngcd process).
 class Node
 {
 public:
@@ -239,4 +239,4 @@ struct BlockTip {
 
 } // namespace interfaces
 
-#endif // TRUSTNETWORKGLOBALCOIN_INTERFACES_NODE_H
+#endif // TNGC_INTERFACES_NODE_H

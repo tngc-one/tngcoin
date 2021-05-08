@@ -1,9 +1,9 @@
-// Copyright (c) 2016-2019 The TrustNetworkGlobalCoin Core developers
+// Copyright (c) 2016-2019 The TNGC Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TRUSTNETWORKGLOBALCOIN_SUPPORT_LOCKEDPOOL_H
-#define TRUSTNETWORKGLOBALCOIN_SUPPORT_LOCKEDPOOL_H
+#ifndef TNGC_SUPPORT_LOCKEDPOOL_H
+#define TNGC_SUPPORT_LOCKEDPOOL_H
 
 #include <stdint.h>
 #include <list>
@@ -237,4 +237,4 @@ private:
     static LockedPoolManager* _instance;
 };
 
-#endif // TRUSTNETWORKGLOBALCOIN_SUPPORT_LOCKEDPOOL_H
+#endif // TNGC_SUPPORT_LOCKEDPOOL_H

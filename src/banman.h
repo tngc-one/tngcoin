@@ -1,9 +1,9 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
-// Copyright (c) 2009-2020 The TrustNetworkGlobalCoin Core developers
+// Copyright (c) 2009-2020 The TNGC Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
-#ifndef TRUSTNETWORKGLOBALCOIN_BANMAN_H
-#define TRUSTNETWORKGLOBALCOIN_BANMAN_H
+#ifndef TNGC_BANMAN_H
+#define TNGC_BANMAN_H
 
 #include <addrdb.h>
 #include <bloom.h>

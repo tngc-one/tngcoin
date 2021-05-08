@@ -1,12 +1,12 @@
-Contributing to TrustNetworkGlobalCoin Core
+Contributing to TNGC Core
 ============================
 
-The TrustNetworkGlobalCoin Core project operates an open contributor model where anyone is
+The TNGC Core project operates an open contributor model where anyone is
 welcome to contribute towards development in the form of peer review, testing
 and patches. This document explains the practical process and guidelines for
 contributing.
 
-First, in terms of structure, there is no particular concept of "TrustNetworkGlobalCoin Core
+First, in terms of structure, there is no particular concept of "TNGC Core
 developers" in the sense of privileged people. Open source often naturally
 revolves around a meritocracy where contributors earn trust from the developer
 community over time. Nevertheless, some hierarchy is necessary for practical
@@ -25,20 +25,20 @@ as a new contributor. It also will teach you much more about the code and
 process than opening pull requests. Please refer to the [peer review](#peer-review)
 section below.
 
-Before you start contributing, familiarize yourself with the TrustNetworkGlobalCoin Core build
+Before you start contributing, familiarize yourself with the TNGC Core build
 system and tests. Refer to the documentation in the repository on how to build
-TrustNetworkGlobalCoin Core and how to run the unit tests, functional tests, and fuzz tests.
+TNGC Core and how to run the unit tests, functional tests, and fuzz tests.
 
 There are many open issues of varying difficulty waiting to be fixed.
 If you're looking for somewhere to start contributing, check out the
-[good first issue](https://github.com/trustnetworkglobalcoin/trustnetworkglobalcoin/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22)
+[good first issue](https://github.com/tngc/tngc/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22)
 list or changes that are
-[up for grabs](https://github.com/trustnetworkglobalcoin/trustnetworkglobalcoin/issues?utf8=%E2%9C%93&q=label%3A%22Up+for+grabs%22).
+[up for grabs](https://github.com/tngc/tngc/issues?utf8=%E2%9C%93&q=label%3A%22Up+for+grabs%22).
 Some of them might no longer be applicable. So if you are interested, but
 unsure, you might want to leave a comment on the issue first.
 
 You may also participate in the weekly
-[TrustNetworkGlobalCoin Core PR Review Club](https://trustnetworkglobalcoincore.reviews/) meeting.
+[TNGC Core PR Review Club](https://tngccore.reviews/) meeting.
 
 ### Good First Issue Label
 
@@ -56,18 +56,18 @@ and is also an effective way to request assistance if and when you need it.
 Communication Channels
 ----------------------
 
-Most communication about TrustNetworkGlobalCoin Core development happens on IRC, in the
-`#trustnetworkglobalcoin-core-dev` channel on Freenode. The easiest way to participate on IRC is
+Most communication about TNGC Core development happens on IRC, in the
+`#tngc-core-dev` channel on Freenode. The easiest way to participate on IRC is
 with the web client, [webchat.freenode.net](https://webchat.freenode.net/). Chat
 history logs can be found
-on [http://www.erisian.com.au/trustnetworkglobalcoin-core-dev/](http://www.erisian.com.au/trustnetworkglobalcoin-core-dev/)
-and [http://gnusha.org/trustnetworkglobalcoin-core-dev/](http://gnusha.org/trustnetworkglobalcoin-core-dev/).
+on [http://www.erisian.com.au/tngc-core-dev/](http://www.erisian.com.au/tngc-core-dev/)
+and [http://gnusha.org/tngc-core-dev/](http://gnusha.org/tngc-core-dev/).
 
 Discussion about codebase improvements happens in GitHub issues and pull
 requests.
 
 The developer
-[mailing list](https://lists.linuxfoundation.org/mailman/listinfo/trustnetworkglobalcoin-dev)
+[mailing list](https://lists.linuxfoundation.org/mailman/listinfo/tngc-dev)
 should be used to discuss complicated or controversial consensus or P2P protocol changes before working on
 a patch set.
 
@@ -85,8 +85,8 @@ To contribute a patch, the workflow is as follows:
   1. Create topic branch
   1. Commit patches
 
-For GUI-related issues or pull requests, the https://github.com/trustnetworkglobalcoin-core/gui repository should be used.
-For all other issues and pull requests, the https://github.com/trustnetworkglobalcoin/trustnetworkglobalcoin node repository should be used.
+For GUI-related issues or pull requests, the https://github.com/tngc-core/gui repository should be used.
+For all other issues and pull requests, the https://github.com/tngc/tngc node repository should be used.
 
 The master branch for all monotree repositories is identical.
 
@@ -143,7 +143,7 @@ the pull request affects. Valid areas as:
 
   - `consensus` for changes to consensus critical code
   - `doc` for changes to the documentation
-  - `qt` or `gui` for changes to trustnetworkglobalcoin-qt
+  - `qt` or `gui` for changes to tngc-qt
   - `log` for changes to log messages
   - `mining` for changes to the mining code
   - `net` or `p2p` for changes to the peer-to-peer network code
@@ -170,13 +170,13 @@ mailing list discussions).
 The description for a new pull request should not contain any `@` mentions. The
 PR description will be included in the commit message when the PR is merged and
 any users mentioned in the description will be annoyingly notified each time a
-fork of TrustNetworkGlobalCoin Core copies the merge. Instead, make any username mentions in a
+fork of TNGC Core copies the merge. Instead, make any username mentions in a
 subsequent comment to the PR.
 
 ### Translation changes
 
 Note that translations should not be submitted as pull requests. Please see
-[Translation Process](https://github.com/trustnetworkglobalcoin/trustnetworkglobalcoin/blob/master/doc/translation_process.md)
+[Translation Process](https://github.com/tngc/tngc/blob/master/doc/translation_process.md)
 for more information on helping with translations.
 
 ### Work in Progress Changes and Requests for Comments
@@ -282,11 +282,11 @@ workload on reviewing.
 "Decision Making" Process
 -------------------------
 
-The following applies to code changes to the TrustNetworkGlobalCoin Core project (and related
-projects such as libsecp256k1), and is not to be confused with overall TrustNetworkGlobalCoin
+The following applies to code changes to the TNGC Core project (and related
+projects such as libsecp256k1), and is not to be confused with overall TNGC
 Network Protocol consensus changes.
 
-Whether a pull request is merged into TrustNetworkGlobalCoin Core rests with the project merge
+Whether a pull request is merged into TNGC Core rests with the project merge
 maintainers and ultimately the project lead.
 
 Maintainers will take into consideration if a patch is in line with the general
@@ -305,7 +305,7 @@ In general, all pull requests must:
     demonstrating the bug and also proving the fix. This helps prevent regression.
   - Change relevant comments and documentation when behaviour of code changes.
 
-Patches that change TrustNetworkGlobalCoin consensus rules are considerably more involved than
+Patches that change TNGC consensus rules are considerably more involved than
 normal because they affect the entire ecosystem and so must be preceded by
 extensive mailing list discussions and have a numbered BIP. While each case will
 be different, one should be prepared to expend more time and effort than for
@@ -358,7 +358,7 @@ higher in terms of discussion and peer review requirements, keeping in mind that
 mistakes could be very costly to the wider community. This includes refactoring
 of consensus-critical code.
 
-Where a patch set proposes to change the TrustNetworkGlobalCoin consensus, it must have been
+Where a patch set proposes to change the TNGC consensus, it must have been
 discussed extensively on the mailing list and IRC, be accompanied by a widely
 discussed BIP and have a generally widely perceived technical consensus of being
 a worthwhile change based on the judgement of the maintainers.
@@ -417,15 +417,15 @@ Rebased-From: <commit hash of the original commit>
 ```
 
 Have a look at [an example backport PR](
-https://github.com/trustnetworkglobalcoin/trustnetworkglobalcoin/pull/16189).
+https://github.com/tngc/tngc/pull/16189).
 
 Also see the [backport.py script](
-https://github.com/trustnetworkglobalcoin-core/trustnetworkglobalcoin-maintainer-tools#backport).
+https://github.com/tngc-core/tngc-maintainer-tools#backport).
 
 Release Policy
 --------------
 
-The project leader is the release manager for each TrustNetworkGlobalCoin Core release.
+The project leader is the release manager for each TNGC Core release.
 
 Copyright
 ---------
