@@ -1,9 +1,9 @@
-// Copyright (c) 2016-2019 The TrustNetworkGlobalCoin Core developers
+// Copyright (c) 2016-2019 The TNGC Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TRUSTNETWORKGLOBALCOIN_VERSIONBITS_H
-#define TRUSTNETWORKGLOBALCOIN_VERSIONBITS_H
+#ifndef TNGC_VERSIONBITS_H
+#define TNGC_VERSIONBITS_H
 
 #include <chain.h>
 #include <map>
@@ -85,4 +85,4 @@ BIP9Stats VersionBitsStatistics(const CBlockIndex* pindexPrev, const Consensus::
 int VersionBitsStateSinceHeight(const CBlockIndex* pindexPrev, const Consensus::Params& params, Consensus::DeploymentPos pos, VersionBitsCache& cache);
 uint32_t VersionBitsMask(const Consensus::Params& params, Consensus::DeploymentPos pos);
 
-#endif // TRUSTNETWORKGLOBALCOIN_VERSIONBITS_H
+#endif // TNGC_VERSIONBITS_H

@@ -1,9 +1,9 @@
-// Copyright (c) 2020 The TrustNetworkGlobalCoin Core developers
+// Copyright (c) 2020 The TNGC Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TRUSTNETWORKGLOBALCOIN_WALLET_SQLITE_H
-#define TRUSTNETWORKGLOBALCOIN_WALLET_SQLITE_H
+#ifndef TNGC_WALLET_SQLITE_H
+#define TNGC_WALLET_SQLITE_H
 
 #include <wallet/db.h>
 
@@ -119,4 +119,4 @@ std::unique_ptr<SQLiteDatabase> MakeSQLiteDatabase(const fs::path& path, const D
 std::string SQLiteDatabaseVersion();
 bool IsSQLiteFile(const fs::path& path);
 
-#endif // TRUSTNETWORKGLOBALCOIN_WALLET_SQLITE_H
+#endif // TNGC_WALLET_SQLITE_H

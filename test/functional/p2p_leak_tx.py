@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
-# Copyright (c) 2017-2020 The TrustNetworkGlobalCoin Core developers
+# Copyright (c) 2017-2020 The TNGC Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 """Test that we don't leak txs to inbound peers that we haven't yet announced to"""
 
 from test_framework.messages import msg_getdata, CInv, MSG_TX
 from test_framework.p2p import p2p_lock, P2PDataStore
-from test_framework.test_framework import TrustNetworkGlobalCoinTestFramework
+from test_framework.test_framework import TNGCTestFramework
 from test_framework.util import (
     assert_equal,
 )
@@ -18,7 +18,7 @@ class P2PNode(P2PDataStore):
         pass
 
 
-class P2PLeakTxTest(TrustNetworkGlobalCoinTestFramework):
+class P2PLeakTxTest(TNGCTestFramework):
     def set_test_params(self):
         self.num_nodes = 1
 

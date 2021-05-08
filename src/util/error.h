@@ -1,9 +1,9 @@
-// Copyright (c) 2010-2019 The TrustNetworkGlobalCoin Core developers
+// Copyright (c) 2010-2019 The TNGC Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TRUSTNETWORKGLOBALCOIN_UTIL_ERROR_H
-#define TRUSTNETWORKGLOBALCOIN_UTIL_ERROR_H
+#ifndef TNGC_UTIL_ERROR_H
+#define TNGC_UTIL_ERROR_H
 
 /**
  * util/error.h is a common place for definitions of simple error types and
@@ -40,4 +40,4 @@ bilingual_str AmountHighWarn(const std::string& optname);
 
 bilingual_str AmountErrMsg(const std::string& optname, const std::string& strValue);
 
-#endif // TRUSTNETWORKGLOBALCOIN_UTIL_ERROR_H
+#endif // TNGC_UTIL_ERROR_H

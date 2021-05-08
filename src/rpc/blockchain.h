@@ -1,9 +1,9 @@
-// Copyright (c) 2017-2019 The TrustNetworkGlobalCoin Core developers
+// Copyright (c) 2017-2019 The TNGC Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TRUSTNETWORKGLOBALCOIN_RPC_BLOCKCHAIN_H
-#define TRUSTNETWORKGLOBALCOIN_RPC_BLOCKCHAIN_H
+#ifndef TNGC_RPC_BLOCKCHAIN_H
+#define TNGC_RPC_BLOCKCHAIN_H
 
 #include <amount.h>
 #include <sync.h>

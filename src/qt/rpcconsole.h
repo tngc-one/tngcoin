@@ -1,9 +1,9 @@
-// Copyright (c) 2011-2019 The TrustNetworkGlobalCoin Core developers
+// Copyright (c) 2011-2019 The TNGC Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TRUSTNETWORKGLOBALCOIN_QT_RPCCONSOLE_H
-#define TRUSTNETWORKGLOBALCOIN_QT_RPCCONSOLE_H
+#ifndef TNGC_QT_RPCCONSOLE_H
+#define TNGC_QT_RPCCONSOLE_H
 
 #include <qt/guiutil.h>
 #include <qt/peertablemodel.h>
@@ -32,7 +32,7 @@ class QMenu;
 class QItemSelection;
 QT_END_NAMESPACE
 
-/** Local TrustNetworkGlobalCoin RPC console. */
+/** Local TNGC RPC console. */
 class RPCConsole: public QWidget
 {
     Q_OBJECT
@@ -173,4 +173,4 @@ private Q_SLOTS:
     void updateAlerts(const QString& warnings);
 };
 
-#endif // TRUSTNETWORKGLOBALCOIN_QT_RPCCONSOLE_H
+#endif // TNGC_QT_RPCCONSOLE_H

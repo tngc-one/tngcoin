@@ -1,12 +1,12 @@
-// Copyright (c) 2011-2019 The TrustNetworkGlobalCoin Core developers
+// Copyright (c) 2011-2019 The TNGC Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TRUSTNETWORKGLOBALCOIN_QT_PAYMENTSERVER_H
-#define TRUSTNETWORKGLOBALCOIN_QT_PAYMENTSERVER_H
+#ifndef TNGC_QT_PAYMENTSERVER_H
+#define TNGC_QT_PAYMENTSERVER_H
 
 // This class handles payment requests from clicking on
-// trustnetworkglobalcoin: URIs
+// tngc: URIs
 //
 // This is somewhat tricky, because we have to deal with
 // the situation where the user clicks on a link during
@@ -33,7 +33,7 @@
 //
 
 #if defined(HAVE_CONFIG_H)
-#include <config/trustnetworkglobalcoin-config.h>
+#include <config/tngc-config.h>
 #endif
 
 #include <qt/sendcoinsrecipient.h>
@@ -106,4 +106,4 @@ private:
     OptionsModel *optionsModel;
 };
 
-#endif // TRUSTNETWORKGLOBALCOIN_QT_PAYMENTSERVER_H
+#endif // TNGC_QT_PAYMENTSERVER_H

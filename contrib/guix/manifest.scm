@@ -106,14 +106,14 @@ chain for " target " development."))
       (home-page (package-home-page xgcc))
       (license (package-license xgcc)))))
 
-(define* (make-trustnetworkglobalcoin-cross-toolchain target
+(define* (make-tngc-cross-toolchain target
                                   #:key
                                   (base-gcc-for-libc gcc-5)
                                   (base-kernel-headers linux-libre-headers-4.19)
                                   (base-libc glibc-2.27)
                                   (base-gcc (make-gcc-rpath-link gcc-9)))
   "Convenience wrapper around MAKE-CROSS-TOOLCHAIN with default values
-desirable for building TrustNetworkGlobalCoin Core release binaries."
+desirable for building TNGC Core release binaries."
   (make-cross-toolchain target
                    base-gcc-for-libc
                    base-kernel-headers
@@ -191,8 +191,8 @@ chain for " target " development."))
            ;; Windows
            (list zip (make-mingw-pthreads-cross-toolchain "x86_64-w64-mingw32") nsis-x86_64))
           ((string-contains target "riscv64-linux-")
-           (list (make-trustnetworkglobalcoin-cross-toolchain "riscv64-linux-gnu"
+           (list (make-tngc-cross-toolchain "riscv64-linux-gnu"
                                                #:base-gcc-for-libc gcc-7)))
           ((string-contains target "-linux-")
-           (list (make-trustnetworkglobalcoin-cross-toolchain target)))
+           (list (make-tngc-cross-toolchain target)))
           (else '())))))

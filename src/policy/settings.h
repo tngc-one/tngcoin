@@ -1,10 +1,10 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
-// Copyright (c) 2009-2019 The TrustNetworkGlobalCoin Core developers
+// Copyright (c) 2009-2019 The TNGC Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TRUSTNETWORKGLOBALCOIN_POLICY_SETTINGS_H
-#define TRUSTNETWORKGLOBALCOIN_POLICY_SETTINGS_H
+#ifndef TNGC_POLICY_SETTINGS_H
+#define TNGC_POLICY_SETTINGS_H
 
 #include <policy/policy.h>
 
@@ -32,4 +32,4 @@ static inline int64_t GetVirtualTransactionSize(const CTransaction& tx, int64_t 
     return GetVirtualTransactionSize(tx, sigop_cost, ::nBytesPerSigOp);
 }
 
-#endif // TRUSTNETWORKGLOBALCOIN_POLICY_SETTINGS_H
+#endif // TNGC_POLICY_SETTINGS_H

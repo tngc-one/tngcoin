@@ -1,9 +1,9 @@
-// Copyright (c) 2012-2020 The TrustNetworkGlobalCoin Core developers
+// Copyright (c) 2012-2020 The TNGC Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TRUSTNETWORKGLOBALCOIN_UTIL_UI_CHANGE_TYPE_H
-#define TRUSTNETWORKGLOBALCOIN_UTIL_UI_CHANGE_TYPE_H
+#ifndef TNGC_UTIL_UI_CHANGE_TYPE_H
+#define TNGC_UTIL_UI_CHANGE_TYPE_H
 
 /** General change type (added, updated, removed). */
 enum ChangeType {
@@ -12,4 +12,4 @@ enum ChangeType {
     CT_DELETED
 };
 
-#endif // TRUSTNETWORKGLOBALCOIN_UTIL_UI_CHANGE_TYPE_H
+#endif // TNGC_UTIL_UI_CHANGE_TYPE_H

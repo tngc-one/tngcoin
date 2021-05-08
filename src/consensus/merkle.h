@@ -1,9 +1,9 @@
-// Copyright (c) 2015-2019 The TrustNetworkGlobalCoin Core developers
+// Copyright (c) 2015-2019 The TNGC Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TRUSTNETWORKGLOBALCOIN_CONSENSUS_MERKLE_H
-#define TRUSTNETWORKGLOBALCOIN_CONSENSUS_MERKLE_H
+#ifndef TNGC_CONSENSUS_MERKLE_H
+#define TNGC_CONSENSUS_MERKLE_H
 
 #include <vector>
 
@@ -24,4 +24,4 @@ uint256 BlockMerkleRoot(const CBlock& block, bool* mutated = nullptr);
  */
 uint256 BlockWitnessMerkleRoot(const CBlock& block, bool* mutated = nullptr);
 
-#endif // TRUSTNETWORKGLOBALCOIN_CONSENSUS_MERKLE_H
+#endif // TNGC_CONSENSUS_MERKLE_H

@@ -1,9 +1,9 @@
-// Copyright (c) 2014-2019 The TrustNetworkGlobalCoin Core developers
+// Copyright (c) 2014-2019 The TNGC Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TRUSTNETWORKGLOBALCOIN_CRYPTO_SHA512_H
-#define TRUSTNETWORKGLOBALCOIN_CRYPTO_SHA512_H
+#ifndef TNGC_CRYPTO_SHA512_H
+#define TNGC_CRYPTO_SHA512_H
 
 #include <stdint.h>
 #include <stdlib.h>
@@ -26,4 +26,4 @@ public:
     uint64_t Size() const { return bytes; }
 };
 
-#endif // TRUSTNETWORKGLOBALCOIN_CRYPTO_SHA512_H
+#endif // TNGC_CRYPTO_SHA512_H

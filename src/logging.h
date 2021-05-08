@@ -1,10 +1,10 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
-// Copyright (c) 2009-2020 The TrustNetworkGlobalCoin Core developers
+// Copyright (c) 2009-2020 The TNGC Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TRUSTNETWORKGLOBALCOIN_LOGGING_H
-#define TRUSTNETWORKGLOBALCOIN_LOGGING_H
+#ifndef TNGC_LOGGING_H
+#define TNGC_LOGGING_H
 
 #include <fs.h>
 #include <tinyformat.h>
@@ -186,4 +186,4 @@ static inline void LogPrintf(const char* fmt, const Args&... args)
         }                                    \
     } while (0)
 
-#endif // TRUSTNETWORKGLOBALCOIN_LOGGING_H
+#endif // TNGC_LOGGING_H

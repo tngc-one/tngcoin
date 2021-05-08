@@ -10,8 +10,8 @@
 //
 // For more information, see BIP 173 and BIP 350.
 
-#ifndef TRUSTNETWORKGLOBALCOIN_BECH32_H
-#define TRUSTNETWORKGLOBALCOIN_BECH32_H
+#ifndef TNGC_BECH32_H
+#define TNGC_BECH32_H
 
 #include <stdint.h>
 #include <string>
@@ -46,4 +46,4 @@ DecodeResult Decode(const std::string& str);
 
 } // namespace bech32
 
-#endif // TRUSTNETWORKGLOBALCOIN_BECH32_H
+#endif // TNGC_BECH32_H

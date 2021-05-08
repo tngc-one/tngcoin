@@ -1,11 +1,11 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
-// Copyright (c) 2009-2019 The TrustNetworkGlobalCoin Core developers
+// Copyright (c) 2009-2019 The TNGC Core developers
 // Copyright (c) 2017 The Zcash developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TRUSTNETWORKGLOBALCOIN_KEY_H
-#define TRUSTNETWORKGLOBALCOIN_KEY_H
+#ifndef TNGC_KEY_H
+#define TNGC_KEY_H
 
 #include <pubkey.h>
 #include <serialize.h>
@@ -173,4 +173,4 @@ void ECC_Stop();
 /** Check that required EC support is available at runtime. */
 bool ECC_InitSanityCheck();
 
-#endif // TRUSTNETWORKGLOBALCOIN_KEY_H
+#endif // TNGC_KEY_H

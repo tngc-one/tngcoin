@@ -1,9 +1,9 @@
-// Copyright (c) 2011-2019 The TrustNetworkGlobalCoin Core developers
+// Copyright (c) 2011-2019 The TNGC Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TRUSTNETWORKGLOBALCOIN_QT_WALLETMODELTRANSACTION_H
-#define TRUSTNETWORKGLOBALCOIN_QT_WALLETMODELTRANSACTION_H
+#ifndef TNGC_QT_WALLETMODELTRANSACTION_H
+#define TNGC_QT_WALLETMODELTRANSACTION_H
 
 #include <primitives/transaction.h>
 #include <qt/sendcoinsrecipient.h>
@@ -42,4 +42,4 @@ private:
     CAmount fee;
 };
 
-#endif // TRUSTNETWORKGLOBALCOIN_QT_WALLETMODELTRANSACTION_H
+#endif // TNGC_QT_WALLETMODELTRANSACTION_H

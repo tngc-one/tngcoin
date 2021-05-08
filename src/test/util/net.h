@@ -1,9 +1,9 @@
-// Copyright (c) 2020 The TrustNetworkGlobalCoin Core developers
+// Copyright (c) 2020 The TNGC Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TRUSTNETWORKGLOBALCOIN_TEST_UTIL_NET_H
-#define TRUSTNETWORKGLOBALCOIN_TEST_UTIL_NET_H
+#ifndef TNGC_TEST_UTIL_NET_H
+#define TNGC_TEST_UTIL_NET_H
 
 #include <net.h>
 
@@ -30,4 +30,4 @@ struct ConnmanTestMsg : public CConnman {
     bool ReceiveMsgFrom(CNode& node, CSerializedNetMsg& ser_msg) const;
 };
 
-#endif // TRUSTNETWORKGLOBALCOIN_TEST_UTIL_NET_H
+#endif // TNGC_TEST_UTIL_NET_H

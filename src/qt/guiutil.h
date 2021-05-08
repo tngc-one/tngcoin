@@ -1,9 +1,9 @@
-// Copyright (c) 2011-2020 The TrustNetworkGlobalCoin Core developers
+// Copyright (c) 2011-2020 The TNGC Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TRUSTNETWORKGLOBALCOIN_QT_GUIUTIL_H
-#define TRUSTNETWORKGLOBALCOIN_QT_GUIUTIL_H
+#ifndef TNGC_QT_GUIUTIL_H
+#define TNGC_QT_GUIUTIL_H
 
 #include <amount.h>
 #include <fs.h>
@@ -39,7 +39,7 @@ class QUrl;
 class QWidget;
 QT_END_NAMESPACE
 
-/** Utility functions used by the TrustNetworkGlobalCoin Qt UI.
+/** Utility functions used by the TNGC Qt UI.
  */
 namespace GUIUtil
 {
@@ -53,10 +53,10 @@ namespace GUIUtil
     // Set up widget for address
     void setupAddressWidget(QValidatedLineEdit *widget, QWidget *parent);
 
-    // Parse "trustnetworkglobalcoin:" URI into recipient object, return true on successful parsing
-    bool parseTrustNetworkGlobalCoinURI(const QUrl &uri, SendCoinsRecipient *out);
-    bool parseTrustNetworkGlobalCoinURI(QString uri, SendCoinsRecipient *out);
-    QString formatTrustNetworkGlobalCoinURI(const SendCoinsRecipient &info);
+    // Parse "tngc:" URI into recipient object, return true on successful parsing
+    bool parseTNGCURI(const QUrl &uri, SendCoinsRecipient *out);
+    bool parseTNGCURI(QString uri, SendCoinsRecipient *out);
+    QString formatTNGCURI(const SendCoinsRecipient &info);
 
     // Returns true if given address+amount meets "dust" definition
     bool isDust(interfaces::Node& node, const QString& address, const CAmount& amount);
@@ -141,7 +141,7 @@ namespace GUIUtil
     void openDebugLogfile();
 
     // Open the config file
-    bool openTrustNetworkGlobalCoinConf();
+    bool openTNGCConf();
 
     /** Qt event filter that intercepts ToolTipChange events, and replaces the tooltip with a rich text
       representation if needed. This assures that Qt can word-wrap long tooltip messages.
@@ -305,4 +305,4 @@ namespace GUIUtil
     void PopupMenu(QMenu* menu, const QPoint& point, QAction* at_action = nullptr);
 } // namespace GUIUtil
 
-#endif // TRUSTNETWORKGLOBALCOIN_QT_GUIUTIL_H
+#endif // TNGC_QT_GUIUTIL_H

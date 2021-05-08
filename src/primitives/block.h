@@ -1,10 +1,10 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
-// Copyright (c) 2009-2018 The TrustNetworkGlobalCoin Core developers
+// Copyright (c) 2009-2018 The TNGC Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TRUSTNETWORKGLOBALCOIN_PRIMITIVES_BLOCK_H
-#define TRUSTNETWORKGLOBALCOIN_PRIMITIVES_BLOCK_H
+#ifndef TNGC_PRIMITIVES_BLOCK_H
+#define TNGC_PRIMITIVES_BLOCK_H
 
 #include <primitives/transaction.h>
 #include <serialize.h>
@@ -138,4 +138,4 @@ struct CBlockLocator
     }
 };
 
-#endif // TRUSTNETWORKGLOBALCOIN_PRIMITIVES_BLOCK_H
+#endif // TNGC_PRIMITIVES_BLOCK_H

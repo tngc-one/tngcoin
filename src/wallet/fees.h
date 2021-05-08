@@ -1,10 +1,10 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
-// Copyright (c) 2009-2018 The TrustNetworkGlobalCoin Core developers
+// Copyright (c) 2009-2018 The TNGC Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TRUSTNETWORKGLOBALCOIN_WALLET_FEES_H
-#define TRUSTNETWORKGLOBALCOIN_WALLET_FEES_H
+#ifndef TNGC_WALLET_FEES_H
+#define TNGC_WALLET_FEES_H
 
 #include <amount.h>
 
@@ -42,4 +42,4 @@ CFeeRate GetMinimumFeeRate(const CWallet& wallet, const CCoinControl& coin_contr
  */
 CFeeRate GetDiscardRate(const CWallet& wallet);
 
-#endif // TRUSTNETWORKGLOBALCOIN_WALLET_FEES_H
+#endif // TNGC_WALLET_FEES_H

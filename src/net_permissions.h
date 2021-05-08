@@ -1,4 +1,4 @@
-// Copyright (c) 2009-2020 The TrustNetworkGlobalCoin Core developers
+// Copyright (c) 2009-2020 The TNGC Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -7,8 +7,8 @@
 #include <string>
 #include <vector>
 
-#ifndef TRUSTNETWORKGLOBALCOIN_NET_PERMISSIONS_H
-#define TRUSTNETWORKGLOBALCOIN_NET_PERMISSIONS_H
+#ifndef TNGC_NET_PERMISSIONS_H
+#define TNGC_NET_PERMISSIONS_H
 
 struct bilingual_str;
 
@@ -71,4 +71,4 @@ public:
     CSubNet m_subnet;
 };
 
-#endif // TRUSTNETWORKGLOBALCOIN_NET_PERMISSIONS_H
+#endif // TNGC_NET_PERMISSIONS_H

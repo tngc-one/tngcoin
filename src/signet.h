@@ -1,9 +1,9 @@
-// Copyright (c) 2019-2020 The TrustNetworkGlobalCoin Core developers
+// Copyright (c) 2019-2020 The TNGC Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TRUSTNETWORKGLOBALCOIN_SIGNET_H
-#define TRUSTNETWORKGLOBALCOIN_SIGNET_H
+#ifndef TNGC_SIGNET_H
+#define TNGC_SIGNET_H
 
 #include <consensus/params.h>
 #include <primitives/block.h>
@@ -34,4 +34,4 @@ public:
     const CTransaction m_to_sign;
 };
 
-#endif // TRUSTNETWORKGLOBALCOIN_SIGNET_H
+#endif // TNGC_SIGNET_H

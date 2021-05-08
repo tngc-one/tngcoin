@@ -1,9 +1,9 @@
-// Copyright (c) 2011-2018 The TrustNetworkGlobalCoin Core developers
+// Copyright (c) 2011-2018 The TNGC Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TRUSTNETWORKGLOBALCOIN_QT_COINCONTROLDIALOG_H
-#define TRUSTNETWORKGLOBALCOIN_QT_COINCONTROLDIALOG_H
+#ifndef TNGC_QT_COINCONTROLDIALOG_H
+#define TNGC_QT_COINCONTROLDIALOG_H
 
 #include <amount.h>
 
@@ -111,4 +111,4 @@ private Q_SLOTS:
     void updateLabelLocked();
 };
 
-#endif // TRUSTNETWORKGLOBALCOIN_QT_COINCONTROLDIALOG_H
+#endif // TNGC_QT_COINCONTROLDIALOG_H

@@ -1,10 +1,10 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
-// Copyright (c) 2009-2020 The TrustNetworkGlobalCoin Core developers
+// Copyright (c) 2009-2020 The TNGC Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TRUSTNETWORKGLOBALCOIN_MINER_H
-#define TRUSTNETWORKGLOBALCOIN_MINER_H
+#ifndef TNGC_MINER_H
+#define TNGC_MINER_H
 
 #include <optional.h>
 #include <primitives/block.h>
@@ -204,4 +204,4 @@ int64_t UpdateTime(CBlockHeader* pblock, const Consensus::Params& consensusParam
 /** Update an old GenerateCoinbaseCommitment from CreateNewBlock after the block txs have changed */
 void RegenerateCommitments(CBlock& block);
 
-#endif // TRUSTNETWORKGLOBALCOIN_MINER_H
+#endif // TNGC_MINER_H

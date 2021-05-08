@@ -1,9 +1,9 @@
-// Copyright (c) 2019 The TrustNetworkGlobalCoin Core developers
+// Copyright (c) 2019 The TNGC Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TRUSTNETWORKGLOBALCOIN_UTIL_VECTOR_H
-#define TRUSTNETWORKGLOBALCOIN_UTIL_VECTOR_H
+#ifndef TNGC_UTIL_VECTOR_H
+#define TNGC_UTIL_VECTOR_H
 
 #include <initializer_list>
 #include <type_traits>
@@ -48,4 +48,4 @@ inline V Cat(V v1, const V& v2)
     return v1;
 }
 
-#endif // TRUSTNETWORKGLOBALCOIN_UTIL_VECTOR_H
+#endif // TNGC_UTIL_VECTOR_H

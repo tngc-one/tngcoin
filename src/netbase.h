@@ -1,12 +1,12 @@
-// Copyright (c) 2009-2019 The TrustNetworkGlobalCoin Core developers
+// Copyright (c) 2009-2019 The TNGC Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TRUSTNETWORKGLOBALCOIN_NETBASE_H
-#define TRUSTNETWORKGLOBALCOIN_NETBASE_H
+#ifndef TNGC_NETBASE_H
+#define TNGC_NETBASE_H
 
 #if defined(HAVE_CONFIG_H)
-#include <config/trustnetworkglobalcoin-config.h>
+#include <config/tngc-config.h>
 #endif
 
 #include <compat.h>
@@ -68,4 +68,4 @@ bool SetSocketNoDelay(const SOCKET& hSocket);
 struct timeval MillisToTimeval(int64_t nTimeout);
 void InterruptSocks5(bool interrupt);
 
-#endif // TRUSTNETWORKGLOBALCOIN_NETBASE_H
+#endif // TNGC_NETBASE_H

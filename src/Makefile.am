@@ -1,4 +1,4 @@
-# Copyright (c) 2013-2016 The TrustNetworkGlobalCoin Core developers
+# Copyright (c) 2013-2016 The TNGC Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -20,42 +20,42 @@ else
 LIBUNIVALUE = $(UNIVALUE_LIBS)
 endif
 
-TRUSTNETWORKGLOBALCOIN_INCLUDES=-I$(builddir) -I$(srcdir)/secp256k1/include $(BDB_CPPFLAGS) $(BOOST_CPPFLAGS) $(LEVELDB_CPPFLAGS)
+TNGC_INCLUDES=-I$(builddir) -I$(srcdir)/secp256k1/include $(BDB_CPPFLAGS) $(BOOST_CPPFLAGS) $(LEVELDB_CPPFLAGS)
 
-TRUSTNETWORKGLOBALCOIN_INCLUDES += $(UNIVALUE_CFLAGS)
+TNGC_INCLUDES += $(UNIVALUE_CFLAGS)
 
-LIBTRUSTNETWORKGLOBALCOIN_SERVER=libtrustnetworkglobalcoin_server.a
-LIBTRUSTNETWORKGLOBALCOIN_COMMON=libtrustnetworkglobalcoin_common.a
-LIBTRUSTNETWORKGLOBALCOIN_CONSENSUS=libtrustnetworkglobalcoin_consensus.a
-LIBTRUSTNETWORKGLOBALCOIN_CLI=libtrustnetworkglobalcoin_cli.a
-LIBTRUSTNETWORKGLOBALCOIN_UTIL=libtrustnetworkglobalcoin_util.a
-LIBTRUSTNETWORKGLOBALCOIN_CRYPTO_BASE=crypto/libtrustnetworkglobalcoin_crypto_base.a
-LIBTRUSTNETWORKGLOBALCOINQT=qt/libtrustnetworkglobalcoinqt.a
+LIBTNGC_SERVER=libtngc_server.a
+LIBTNGC_COMMON=libtngc_common.a
+LIBTNGC_CONSENSUS=libtngc_consensus.a
+LIBTNGC_CLI=libtngc_cli.a
+LIBTNGC_UTIL=libtngc_util.a
+LIBTNGC_CRYPTO_BASE=crypto/libtngc_crypto_base.a
+LIBTNGCQT=qt/libtngcqt.a
 LIBSECP256K1=secp256k1/libsecp256k1.la
 
 if ENABLE_ZMQ
-LIBTRUSTNETWORKGLOBALCOIN_ZMQ=libtrustnetworkglobalcoin_zmq.a
+LIBTNGC_ZMQ=libtngc_zmq.a
 endif
-if BUILD_TRUSTNETWORKGLOBALCOIN_LIBS
-LIBTRUSTNETWORKGLOBALCOINCONSENSUS=libtrustnetworkglobalcoinconsensus.la
+if BUILD_TNGC_LIBS
+LIBTNGCCONSENSUS=libtngcconsensus.la
 endif
 if ENABLE_WALLET
-LIBTRUSTNETWORKGLOBALCOIN_WALLET=libtrustnetworkglobalcoin_wallet.a
-LIBTRUSTNETWORKGLOBALCOIN_WALLET_TOOL=libtrustnetworkglobalcoin_wallet_tool.a
+LIBTNGC_WALLET=libtngc_wallet.a
+LIBTNGC_WALLET_TOOL=libtngc_wallet_tool.a
 endif
 
-LIBTRUSTNETWORKGLOBALCOIN_CRYPTO= $(LIBTRUSTNETWORKGLOBALCOIN_CRYPTO_BASE)
+LIBTNGC_CRYPTO= $(LIBTNGC_CRYPTO_BASE)
 if ENABLE_SSE41
-LIBTRUSTNETWORKGLOBALCOIN_CRYPTO_SSE41 = crypto/libtrustnetworkglobalcoin_crypto_sse41.a
-LIBTRUSTNETWORKGLOBALCOIN_CRYPTO += $(LIBTRUSTNETWORKGLOBALCOIN_CRYPTO_SSE41)
+LIBTNGC_CRYPTO_SSE41 = crypto/libtngc_crypto_sse41.a
+LIBTNGC_CRYPTO += $(LIBTNGC_CRYPTO_SSE41)
 endif
 if ENABLE_AVX2
-LIBTRUSTNETWORKGLOBALCOIN_CRYPTO_AVX2 = crypto/libtrustnetworkglobalcoin_crypto_avx2.a
-LIBTRUSTNETWORKGLOBALCOIN_CRYPTO += $(LIBTRUSTNETWORKGLOBALCOIN_CRYPTO_AVX2)
+LIBTNGC_CRYPTO_AVX2 = crypto/libtngc_crypto_avx2.a
+LIBTNGC_CRYPTO += $(LIBTNGC_CRYPTO_AVX2)
 endif
 if ENABLE_SHANI
-LIBTRUSTNETWORKGLOBALCOIN_CRYPTO_SHANI = crypto/libtrustnetworkglobalcoin_crypto_shani.a
-LIBTRUSTNETWORKGLOBALCOIN_CRYPTO += $(LIBTRUSTNETWORKGLOBALCOIN_CRYPTO_SHANI)
+LIBTNGC_CRYPTO_SHANI = crypto/libtngc_crypto_shani.a
+LIBTNGC_CRYPTO += $(LIBTNGC_CRYPTO_SHANI)
 endif
 
 $(LIBSECP256K1): $(wildcard secp256k1/src/*.h) $(wildcard secp256k1/src/*.c) $(wildcard secp256k1/include/*)
@@ -64,46 +64,46 @@ $(LIBSECP256K1): $(wildcard secp256k1/src/*.h) $(wildcard secp256k1/src/*.c) $(w
 # Make is not made aware of per-object dependencies to avoid limiting building parallelization
 # But to build the less dependent modules first, we manually select their order here:
 EXTRA_LIBRARIES += \
-  $(LIBTRUSTNETWORKGLOBALCOIN_CRYPTO) \
-  $(LIBTRUSTNETWORKGLOBALCOIN_UTIL) \
-  $(LIBTRUSTNETWORKGLOBALCOIN_COMMON) \
-  $(LIBTRUSTNETWORKGLOBALCOIN_CONSENSUS) \
-  $(LIBTRUSTNETWORKGLOBALCOIN_SERVER) \
-  $(LIBTRUSTNETWORKGLOBALCOIN_CLI) \
-  $(LIBTRUSTNETWORKGLOBALCOIN_WALLET) \
-  $(LIBTRUSTNETWORKGLOBALCOIN_WALLET_TOOL) \
-  $(LIBTRUSTNETWORKGLOBALCOIN_ZMQ)
+  $(LIBTNGC_CRYPTO) \
+  $(LIBTNGC_UTIL) \
+  $(LIBTNGC_COMMON) \
+  $(LIBTNGC_CONSENSUS) \
+  $(LIBTNGC_SERVER) \
+  $(LIBTNGC_CLI) \
+  $(LIBTNGC_WALLET) \
+  $(LIBTNGC_WALLET_TOOL) \
+  $(LIBTNGC_ZMQ)
 
-lib_LTLIBRARIES = $(LIBTRUSTNETWORKGLOBALCOINCONSENSUS)
+lib_LTLIBRARIES = $(LIBTNGCCONSENSUS)
 
 bin_PROGRAMS =
 noinst_PROGRAMS =
 TESTS =
 BENCHMARKS =
 
-if BUILD_TRUSTNETWORKGLOBALCOIND
-  bin_PROGRAMS += trustnetworkglobalcoind
+if BUILD_TNGCD
+  bin_PROGRAMS += tngcd
 endif
 
-if BUILD_TRUSTNETWORKGLOBALCOIN_NODE
-  bin_PROGRAMS += trustnetworkglobalcoin-node
+if BUILD_TNGC_NODE
+  bin_PROGRAMS += tngc-node
 endif
 
-if BUILD_TRUSTNETWORKGLOBALCOIN_CLI
-  bin_PROGRAMS += trustnetworkglobalcoin-cli
+if BUILD_TNGC_CLI
+  bin_PROGRAMS += tngc-cli
 endif
-if BUILD_TRUSTNETWORKGLOBALCOIN_TX
-  bin_PROGRAMS += trustnetworkglobalcoin-tx
+if BUILD_TNGC_TX
+  bin_PROGRAMS += tngc-tx
 endif
 if ENABLE_WALLET
-if BUILD_TRUSTNETWORKGLOBALCOIN_WALLET
-  bin_PROGRAMS += trustnetworkglobalcoin-wallet
+if BUILD_TNGC_WALLET
+  bin_PROGRAMS += tngc-wallet
 endif
 endif
 
 .PHONY: FORCE check-symbols check-security
-# trustnetworkglobalcoin core #
-TRUSTNETWORKGLOBALCOIN_CORE_H = \
+# tngc core #
+TNGC_CORE_H = \
   addrdb.h \
   addrman.h \
   attributes.h \
@@ -274,15 +274,15 @@ obj/build.h: FORCE
 	@$(MKDIR_P) $(builddir)/obj
 	@$(top_srcdir)/share/genbuild.sh "$(abs_top_builddir)/src/obj/build.h" \
 	  "$(abs_top_srcdir)"
-libtrustnetworkglobalcoin_util_a-clientversion.$(OBJEXT): obj/build.h
+libtngc_util_a-clientversion.$(OBJEXT): obj/build.h
 
-# server: shared between trustnetworkglobalcoind and trustnetworkglobalcoin-qt
+# server: shared between tngcd and tngc-qt
 # Contains code accessing mempool and chain state that is meant to be separated
 # from wallet and gui code (see node/README.md). Shared code should go in
-# libtrustnetworkglobalcoin_common or libtrustnetworkglobalcoin_util libraries, instead.
-libtrustnetworkglobalcoin_server_a_CPPFLAGS = $(AM_CPPFLAGS) $(TRUSTNETWORKGLOBALCOIN_INCLUDES) $(MINIUPNPC_CPPFLAGS) $(EVENT_CFLAGS) $(EVENT_PTHREADS_CFLAGS)
-libtrustnetworkglobalcoin_server_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-libtrustnetworkglobalcoin_server_a_SOURCES = \
+# libtngc_common or libtngc_util libraries, instead.
+libtngc_server_a_CPPFLAGS = $(AM_CPPFLAGS) $(TNGC_INCLUDES) $(MINIUPNPC_CPPFLAGS) $(EVENT_CFLAGS) $(EVENT_PTHREADS_CFLAGS)
+libtngc_server_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+libtngc_server_a_SOURCES = \
   addrdb.cpp \
   addrman.cpp \
   banman.cpp \
@@ -332,19 +332,19 @@ libtrustnetworkglobalcoin_server_a_SOURCES = \
   validation.cpp \
   validationinterface.cpp \
   versionbits.cpp \
-  $(TRUSTNETWORKGLOBALCOIN_CORE_H)
+  $(TNGC_CORE_H)
 
 if ENABLE_WALLET
-libtrustnetworkglobalcoin_server_a_SOURCES += wallet/init.cpp
+libtngc_server_a_SOURCES += wallet/init.cpp
 endif
 if !ENABLE_WALLET
-libtrustnetworkglobalcoin_server_a_SOURCES += dummywallet.cpp
+libtngc_server_a_SOURCES += dummywallet.cpp
 endif
 
 if ENABLE_ZMQ
-libtrustnetworkglobalcoin_zmq_a_CPPFLAGS = $(AM_CPPFLAGS) $(TRUSTNETWORKGLOBALCOIN_INCLUDES) $(ZMQ_CFLAGS)
-libtrustnetworkglobalcoin_zmq_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-libtrustnetworkglobalcoin_zmq_a_SOURCES = \
+libtngc_zmq_a_CPPFLAGS = $(AM_CPPFLAGS) $(TNGC_INCLUDES) $(ZMQ_CFLAGS)
+libtngc_zmq_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+libtngc_zmq_a_SOURCES = \
   zmq/zmqabstractnotifier.cpp \
   zmq/zmqnotificationinterface.cpp \
   zmq/zmqpublishnotifier.cpp \
@@ -353,11 +353,11 @@ libtrustnetworkglobalcoin_zmq_a_SOURCES = \
 endif
 
 
-# wallet: shared between trustnetworkglobalcoind and trustnetworkglobalcoin-qt, but only linked
+# wallet: shared between tngcd and tngc-qt, but only linked
 # when wallet enabled
-libtrustnetworkglobalcoin_wallet_a_CPPFLAGS = $(AM_CPPFLAGS) $(TRUSTNETWORKGLOBALCOIN_INCLUDES) $(SQLITE_CFLAGS)
-libtrustnetworkglobalcoin_wallet_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-libtrustnetworkglobalcoin_wallet_a_SOURCES = \
+libtngc_wallet_a_CPPFLAGS = $(AM_CPPFLAGS) $(TNGC_INCLUDES) $(SQLITE_CFLAGS)
+libtngc_wallet_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+libtngc_wallet_a_SOURCES = \
   interfaces/wallet.cpp \
   wallet/bdb.cpp \
   wallet/coincontrol.cpp \
@@ -375,22 +375,22 @@ libtrustnetworkglobalcoin_wallet_a_SOURCES = \
   wallet/walletdb.cpp \
   wallet/walletutil.cpp \
   wallet/coinselection.cpp \
-  $(TRUSTNETWORKGLOBALCOIN_CORE_H)
+  $(TNGC_CORE_H)
 
 if USE_SQLITE
-libtrustnetworkglobalcoin_wallet_a_SOURCES += wallet/sqlite.cpp
+libtngc_wallet_a_SOURCES += wallet/sqlite.cpp
 endif
 
-libtrustnetworkglobalcoin_wallet_tool_a_CPPFLAGS = $(AM_CPPFLAGS) $(TRUSTNETWORKGLOBALCOIN_INCLUDES)
-libtrustnetworkglobalcoin_wallet_tool_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-libtrustnetworkglobalcoin_wallet_tool_a_SOURCES = \
+libtngc_wallet_tool_a_CPPFLAGS = $(AM_CPPFLAGS) $(TNGC_INCLUDES)
+libtngc_wallet_tool_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+libtngc_wallet_tool_a_SOURCES = \
   wallet/wallettool.cpp \
-  $(TRUSTNETWORKGLOBALCOIN_CORE_H)
+  $(TNGC_CORE_H)
 
 # crypto primitives library
-crypto_libtrustnetworkglobalcoin_crypto_base_a_CPPFLAGS = $(AM_CPPFLAGS)
-crypto_libtrustnetworkglobalcoin_crypto_base_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-crypto_libtrustnetworkglobalcoin_crypto_base_a_SOURCES = \
+crypto_libtngc_crypto_base_a_CPPFLAGS = $(AM_CPPFLAGS)
+crypto_libtngc_crypto_base_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+crypto_libtngc_crypto_base_a_SOURCES = \
   crypto/aes.cpp \
   crypto/aes.h \
   crypto/chacha_poly_aead.h \
@@ -420,31 +420,31 @@ crypto_libtrustnetworkglobalcoin_crypto_base_a_SOURCES = \
   crypto/siphash.h
 
 if USE_ASM
-crypto_libtrustnetworkglobalcoin_crypto_base_a_SOURCES += crypto/sha256_sse4.cpp
+crypto_libtngc_crypto_base_a_SOURCES += crypto/sha256_sse4.cpp
 endif
 
-crypto_libtrustnetworkglobalcoin_crypto_sse41_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-crypto_libtrustnetworkglobalcoin_crypto_sse41_a_CPPFLAGS = $(AM_CPPFLAGS)
-crypto_libtrustnetworkglobalcoin_crypto_sse41_a_CXXFLAGS += $(SSE41_CXXFLAGS)
-crypto_libtrustnetworkglobalcoin_crypto_sse41_a_CPPFLAGS += -DENABLE_SSE41
-crypto_libtrustnetworkglobalcoin_crypto_sse41_a_SOURCES = crypto/sha256_sse41.cpp
+crypto_libtngc_crypto_sse41_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+crypto_libtngc_crypto_sse41_a_CPPFLAGS = $(AM_CPPFLAGS)
+crypto_libtngc_crypto_sse41_a_CXXFLAGS += $(SSE41_CXXFLAGS)
+crypto_libtngc_crypto_sse41_a_CPPFLAGS += -DENABLE_SSE41
+crypto_libtngc_crypto_sse41_a_SOURCES = crypto/sha256_sse41.cpp
 
-crypto_libtrustnetworkglobalcoin_crypto_avx2_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-crypto_libtrustnetworkglobalcoin_crypto_avx2_a_CPPFLAGS = $(AM_CPPFLAGS)
-crypto_libtrustnetworkglobalcoin_crypto_avx2_a_CXXFLAGS += $(AVX2_CXXFLAGS)
-crypto_libtrustnetworkglobalcoin_crypto_avx2_a_CPPFLAGS += -DENABLE_AVX2
-crypto_libtrustnetworkglobalcoin_crypto_avx2_a_SOURCES = crypto/sha256_avx2.cpp
+crypto_libtngc_crypto_avx2_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+crypto_libtngc_crypto_avx2_a_CPPFLAGS = $(AM_CPPFLAGS)
+crypto_libtngc_crypto_avx2_a_CXXFLAGS += $(AVX2_CXXFLAGS)
+crypto_libtngc_crypto_avx2_a_CPPFLAGS += -DENABLE_AVX2
+crypto_libtngc_crypto_avx2_a_SOURCES = crypto/sha256_avx2.cpp
 
-crypto_libtrustnetworkglobalcoin_crypto_shani_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-crypto_libtrustnetworkglobalcoin_crypto_shani_a_CPPFLAGS = $(AM_CPPFLAGS)
-crypto_libtrustnetworkglobalcoin_crypto_shani_a_CXXFLAGS += $(SHANI_CXXFLAGS)
-crypto_libtrustnetworkglobalcoin_crypto_shani_a_CPPFLAGS += -DENABLE_SHANI
-crypto_libtrustnetworkglobalcoin_crypto_shani_a_SOURCES = crypto/sha256_shani.cpp
+crypto_libtngc_crypto_shani_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+crypto_libtngc_crypto_shani_a_CPPFLAGS = $(AM_CPPFLAGS)
+crypto_libtngc_crypto_shani_a_CXXFLAGS += $(SHANI_CXXFLAGS)
+crypto_libtngc_crypto_shani_a_CPPFLAGS += -DENABLE_SHANI
+crypto_libtngc_crypto_shani_a_SOURCES = crypto/sha256_shani.cpp
 
 # consensus: shared between all executables that validate any consensus rules.
-libtrustnetworkglobalcoin_consensus_a_CPPFLAGS = $(AM_CPPFLAGS) $(TRUSTNETWORKGLOBALCOIN_INCLUDES)
-libtrustnetworkglobalcoin_consensus_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-libtrustnetworkglobalcoin_consensus_a_SOURCES = \
+libtngc_consensus_a_CPPFLAGS = $(AM_CPPFLAGS) $(TNGC_INCLUDES)
+libtngc_consensus_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+libtngc_consensus_a_SOURCES = \
   amount.h \
   arith_uint256.cpp \
   arith_uint256.h \
@@ -462,7 +462,7 @@ libtrustnetworkglobalcoin_consensus_a_SOURCES = \
   primitives/transaction.h \
   pubkey.cpp \
   pubkey.h \
-  script/trustnetworkglobalcoinconsensus.cpp \
+  script/tngcconsensus.cpp \
   script/interpreter.cpp \
   script/interpreter.h \
   script/script.cpp \
@@ -478,10 +478,10 @@ libtrustnetworkglobalcoin_consensus_a_SOURCES = \
   util/strencodings.h \
   version.h
 
-# common: shared between trustnetworkglobalcoind, and trustnetworkglobalcoin-qt and non-server tools
-libtrustnetworkglobalcoin_common_a_CPPFLAGS = $(AM_CPPFLAGS) $(TRUSTNETWORKGLOBALCOIN_INCLUDES)
-libtrustnetworkglobalcoin_common_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-libtrustnetworkglobalcoin_common_a_SOURCES = \
+# common: shared between tngcd, and tngc-qt and non-server tools
+libtngc_common_a_CPPFLAGS = $(AM_CPPFLAGS) $(TNGC_INCLUDES)
+libtngc_common_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+libtngc_common_a_SOURCES = \
   base58.cpp \
   bech32.cpp \
   bloom.cpp \
@@ -510,14 +510,14 @@ libtrustnetworkglobalcoin_common_a_SOURCES = \
   script/standard.cpp \
   versionbitsinfo.cpp \
   warnings.cpp \
-  $(TRUSTNETWORKGLOBALCOIN_CORE_H)
+  $(TNGC_CORE_H)
 
 # util: shared between all executables.
 # This library *must* be included to make sure that the glibc
 # backward-compatibility objects and their sanity checks are linked.
-libtrustnetworkglobalcoin_util_a_CPPFLAGS = $(AM_CPPFLAGS) $(TRUSTNETWORKGLOBALCOIN_INCLUDES)
-libtrustnetworkglobalcoin_util_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-libtrustnetworkglobalcoin_util_a_SOURCES = \
+libtngc_util_a_CPPFLAGS = $(AM_CPPFLAGS) $(TNGC_INCLUDES)
+libtngc_util_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+libtngc_util_a_SOURCES = \
   support/lockedpool.cpp \
   chainparamsbase.cpp \
   clientversion.cpp \
@@ -548,131 +548,131 @@ libtrustnetworkglobalcoin_util_a_SOURCES = \
   util/strencodings.cpp \
   util/string.cpp \
   util/time.cpp \
-  $(TRUSTNETWORKGLOBALCOIN_CORE_H)
+  $(TNGC_CORE_H)
 
 if USE_LIBEVENT
-libtrustnetworkglobalcoin_util_a_SOURCES += util/url.cpp
+libtngc_util_a_SOURCES += util/url.cpp
 endif
 
 if GLIBC_BACK_COMPAT
-libtrustnetworkglobalcoin_util_a_SOURCES += compat/glibc_compat.cpp
+libtngc_util_a_SOURCES += compat/glibc_compat.cpp
 AM_LDFLAGS += $(COMPAT_LDFLAGS)
 endif
 
-# cli: shared between trustnetworkglobalcoin-cli and trustnetworkglobalcoin-qt
-libtrustnetworkglobalcoin_cli_a_CPPFLAGS = $(AM_CPPFLAGS) $(TRUSTNETWORKGLOBALCOIN_INCLUDES)
-libtrustnetworkglobalcoin_cli_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-libtrustnetworkglobalcoin_cli_a_SOURCES = \
+# cli: shared between tngc-cli and tngc-qt
+libtngc_cli_a_CPPFLAGS = $(AM_CPPFLAGS) $(TNGC_INCLUDES)
+libtngc_cli_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+libtngc_cli_a_SOURCES = \
   compat/stdin.h \
   compat/stdin.cpp \
   rpc/client.cpp \
-  $(TRUSTNETWORKGLOBALCOIN_CORE_H)
+  $(TNGC_CORE_H)
 
-nodist_libtrustnetworkglobalcoin_util_a_SOURCES = $(srcdir)/obj/build.h
+nodist_libtngc_util_a_SOURCES = $(srcdir)/obj/build.h
 #
 
-# trustnetworkglobalcoind & trustnetworkglobalcoin-node binaries #
-trustnetworkglobalcoin_daemon_sources = trustnetworkglobalcoind.cpp
-trustnetworkglobalcoin_bin_cppflags = $(AM_CPPFLAGS) $(TRUSTNETWORKGLOBALCOIN_INCLUDES)
-trustnetworkglobalcoin_bin_cxxflags = $(AM_CXXFLAGS) $(PIE_FLAGS)
-trustnetworkglobalcoin_bin_ldflags = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS) $(PTHREAD_FLAGS)
+# tngcd & tngc-node binaries #
+tngc_daemon_sources = tngcd.cpp
+tngc_bin_cppflags = $(AM_CPPFLAGS) $(TNGC_INCLUDES)
+tngc_bin_cxxflags = $(AM_CXXFLAGS) $(PIE_FLAGS)
+tngc_bin_ldflags = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS) $(PTHREAD_FLAGS)
 
 if TARGET_WINDOWS
-trustnetworkglobalcoin_daemon_sources += trustnetworkglobalcoind-res.rc
+tngc_daemon_sources += tngcd-res.rc
 endif
 
-trustnetworkglobalcoin_bin_ldadd = \
-  $(LIBTRUSTNETWORKGLOBALCOIN_WALLET) \
-  $(LIBTRUSTNETWORKGLOBALCOIN_COMMON) \
-  $(LIBTRUSTNETWORKGLOBALCOIN_UTIL) \
+tngc_bin_ldadd = \
+  $(LIBTNGC_WALLET) \
+  $(LIBTNGC_COMMON) \
+  $(LIBTNGC_UTIL) \
   $(LIBUNIVALUE) \
-  $(LIBTRUSTNETWORKGLOBALCOIN_ZMQ) \
-  $(LIBTRUSTNETWORKGLOBALCOIN_CONSENSUS) \
-  $(LIBTRUSTNETWORKGLOBALCOIN_CRYPTO) \
+  $(LIBTNGC_ZMQ) \
+  $(LIBTNGC_CONSENSUS) \
+  $(LIBTNGC_CRYPTO) \
   $(LIBLEVELDB) \
   $(LIBLEVELDB_SSE42) \
   $(LIBMEMENV) \
   $(LIBSECP256K1)
 
-trustnetworkglobalcoin_bin_ldadd += $(BOOST_LIBS) $(BDB_LIBS) $(MINIUPNPC_LIBS) $(EVENT_PTHREADS_LIBS) $(EVENT_LIBS) $(ZMQ_LIBS) $(SQLITE_LIBS)
+tngc_bin_ldadd += $(BOOST_LIBS) $(BDB_LIBS) $(MINIUPNPC_LIBS) $(EVENT_PTHREADS_LIBS) $(EVENT_LIBS) $(ZMQ_LIBS) $(SQLITE_LIBS)
 
-trustnetworkglobalcoind_SOURCES = $(trustnetworkglobalcoin_daemon_sources)
-trustnetworkglobalcoind_CPPFLAGS = $(trustnetworkglobalcoin_bin_cppflags)
-trustnetworkglobalcoind_CXXFLAGS = $(trustnetworkglobalcoin_bin_cxxflags)
-trustnetworkglobalcoind_LDFLAGS = $(trustnetworkglobalcoin_bin_ldflags)
-trustnetworkglobalcoind_LDADD = $(LIBTRUSTNETWORKGLOBALCOIN_SERVER) $(trustnetworkglobalcoin_bin_ldadd)
+tngcd_SOURCES = $(tngc_daemon_sources)
+tngcd_CPPFLAGS = $(tngc_bin_cppflags)
+tngcd_CXXFLAGS = $(tngc_bin_cxxflags)
+tngcd_LDFLAGS = $(tngc_bin_ldflags)
+tngcd_LDADD = $(LIBTNGC_SERVER) $(tngc_bin_ldadd)
 
-trustnetworkglobalcoin_node_SOURCES = $(trustnetworkglobalcoin_daemon_sources)
-trustnetworkglobalcoin_node_CPPFLAGS = $(trustnetworkglobalcoin_bin_cppflags)
-trustnetworkglobalcoin_node_CXXFLAGS = $(trustnetworkglobalcoin_bin_cxxflags)
-trustnetworkglobalcoin_node_LDFLAGS = $(trustnetworkglobalcoin_bin_ldflags)
-trustnetworkglobalcoin_node_LDADD = $(LIBTRUSTNETWORKGLOBALCOIN_SERVER) $(trustnetworkglobalcoin_bin_ldadd)
+tngc_node_SOURCES = $(tngc_daemon_sources)
+tngc_node_CPPFLAGS = $(tngc_bin_cppflags)
+tngc_node_CXXFLAGS = $(tngc_bin_cxxflags)
+tngc_node_LDFLAGS = $(tngc_bin_ldflags)
+tngc_node_LDADD = $(LIBTNGC_SERVER) $(tngc_bin_ldadd)
 
-# trustnetworkglobalcoin-cli binary #
-trustnetworkglobalcoin_cli_SOURCES = trustnetworkglobalcoin-cli.cpp
-trustnetworkglobalcoin_cli_CPPFLAGS = $(AM_CPPFLAGS) $(TRUSTNETWORKGLOBALCOIN_INCLUDES) $(EVENT_CFLAGS)
-trustnetworkglobalcoin_cli_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-trustnetworkglobalcoin_cli_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS) $(PTHREAD_FLAGS)
+# tngc-cli binary #
+tngc_cli_SOURCES = tngc-cli.cpp
+tngc_cli_CPPFLAGS = $(AM_CPPFLAGS) $(TNGC_INCLUDES) $(EVENT_CFLAGS)
+tngc_cli_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+tngc_cli_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS) $(PTHREAD_FLAGS)
 
 if TARGET_WINDOWS
-trustnetworkglobalcoin_cli_SOURCES += trustnetworkglobalcoin-cli-res.rc
+tngc_cli_SOURCES += tngc-cli-res.rc
 endif
 
-trustnetworkglobalcoin_cli_LDADD = \
-  $(LIBTRUSTNETWORKGLOBALCOIN_CLI) \
+tngc_cli_LDADD = \
+  $(LIBTNGC_CLI) \
   $(LIBUNIVALUE) \
-  $(LIBTRUSTNETWORKGLOBALCOIN_UTIL) \
-  $(LIBTRUSTNETWORKGLOBALCOIN_CRYPTO)
+  $(LIBTNGC_UTIL) \
+  $(LIBTNGC_CRYPTO)
 
-trustnetworkglobalcoin_cli_LDADD += $(BOOST_LIBS) $(EVENT_LIBS)
+tngc_cli_LDADD += $(BOOST_LIBS) $(EVENT_LIBS)
 #
 
-# trustnetworkglobalcoin-tx binary #
-trustnetworkglobalcoin_tx_SOURCES = trustnetworkglobalcoin-tx.cpp
-trustnetworkglobalcoin_tx_CPPFLAGS = $(AM_CPPFLAGS) $(TRUSTNETWORKGLOBALCOIN_INCLUDES)
-trustnetworkglobalcoin_tx_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-trustnetworkglobalcoin_tx_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS) $(PTHREAD_FLAGS)
+# tngc-tx binary #
+tngc_tx_SOURCES = tngc-tx.cpp
+tngc_tx_CPPFLAGS = $(AM_CPPFLAGS) $(TNGC_INCLUDES)
+tngc_tx_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+tngc_tx_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS) $(PTHREAD_FLAGS)
 
 if TARGET_WINDOWS
-trustnetworkglobalcoin_tx_SOURCES += trustnetworkglobalcoin-tx-res.rc
+tngc_tx_SOURCES += tngc-tx-res.rc
 endif
 
-trustnetworkglobalcoin_tx_LDADD = \
+tngc_tx_LDADD = \
   $(LIBUNIVALUE) \
-  $(LIBTRUSTNETWORKGLOBALCOIN_COMMON) \
-  $(LIBTRUSTNETWORKGLOBALCOIN_UTIL) \
-  $(LIBTRUSTNETWORKGLOBALCOIN_CONSENSUS) \
-  $(LIBTRUSTNETWORKGLOBALCOIN_CRYPTO) \
+  $(LIBTNGC_COMMON) \
+  $(LIBTNGC_UTIL) \
+  $(LIBTNGC_CONSENSUS) \
+  $(LIBTNGC_CRYPTO) \
   $(LIBSECP256K1)
 
-trustnetworkglobalcoin_tx_LDADD += $(BOOST_LIBS)
+tngc_tx_LDADD += $(BOOST_LIBS)
 #
 
-# trustnetworkglobalcoin-wallet binary #
-trustnetworkglobalcoin_wallet_SOURCES = trustnetworkglobalcoin-wallet.cpp
-trustnetworkglobalcoin_wallet_CPPFLAGS = $(trustnetworkglobalcoin_bin_cppflags)
-trustnetworkglobalcoin_wallet_CXXFLAGS = $(trustnetworkglobalcoin_bin_cxxflags)
-trustnetworkglobalcoin_wallet_LDFLAGS = $(trustnetworkglobalcoin_bin_ldflags)
-trustnetworkglobalcoin_wallet_LDADD = $(LIBTRUSTNETWORKGLOBALCOIN_WALLET_TOOL) $(trustnetworkglobalcoin_bin_ldadd)
+# tngc-wallet binary #
+tngc_wallet_SOURCES = tngc-wallet.cpp
+tngc_wallet_CPPFLAGS = $(tngc_bin_cppflags)
+tngc_wallet_CXXFLAGS = $(tngc_bin_cxxflags)
+tngc_wallet_LDFLAGS = $(tngc_bin_ldflags)
+tngc_wallet_LDADD = $(LIBTNGC_WALLET_TOOL) $(tngc_bin_ldadd)
 
 if TARGET_WINDOWS
-trustnetworkglobalcoin_wallet_SOURCES += trustnetworkglobalcoin-wallet-res.rc
+tngc_wallet_SOURCES += tngc-wallet-res.rc
 endif
 #
 
-# trustnetworkglobalcoinconsensus library #
-if BUILD_TRUSTNETWORKGLOBALCOIN_LIBS
-include_HEADERS = script/trustnetworkglobalcoinconsensus.h
-libtrustnetworkglobalcoinconsensus_la_SOURCES = support/cleanse.cpp $(crypto_libtrustnetworkglobalcoin_crypto_base_a_SOURCES) $(libtrustnetworkglobalcoin_consensus_a_SOURCES)
+# tngcconsensus library #
+if BUILD_TNGC_LIBS
+include_HEADERS = script/tngcconsensus.h
+libtngcconsensus_la_SOURCES = support/cleanse.cpp $(crypto_libtngc_crypto_base_a_SOURCES) $(libtngc_consensus_a_SOURCES)
 
 if GLIBC_BACK_COMPAT
-  libtrustnetworkglobalcoinconsensus_la_SOURCES += compat/glibc_compat.cpp
+  libtngcconsensus_la_SOURCES += compat/glibc_compat.cpp
 endif
 
-libtrustnetworkglobalcoinconsensus_la_LDFLAGS = $(AM_LDFLAGS) -no-undefined $(RELDFLAGS)
-libtrustnetworkglobalcoinconsensus_la_LIBADD = $(LIBSECP256K1)
-libtrustnetworkglobalcoinconsensus_la_CPPFLAGS = $(AM_CPPFLAGS) -I$(builddir)/obj -I$(srcdir)/secp256k1/include -DBUILD_TRUSTNETWORKGLOBALCOIN_INTERNAL
-libtrustnetworkglobalcoinconsensus_la_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+libtngcconsensus_la_LDFLAGS = $(AM_LDFLAGS) -no-undefined $(RELDFLAGS)
+libtngcconsensus_la_LIBADD = $(LIBSECP256K1)
+libtngcconsensus_la_CPPFLAGS = $(AM_CPPFLAGS) -I$(builddir)/obj -I$(srcdir)/secp256k1/include -DBUILD_TNGC_INTERNAL
+libtngcconsensus_la_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 
 endif
 #
@@ -708,12 +708,12 @@ CLEANFILES += obj/build.h
 EXTRA_DIST = $(CTAES_DIST)
 
 
-config/trustnetworkglobalcoin-config.h: config/stamp-h1
+config/tngc-config.h: config/stamp-h1
 	@$(MAKE) -C $(top_builddir) $(subdir)/$(@)
-config/stamp-h1: $(top_srcdir)/$(subdir)/config/trustnetworkglobalcoin-config.h.in $(top_builddir)/config.status
+config/stamp-h1: $(top_srcdir)/$(subdir)/config/tngc-config.h.in $(top_builddir)/config.status
 	$(AM_V_at)$(MAKE) -C $(top_builddir) $(subdir)/$(@)
-$(top_srcdir)/$(subdir)/config/trustnetworkglobalcoin-config.h.in:  $(am__configure_deps)
-	$(AM_V_at)$(MAKE) -C $(top_srcdir) $(subdir)/config/trustnetworkglobalcoin-config.h.in
+$(top_srcdir)/$(subdir)/config/tngc-config.h.in:  $(am__configure_deps)
+	$(AM_V_at)$(MAKE) -C $(top_srcdir) $(subdir)/config/tngc-config.h.in
 
 clean-local:
 	-$(MAKE) -C secp256k1 clean

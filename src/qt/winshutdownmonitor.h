@@ -1,9 +1,9 @@
-// Copyright (c) 2014-2018 The TrustNetworkGlobalCoin Core developers
+// Copyright (c) 2014-2018 The TNGC Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TRUSTNETWORKGLOBALCOIN_QT_WINSHUTDOWNMONITOR_H
-#define TRUSTNETWORKGLOBALCOIN_QT_WINSHUTDOWNMONITOR_H
+#ifndef TNGC_QT_WINSHUTDOWNMONITOR_H
+#define TNGC_QT_WINSHUTDOWNMONITOR_H
 
 #ifdef WIN32
 #include <QByteArray>
@@ -24,4 +24,4 @@ public:
 };
 #endif
 
-#endif // TRUSTNETWORKGLOBALCOIN_QT_WINSHUTDOWNMONITOR_H
+#endif // TNGC_QT_WINSHUTDOWNMONITOR_H

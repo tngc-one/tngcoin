@@ -1,9 +1,9 @@
-// Copyright (c) 2015-2020 The TrustNetworkGlobalCoin Core developers
+// Copyright (c) 2015-2020 The TNGC Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TRUSTNETWORKGLOBALCOIN_HTTPSERVER_H
-#define TRUSTNETWORKGLOBALCOIN_HTTPSERVER_H
+#ifndef TNGC_HTTPSERVER_H
+#define TNGC_HTTPSERVER_H
 
 #include <string>
 #include <functional>
@@ -147,4 +147,4 @@ private:
     struct event* ev;
 };
 
-#endif // TRUSTNETWORKGLOBALCOIN_HTTPSERVER_H
+#endif // TNGC_HTTPSERVER_H

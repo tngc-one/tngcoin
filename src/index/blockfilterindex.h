@@ -1,9 +1,9 @@
-// Copyright (c) 2018 The TrustNetworkGlobalCoin Core developers
+// Copyright (c) 2018 The TNGC Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TRUSTNETWORKGLOBALCOIN_INDEX_BLOCKFILTERINDEX_H
-#define TRUSTNETWORKGLOBALCOIN_INDEX_BLOCKFILTERINDEX_H
+#ifndef TNGC_INDEX_BLOCKFILTERINDEX_H
+#define TNGC_INDEX_BLOCKFILTERINDEX_H
 
 #include <blockfilter.h>
 #include <chain.h>
@@ -103,4 +103,4 @@ bool DestroyBlockFilterIndex(BlockFilterType filter_type);
 /** Destroy all open block filter indexes. */
 void DestroyAllBlockFilterIndexes();
 
-#endif // TRUSTNETWORKGLOBALCOIN_INDEX_BLOCKFILTERINDEX_H
+#endif // TNGC_INDEX_BLOCKFILTERINDEX_H

@@ -1,9 +1,9 @@
-// Copyright (c) 2011-2020 The TrustNetworkGlobalCoin Core developers
+// Copyright (c) 2011-2020 The TNGC Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TRUSTNETWORKGLOBALCOIN_QT_PEERTABLEMODEL_H
-#define TRUSTNETWORKGLOBALCOIN_QT_PEERTABLEMODEL_H
+#ifndef TNGC_QT_PEERTABLEMODEL_H
+#define TNGC_QT_PEERTABLEMODEL_H
 
 #include <net_processing.h> // For CNodeStateStats
 #include <net.h>
@@ -87,4 +87,4 @@ private:
     QTimer *timer;
 };
 
-#endif // TRUSTNETWORKGLOBALCOIN_QT_PEERTABLEMODEL_H
+#endif // TNGC_QT_PEERTABLEMODEL_H

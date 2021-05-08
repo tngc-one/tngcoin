@@ -1,14 +1,14 @@
-// Copyright (c) 2011-2019 The TrustNetworkGlobalCoin Core developers
+// Copyright (c) 2011-2019 The TNGC Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TRUSTNETWORKGLOBALCOIN_QT_WALLETFRAME_H
-#define TRUSTNETWORKGLOBALCOIN_QT_WALLETFRAME_H
+#ifndef TNGC_QT_WALLETFRAME_H
+#define TNGC_QT_WALLETFRAME_H
 
 #include <QFrame>
 #include <QMap>
 
-class TrustNetworkGlobalCoinGUI;
+class TNGCGUI;
 class ClientModel;
 class PlatformStyle;
 class SendCoinsRecipient;
@@ -21,9 +21,9 @@ QT_END_NAMESPACE
 
 /**
  * A container for embedding all wallet-related
- * controls into TrustNetworkGlobalCoinGUI. The purpose of this class is to allow future
+ * controls into TNGCGUI. The purpose of this class is to allow future
  * refinements of the wallet controls with minimal need for further
- * modifications to TrustNetworkGlobalCoinGUI, thus greatly simplifying merges while
+ * modifications to TNGCGUI, thus greatly simplifying merges while
  * reducing the risk of breaking top-level stuff.
  */
 class WalletFrame : public QFrame
@@ -31,7 +31,7 @@ class WalletFrame : public QFrame
     Q_OBJECT
 
 public:
-    explicit WalletFrame(const PlatformStyle *platformStyle, TrustNetworkGlobalCoinGUI *_gui = nullptr);
+    explicit WalletFrame(const PlatformStyle *platformStyle, TNGCGUI *_gui = nullptr);
     ~WalletFrame();
 
     void setClientModel(ClientModel *clientModel);
@@ -53,7 +53,7 @@ Q_SIGNALS:
 
 private:
     QStackedWidget *walletStack;
-    TrustNetworkGlobalCoinGUI *gui;
+    TNGCGUI *gui;
     ClientModel *clientModel;
     QMap<WalletModel*, WalletView*> mapWalletViews;
 
@@ -82,7 +82,7 @@ public Q_SLOTS:
     /** Show Sign/Verify Message dialog and switch to verify message tab */
     void gotoVerifyMessageTab(QString addr = "");
 
-    /** Load Partially Signed TrustNetworkGlobalCoin Transaction */
+    /** Load Partially Signed TNGC Transaction */
     void gotoLoadPSBT(bool from_clipboard = false);
 
     /** Encrypt the wallet */
@@ -102,4 +102,4 @@ public Q_SLOTS:
     void outOfSyncWarningClicked();
 };
 
-#endif // TRUSTNETWORKGLOBALCOIN_QT_WALLETFRAME_H
+#endif // TNGC_QT_WALLETFRAME_H
