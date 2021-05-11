@@ -1256,11 +1256,11 @@ CAmount GetBlockSubsidy(int nHeight, const Consensus::Params& consensusParams)
 {
     int halvings = nHeight / consensusParams.nSubsidyHalvingInterval;
     // Force block reward to zero when right shift is undefined.
-    if (nHeight > 150)
+    if (halvings > 41)
        return 0;
   
 
-    CAmount nSubsidy =  10000000 * COIN;
+    CAmount nSubsidy =  37500000 * COIN;
 	if(nHeight == 0 ) nSubsidy = 50 * COIN;
     //Special Rules for special Coins
     nSubsidy >>= halvings;
