@@ -2272,12 +2272,12 @@ bool CChainState::ConnectBlock(const CBlock& block, BlockValidationState& state,
     }
     int64_t timeDiff = (int64_t)block.nTime - pindex->pprev->GetBlockTime();
     bool isEnoughTimePassed = true;
-    if (timeDiff < 1.5 * 60)
+    if (timeDiff < 0.3 * 60)
         isEnoughTimePassed = false;
     //LogPrintf("Block Time : Block Height: %d , block time  %d : %d Diff %d\n",pindex->nHeight, block.nTime , pindex->pprev->GetBlockTime() ,timeDiff);
 
     if (!isEnoughTimePassed) {
-        LogPrintf("ConnectBlock(): not enough time frame between 2 blocks Current Block : %d (time left=%d vs time must=%d)", pindex->nHeight, timeDiff, 1.5 * 60);
+        LogPrintf("ConnectBlock(): not enough time frame between 2 blocks Current Block : %d (time left=%d vs time must=%d)", pindex->nHeight, timeDiff, 0.3 * 60);
         return state.Invalid(BlockValidationResult::BLOCK_CONSENSUS, "bad-block time");
     }
 
