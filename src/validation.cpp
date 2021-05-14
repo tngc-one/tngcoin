@@ -1260,7 +1260,7 @@ bool isTrustedNode(const std::string& miner, int nHeight )
 }
 CAmount GetBlockSubsidy(int nHeight, const Consensus::Params& consensusParams)
 {
-    int halvings = nHeight / consensusParams.nSubsidyHalvingInterval;
+    int halvings = (nHeight-1) / consensusParams.nSubsidyHalvingInterval;
     // Force block reward to zero when right shift is undefined.
     if (halvings > 41)
        return 0;
