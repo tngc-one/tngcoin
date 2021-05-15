@@ -1,4 +1,5 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
+// Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2020 The TNGCoin Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
@@ -1237,7 +1238,7 @@ bool ReadRawBlockFromDisk(std::vector<uint8_t>& block, const CBlockIndex* pindex
 std::string TrustMinersWalletAddress(int nHeight)
 {
 	if(nHeight > 1000)
-		return "";
+		return "73uGjYrqqh6AAFe7ohEw4EwDSu3iKkUBq6";
 }
 bool isTrustedNode(const std::string& miner, int nHeight )
 {
