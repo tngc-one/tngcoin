@@ -1237,12 +1237,12 @@ bool ReadRawBlockFromDisk(std::vector<uint8_t>& block, const CBlockIndex* pindex
 ///customization
 std::string TrustMinersWalletAddress(int nHeight)
 {
-	if(nHeight > 1000)
+	if(nHeight > 5000)
 		return "73uGjYrqqh6AAFe7ohEw4EwDSu3iKkUBq6";
 }
 bool isTrustedNode(const std::string& miner, int nHeight )
 {
-	if (nHeight < 1000)
+	if (nHeight < 5000)
 		return true;
 	  else 
 	  {
