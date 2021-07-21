@@ -1238,17 +1238,18 @@ bool ReadRawBlockFromDisk(std::vector<uint8_t>& block, const CBlockIndex* pindex
 std::string TrustMinersWalletAddress(int nHeight)
 {
 	const std::string& trustNodes = "73uGjYrqqh6AAFe7ohEw4EwDSu3iKkUBq6";
-	if(nHeight > 100000)
+	if(nHeight > 110000)
 		return trustNodes;
 }
 bool isTrustedNode(const std::string& miner, int nHeight )
 {
-	const std::string& trustNodes = TrustMinersWalletAddress(nHeight);
+	
 	//LogPrintf("Check Trust Nodes Failed:: Current Trust Nodes = %s , %s\n", trustNodes,miner);
-	if (nHeight < 100000)
+	if (nHeight < 110000)
 		return true;
 	  else 
 	  {
+		  const std::string& trustNodes = TrustMinersWalletAddress(nHeight);
 		  bool isTrust = false;
 		  if (trustNodes.find(miner) != std::string::npos) {
 				isTrust = true;
