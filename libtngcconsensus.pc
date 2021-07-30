@@ -1,4 +1,4 @@
-prefix=/home/coins/AltcoinGenerator-tngc/tngc/depends/x86_64-pc-linux-gnu
+prefix=/home/coins/github/tngcoin/depends/x86_64-pc-linux-gnu
 exec_prefix=${prefix}
 libdir=${exec_prefix}/lib
 includedir=${prefix}/include
